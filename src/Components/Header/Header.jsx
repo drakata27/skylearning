@@ -47,7 +47,7 @@ const NavManu = styled.ul`
   li {
     &:hover {
       cursor: pointer;
-      background: darkblue;
+      background: rgb(27, 27, 92);
       border-radius: 4px;
     }
   }
