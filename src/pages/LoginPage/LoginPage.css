@@ -1,0 +1,63 @@
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+  
+.input-container{
+    margin-top: 2rem;
+}
+
+.input-container label{
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 0%;
+}
+.input-container input{
+    font-size: 2rem;
+    width: 100%;
+    margin-top: 0%;
+    border-radius: 15px;
+    padding: 0.5rem;
+    border: none;
+}
+
+.form-btn{
+    background-color: green;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+    width: 15%;
+    font-size: 1.3rem;
+    color: white;
+    border-radius: 15px;
+    border: none;
+    padding: 1rem;
+}
+
+.form-btn:hover{
+    cursor: pointer;
+    background-color: darkgreen;
+}
+
+form p{
+    color: var(--color-text);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+form a:hover{
+    color: orange;
+}
+
+.email-input{
+    margin-bottom: 2rem;
+}
+
+.loader-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    margin-bottom: 30rem;
+}
