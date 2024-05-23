@@ -1,0 +1,49 @@
+.section-list-header{
+    margin: 0 2rem;
+}
+h2{
+    color: white;
+    text-align: center;
+    font-size: 3em;
+}
+p{
+    color: white;
+    text-align: center;
+    font-size: 2em;
+}
+
+.btns-container {
+    display: flex;
+    justify-content: center;
+    
+    margin-top: 3rem;
+    margin-left: 0;
+}
+
+.btns-container a{
+    color: azure;
+    margin-right: 2rem;
+    border: 2px solid white;
+    border-radius: 15px;
+    padding: 1rem;
+}
+
+.btns-container a:hover{
+    background-color: rgb(187, 171, 171);
+    color: rgb(14, 11, 55);
+}
+
+.add-section-btn{
+    background-color: green;
+    color: white;
+    margin-top: 2rem;
+    border-radius: 30px;
+    border: none;
+    margin: 5rem 0;
+    padding: 1rem;
+}
+
+.add-section-btn:hover{
+    background-color: darkgreen;
+    cursor: pointer;
+}
