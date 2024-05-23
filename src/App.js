@@ -5,7 +5,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext';
 import LoginPage from './pages/LoginPage/LoginPage';
 import HomePage from './pages/Home/HomePage';
-import LearningPage from './pages/LearningPage/LearningPage';
+import SectionList from './pages/SectionList/SectionList';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
           <Header/>
           <Routes>
             <Route exact path='/' element={<HomePage/>}/>
-            <Route exact path='/learning' element={<LearningPage/>}/>
+            <Route exact path='/learning' element={<SectionList/>}/>
             <Route exact path='/login' element={<LoginPage/>}/>
           </Routes>
         </div>

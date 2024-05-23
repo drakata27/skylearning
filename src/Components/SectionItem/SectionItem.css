@@ -1,0 +1,18 @@
+.section-item-container{
+    padding: 2rem;
+    margin: 2rem;
+    border: 2px solid white;
+    border-radius: 15px;
+    justify-content: start;
+}
+
+.section-item-content {
+    color: white;
+    font-style: bold;
+    margin-left: 2rem;
+}
+
+.section-item-cover img{
+    border-radius: 20px;
+    width: 15rem;
+}

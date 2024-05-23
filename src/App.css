@@ -7,3 +7,14 @@ h1 {
   font-size: 4rem;
   padding: 0rem 0 2rem 1rem;
 }
+
+a {
+  text-decoration: none;
+}
+
+.horizontal-container{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+  justify-content: space-between
+}

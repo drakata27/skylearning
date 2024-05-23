@@ -6,7 +6,7 @@ import { FaBars } from "react-icons/fa";
 import Logo from '../../assets/logo.png'
 import './Header.css'
 
-import {jwtDecode} from 'jwt-decode'
+// import {jwtDecode} from 'jwt-decode'
 import AuthContext from '../../context/AuthContext'
 
 const StyledHeader = styled.header`
@@ -76,10 +76,10 @@ const Header = () => {
   const token = localStorage.getItem("authTokens")
   const [isToggleOpen, setIsToggleOpen] = useState(false);
 
-  if (token) {
-    const decoded = jwtDecode(token)
-    var user_id = decoded.user_id
-  }
+  // if (token) {
+  //   const decoded = jwtDecode(token)
+  //   var user_id = decoded.user_id
+  // }
 
   const handleToggleOpen = () => {
     setIsToggleOpen(!isToggleOpen);
