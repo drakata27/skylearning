@@ -3,11 +3,15 @@ import { Link } from 'react-router-dom'
 import Placeholder from '../../assets/placeholder.jpg'
 
 const SectionItem = ({section}) => {
+    console.log('section title: ' + section.title + ' section cover: ' + section.cover);
     return (
         <Link to={`section/${section.id}/topic/`}>
             <div className="section-item-container horizontal-container">
                 <div className='section-item-cover'>
-                    <img src={Placeholder} alt="section cover" />
+                    { section.cover ? 
+                        <img src={'http://127.0.0.1:8000/'+section.cover} alt="section cover" />:
+                        <img src={Placeholder} alt="section cover" />
+                    }
                 </div>
                 
                 <div className='section-item-content'>

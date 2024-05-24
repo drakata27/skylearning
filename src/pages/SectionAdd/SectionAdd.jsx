@@ -25,7 +25,7 @@ const SectionAdd = () => {
         if (cover) {
             formData.append('cover', cover);
         } else {
-            formData.append('cover', '/covers/default.jpg');
+            formData.append('cover', '');
         }
         
         const url = `http://127.0.0.1:8000/api/section/`
@@ -39,7 +39,7 @@ const SectionAdd = () => {
         alert("Error creating section")
         return;
     }
-
+    navigate('/learning')
         
     } catch (error) {
       console.error('Error creating section:', error);
@@ -51,7 +51,6 @@ const SectionAdd = () => {
     if (section.title.trim() !== '' &&
         section.subtitle.trim() !== '') {
         createSection();
-        navigate('/learning')
     } else {
         alert("Section contents cannot be empty")
     }        
