@@ -14,6 +14,22 @@ const SectionItem = ({section}) => {
                     <h2>{section.title}</h2>
                     <h3>{section.subtitle}</h3>
                 </div>
+
+                <div className='section-item-btns'>
+                    <button className='section-edit-btn'>
+                        <Link>
+                            <span className="material-symbols-outlined">
+                                edit
+                            </span>
+                        </Link>
+                    </button>
+
+                    <button className='section-delete-btn'>
+                    <span className="material-symbols-outlined">
+                      delete
+                    </span>
+                </button>
+                </div>
             </div>
         </Link>
     )

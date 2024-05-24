@@ -18,7 +18,7 @@ function App() {
             <Route exact path='/' element={<HomePage/>}/>
             <Route exact path='/learning' element={<SectionList/>}/>
             <Route exact path='/login' element={<LoginPage/>}/>
-            <Route exact path='/add-section' element={<SectionAdd/>}/>
+            <Route exact path='/section-add' element={<SectionAdd/>}/>
           </Routes>
         </div>
       </AuthProvider>

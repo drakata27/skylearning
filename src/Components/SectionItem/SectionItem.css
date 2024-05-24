@@ -3,7 +3,7 @@
     margin: 2rem;
     border: 2px solid white;
     border-radius: 15px;
-    justify-content: start;
+    justify-content: space-between;
 }
 
 .section-item-content {
@@ -15,4 +15,32 @@
 .section-item-cover img{
     border-radius: 20px;
     width: 15rem;
+}
+
+.section-item-btns{
+    align-items: end;
+}
+button {
+    border-radius: 15px;
+    font-size: 2rem;
+    font-size: 2rem;
+    width: 4rem;
+    color: darkblue;
+}
+a {
+    color: darkblue;
+}
+.section-edit-btn{
+    background-color: yellow;
+    border-radius: 15px;
+}
+.section-edit-btn:hover{
+    background-color: darkorange;
+}
+.section-delete-btn{
+    background-color: red;
+    margin-left: 1rem;
+}
+.section-delete-btn:hover{
+    background-color: darkred;
 }
