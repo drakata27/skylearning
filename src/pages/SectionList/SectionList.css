@@ -41,9 +41,11 @@ p{
     border: none;
     margin: 5rem 0;
     padding: 1rem;
+    transition: transform 0.3s ease;
 }
 
 .add-section-btn:hover{
     background-color: darkgreen;
     cursor: pointer;
+    transform: scale(1.04);
 }

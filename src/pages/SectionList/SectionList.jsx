@@ -9,12 +9,12 @@ const SectionList = () => {
   const token = localStorage.getItem("authTokens")
   const url = 'http://127.0.0.1:8000/api/section/'
 
+  let getSections = async ()=>{
+    let response = await fetch(url)
+    let data = await response.json()
+    setSections(data)
+  }
   useEffect(()=>{
-    let getSections = async ()=>{
-      let response = await fetch(url)
-      let data = await response.json()
-      setSections(data)
-    }
     getSections()
   },[])
 
@@ -43,7 +43,7 @@ const SectionList = () => {
       <>
         <div className="section-item">
           {sections.map((section, index) => (
-            <SectionItem key={index} section={section}/>
+            <SectionItem key={index} section={section} refreshSection={getSections}/>
           ))}
         </div>
       </>

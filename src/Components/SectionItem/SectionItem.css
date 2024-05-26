@@ -4,6 +4,11 @@
     border: 2px solid white;
     border-radius: 15px;
     justify-content: space-between;
+    transition: transform 0.3s ease;
+}
+
+.section-item-container:hover{
+    transform: scale(1.02);
 }
 
 .section-item-content {

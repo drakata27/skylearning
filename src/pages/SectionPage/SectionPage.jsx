@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import './SectionPage.css'
 
 const SectionPage = () => {
     let {id} = useParams()
@@ -9,7 +10,6 @@ const SectionPage = () => {
         cover: null,
     })
     const url = `http://127.0.0.1:8000/api/section/${id}/`
-    // const token = localStorage.getItem("authTokens")
 
     useEffect(()=>{
         const getSection = async () => {
@@ -23,7 +23,7 @@ const SectionPage = () => {
     }, [url, id])
 
     return (
-    <div>
+    <div className='section-page-container'>
         <h1>{section?.title}</h1>
     </div>
     )

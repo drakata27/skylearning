@@ -1,7 +1,13 @@
 li{
     margin-right: 2rem;
+    transition: transform 0.3s ease;
 }
 .logo {
     width: 11rem;
     height: 3rem;
+    transition: transform 0.3s ease;
+}
+.logo:hover,
+li:hover {
+    transform: scale(1.05);
 }

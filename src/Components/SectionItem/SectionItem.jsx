@@ -2,8 +2,32 @@ import './SectionItem.css'
 import { Link } from 'react-router-dom'
 import Placeholder from '../../assets/placeholder.jpg'
 
-const SectionItem = ({section}) => {
-    console.log('section title: ' + section.title + ' section cover: ' + section.cover);
+const SectionItem = ({section, refreshSection}) => {
+    const url = `http://127.0.0.1:8000/api/section/${section.id}/`
+    
+    let deleteSection = async (e) =>{
+        const isConfirmed = window.confirm(`Are you sure you want to delete section "${section.title}"?`);
+        if (isConfirmed) {
+            e.preventDefault()
+            try {
+                const response = await fetch(url, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            }) 
+    
+            if (!response.ok) {
+                console.error('Error deleting Section. Server responded with:', response.status, response.statusText);
+                return
+            }
+            refreshSection()
+            } catch(error) {
+                console.error('Error deleting section:', error);
+            }
+        }
+    }
+
     return (
         <Link to={`${section.id}/`}>
             <div className="section-item-container horizontal-container">
@@ -28,11 +52,13 @@ const SectionItem = ({section}) => {
                         </Link>
                     </button>
 
-                    <button className='section-delete-btn'>
-                    <span className="material-symbols-outlined">
-                      delete
-                    </span>
-                </button>
+                    <button 
+                        className='section-delete-btn'
+                        onClick={deleteSection}>
+                            <span className="material-symbols-outlined">
+                                delete
+                            </span>
+                    </button>
                 </div>
             </div>
         </Link>
