@@ -30,6 +30,15 @@ p {
     background-color: darkgreen;
 }
 
+.clear-img-btn{
+    background-color: red;
+    color: white;
+    width: 10rem;
+    height: 5rem;
+}
+.clear-img-btn:hover{
+    background-color: darkred;
+}
 @media screen and (max-width: 1587px) {
     .section-form{
         margin: 0 2rem;

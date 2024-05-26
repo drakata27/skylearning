@@ -64,8 +64,7 @@ const SectionAdd = () => {
 
   return (
     <div className='section-add-container'>
-        <h1>Section Add</h1>
-
+        <h1>Add Section</h1>
         <div className="section-form">
           <div className="horizontal-container cover-container">
             <p>Cover</p>
@@ -78,7 +77,10 @@ const SectionAdd = () => {
                 onChange={(e)=> setCover(e.target.files[0])}
             />
 
-            <button onClick={clearImage}>Clear</button>
+            <button
+              className='clear-img-btn' 
+              onClick={clearImage}
+              >Clear</button>
           </div>
 
           <input

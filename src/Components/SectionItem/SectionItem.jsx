@@ -5,7 +5,7 @@ import Placeholder from '../../assets/placeholder.jpg'
 const SectionItem = ({section}) => {
     console.log('section title: ' + section.title + ' section cover: ' + section.cover);
     return (
-        <Link to={`section/${section.id}/topic/`}>
+        <Link to={`${section.id}/`}>
             <div className="section-item-container horizontal-container">
                 <div className='section-item-cover'>
                     { section.cover ? 

@@ -7,6 +7,7 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import HomePage from './pages/Home/HomePage';
 import SectionList from './pages/SectionList/SectionList';
 import SectionAdd from './pages/SectionAdd/SectionAdd';
+import SectionPage from './pages/SectionPage/SectionPage';
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
           <Routes>
             <Route exact path='/' element={<HomePage/>}/>
             <Route exact path='/learning' element={<SectionList/>}/>
+            <Route exact path='/learning/:id' element={<SectionPage/>}/>
+            
             <Route exact path='/login' element={<LoginPage/>}/>
             <Route exact path='/section-add' element={<SectionAdd/>}/>
           </Routes>
