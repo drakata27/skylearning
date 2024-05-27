@@ -1,3 +1,7 @@
+.section-list-container{
+    margin: 0 15rem;
+}
+
 .section-list-header{
     margin: 0 2rem;
 }
@@ -48,4 +52,10 @@ p{
     background-color: darkgreen;
     cursor: pointer;
     transform: scale(1.04);
+}
+
+@media screen and (max-width: 1587px) {
+    .section-list-container{
+        margin: 0 0;
+    }
 }

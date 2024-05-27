@@ -8,7 +8,6 @@ const SectionItem = ({section, refreshSection}) => {
     let deleteSection = async (e) =>{
         const isConfirmed = window.confirm(`Are you sure you want to delete section "${section.title}"?`);
         if (isConfirmed) {
-            e.preventDefault()
             try {
                 const response = await fetch(url, {
                 method: "DELETE",
@@ -26,6 +25,7 @@ const SectionItem = ({section, refreshSection}) => {
                 console.error('Error deleting section:', error);
             }
         }
+        e.preventDefault()
     }
 
     return (
@@ -45,7 +45,7 @@ const SectionItem = ({section, refreshSection}) => {
 
                 <div className='section-item-btns'>
                     <button className='section-edit-btn'>
-                        <Link>
+                        <Link to={`${section.id}/edit/`}>
                             <span className="material-symbols-outlined">
                                 edit
                             </span>

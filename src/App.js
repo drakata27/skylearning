@@ -8,6 +8,8 @@ import HomePage from './pages/Home/HomePage';
 import SectionList from './pages/SectionList/SectionList';
 import SectionAdd from './pages/SectionAdd/SectionAdd';
 import SectionPage from './pages/SectionPage/SectionPage';
+import PrivateRoute from './utils/PrivateRoute';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   return (
@@ -20,9 +22,14 @@ function App() {
             <Route exact path='/learning' element={<SectionList/>}/>
             <Route exact path='/learning/:id' element={<SectionPage/>}/>
             
+            <Route exact path='/learning/:id/edit' element={<PrivateRoute/>}>
+              <Route path='/learning/:id/edit' Component={SectionAdd} />
+            </Route>
+
             <Route exact path='/login' element={<LoginPage/>}/>
             <Route exact path='/section-add' element={<SectionAdd/>}/>
           </Routes>
+          <Footer/>
         </div>
       </AuthProvider>
     </Router>
