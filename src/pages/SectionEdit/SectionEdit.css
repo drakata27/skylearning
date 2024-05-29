@@ -1,0 +1,65 @@
+.section-form{
+    margin: 0 40rem;
+}
+p {
+    align-items: baseline;
+}
+
+.section-form input {
+    font-size: 2rem;
+    padding: 0.5rem;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+.cover-container{
+    justify-content: space-between;
+}
+
+.section-cover-input{
+    color: white;
+}
+
+.section-add-btn{
+    background-color: green;
+    color: white;
+    width: 100%;
+    width: 10rem;
+    padding: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-right: 2rem;
+}
+.section-add-btn:hover{
+    background-color: darkgreen;
+}
+
+.section-cancel-btn{
+    background-color: red;
+    color: white;
+    width: 100%;
+    width: 10rem;
+    padding: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-right: 2rem;
+}
+.section-cancel-btn:hover{
+    background-color: darkred;
+}
+
+.clear-img-btn{
+    background-color: red;
+    color: white;
+    width: 10rem;
+    height: 5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.clear-img-btn:hover{
+    background-color: darkred;
+}
+@media screen and (max-width: 1587px) {
+    .section-form{
+        margin: 0 2rem;
+    }
+}

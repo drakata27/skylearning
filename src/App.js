@@ -8,6 +8,7 @@ import HomePage from './pages/Home/HomePage';
 import SectionList from './pages/SectionList/SectionList';
 import SectionAdd from './pages/SectionAdd/SectionAdd';
 import SectionPage from './pages/SectionPage/SectionPage';
+import SectionEdit from './pages/SectionEdit/SectionEdit';
 import PrivateRoute from './utils/PrivateRoute';
 import Footer from './Components/Footer/Footer';
 
@@ -23,7 +24,7 @@ function App() {
             <Route exact path='/learning/:id' element={<SectionPage/>}/>
             
             <Route exact path='/learning/:id/edit' element={<PrivateRoute/>}>
-              <Route path='/learning/:id/edit' Component={SectionAdd} />
+              <Route path='/learning/:id/edit' Component={SectionEdit} />
             </Route>
 
             <Route exact path='/login' element={<LoginPage/>}/>

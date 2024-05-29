@@ -4,6 +4,7 @@ import Placeholder from '../../assets/placeholder.jpg'
 
 const SectionItem = ({section, refreshSection}) => {
     const url = `http://127.0.0.1:8000/api/section/${section.id}/`
+    const token = localStorage.getItem("authTokens")
     
     let deleteSection = async (e) =>{
         const isConfirmed = window.confirm(`Are you sure you want to delete section "${section.title}"?`);
@@ -43,23 +44,28 @@ const SectionItem = ({section, refreshSection}) => {
                     <h3>{section.subtitle}</h3>
                 </div>
 
-                <div className='section-item-btns'>
-                    <button className='section-edit-btn'>
-                        <Link to={`${section.id}/edit/`}>
-                            <span className="material-symbols-outlined">
-                                edit
-                            </span>
-                        </Link>
-                    </button>
+                { token ? 
+                <>
+                    <div className='section-item-btns'>
+                        <button className='section-edit-btn'>
+                            <Link to={`${section.id}/edit/`}>
+                                <span className="material-symbols-outlined">
+                                    edit
+                                </span>
+                            </Link>
+                        </button>
 
-                    <button 
-                        className='section-delete-btn'
-                        onClick={deleteSection}>
-                            <span className="material-symbols-outlined">
-                                delete
-                            </span>
-                    </button>
-                </div>
+                        <button 
+                            className='section-delete-btn'
+                            onClick={deleteSection}>
+                                <span className="material-symbols-outlined">
+                                    delete
+                                </span>
+                        </button>
+                    </div>
+                </>:<div></div>
+                }
+
             </div>
         </Link>
     )
