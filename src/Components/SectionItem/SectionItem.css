@@ -22,6 +22,10 @@
     width: 15rem;
 }
 
+.username{
+    font-size: 1.5rem;
+}
+
 .section-item-btns{
     align-items: end;
 }

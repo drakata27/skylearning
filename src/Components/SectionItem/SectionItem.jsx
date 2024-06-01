@@ -47,13 +47,13 @@ const SectionItem = ({section, refreshSection}) => {
                 { token ? 
                 <>
                     <div className='section-item-btns'>
-                        <button className='section-edit-btn'>
-                            <Link to={`${section.id}/edit/`}>
+                        <Link to={`${section.id}/edit/`}>
+                            <button className='section-edit-btn'>
                                 <span className="material-symbols-outlined">
                                     edit
                                 </span>
-                            </Link>
-                        </button>
+                            </button>
+                        </Link>
 
                         <button 
                             className='section-delete-btn'
