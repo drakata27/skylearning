@@ -42,7 +42,7 @@ const SectionList = () => {
       </> :
       <>
         <div className="section-item">
-          {sections.map((section, index) => (
+          { sections.map((section, index) => (
             <SectionItem key={index} section={section} refreshSection={getSections}/>
           ))}
         </div>
