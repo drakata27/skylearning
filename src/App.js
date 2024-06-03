@@ -11,6 +11,7 @@ import SectionPage from './pages/SectionPage/SectionPage';
 import SectionEdit from './pages/SectionEdit/SectionEdit';
 import PrivateRoute from './utils/PrivateRoute';
 import Footer from './Components/Footer/Footer';
+import TopicAdd from './pages/TopicAdd/TopicAdd';
 
 function App() {
   return (
@@ -22,13 +23,14 @@ function App() {
             <Route exact path='/' element={<HomePage/>}/>
             <Route exact path='/learning' element={<SectionList/>}/>
             <Route exact path='/learning/:id' element={<SectionPage/>}/>
+            <Route exact path='/learning/:id/add' element={<TopicAdd/>}/>
             
             <Route exact path='/learning/:id/edit' element={<PrivateRoute/>}>
               <Route path='/learning/:id/edit' Component={SectionEdit} />
             </Route>
 
             <Route exact path='/login' element={<LoginPage/>}/>
-            <Route exact path='/section-add' element={<SectionAdd/>}/>
+            <Route exact path='/learning/add' element={<SectionAdd/>}/>
           </Routes>
           <Footer/>
         </div>

@@ -50,7 +50,7 @@ const SectionPage = () => {
         <div className="horizontal-container">
             <h1>{section?.title}</h1>
 
-            <Link className='add-section-btn' to='/section-add'>
+            <Link className='add-section-btn' to='add/'>
                 <span class="material-symbols-outlined">
                     add
                 </span>
