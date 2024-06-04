@@ -12,6 +12,7 @@ import SectionEdit from './pages/SectionEdit/SectionEdit';
 import PrivateRoute from './utils/PrivateRoute';
 import Footer from './Components/Footer/Footer';
 import TopicAdd from './pages/TopicAdd/TopicAdd';
+import TopicEdit from './pages/TopicEdit/TopicEdit';
 
 function App() {
   return (
@@ -27,6 +28,10 @@ function App() {
             
             <Route exact path='/learning/:id/edit' element={<PrivateRoute/>}>
               <Route path='/learning/:id/edit' Component={SectionEdit} />
+            </Route>
+            
+            <Route exact path='/learning/:id/topic/:topicId/edit/' element={<PrivateRoute/>}>
+              <Route path='/learning/:id/topic/:topicId/edit/' Component={TopicEdit} />
             </Route>
 
             <Route exact path='/login' element={<LoginPage/>}/>

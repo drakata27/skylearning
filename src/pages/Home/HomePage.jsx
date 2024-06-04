@@ -1,7 +1,6 @@
 import './HomePage.css'
 
 import React, {useState, useEffect} from 'react'
-import {Link} from 'react-router-dom'
 import SectionItem from '../../Components/SectionItem/SectionItem'
 
 const HomePage = () => {
@@ -19,14 +18,7 @@ const HomePage = () => {
 
   return (
     <div className="section-list-container">
-      <div className='section-list-header horizontal-container'>
-        <h1>Home</h1>
-        <Link className='add-section-btn' to='/section-add'>
-          <span class="material-symbols-outlined">
-            add
-          </span>
-        </Link>
-      </div>      
+        <h1>Home</h1>      
         <div className="section-item">
           {sections.map((section, index) => (
             <SectionItem key={index} section={section} refreshSection={getSections}/>

@@ -1,9 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import Placeholder from '../../assets/placeholder.jpg'
 
 const TopicItem = ({topic, refreshTopic}) => {
-    const url = `http://127.0.0.1:8000/api/section/${topic.id}/topic/`
+    const {id} = useParams()
+    const url = `http://127.0.0.1:8000/api/section/${id}/topic/${topic.id}`
     const token = localStorage.getItem("authTokens")
 
     let deleteTopic = async (e) =>{
@@ -49,7 +50,7 @@ const TopicItem = ({topic, refreshTopic}) => {
                 { token ? 
                 <>
                     <div className='section-item-btns'>
-                        <Link to={`${topic.id}/edit/`}>
+                        <Link to={`topic/${topic.id}/edit/`}>
                             <button className='section-edit-btn'>
                                 <span className="material-symbols-outlined">
                                     edit

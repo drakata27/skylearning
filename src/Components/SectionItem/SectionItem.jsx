@@ -30,7 +30,7 @@ const SectionItem = ({section, refreshSection}) => {
     }
 
     return (
-        <Link to={`${section.id}/`}>
+        <Link to={`/learning/${section.id}/`}>
             <div className="section-item-container horizontal-container">
                 <div className='section-item-cover'>
                     { section.cover ? 
