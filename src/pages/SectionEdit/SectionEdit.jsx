@@ -81,6 +81,7 @@ const SectionEdit = () => {
           setSection({ ...section, cover: data.cover });
         }
     }
+    console.log('cover', cover);
 
     
 

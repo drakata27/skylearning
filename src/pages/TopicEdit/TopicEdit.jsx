@@ -10,28 +10,30 @@ const TopicEdit = () => {
         'title': '',
         'subtitle': '',
         'cover': cover,
+        'section': id
     })
 
     const url = `http://127.0.0.1:8000/api/section/${id}/topic/${topicId}/edit/`
+    const urlFetch = `http://127.0.0.1:8000/api/section/${id}/topic/${topicId}/`
     const navigate = useNavigate();
 
-    useEffect(()=>{
+    useEffect(() => {
         const fetchTopicDetail = async () => {
             try {
-                const response = await fetch(url);
+                const response = await fetch(urlFetch);
                 if (!response.ok) {
                     console.error('Error fetching topic data:', 
                     response.status, response.statusText);
                     return
                 }
                 const data = await response.json();
-                fetchTopicDetail(data)
+                setTopic(data)
             } catch (error) {
                 alert("Error fetching details: " + error)
             }
         }
         fetchTopicDetail()
-    },[url])
+    },[urlFetch])
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -42,6 +44,7 @@ const TopicEdit = () => {
         const formData = new FormData()
         formData.append('title', topic.title);
         formData.append('subtitle', topic.subtitle);
+        formData.append('section', id);
         if (cover) {
             formData.append('cover', cover);
         }
@@ -61,7 +64,7 @@ const TopicEdit = () => {
             const data = await response.json();
             setTopic(data)
             console.log('Topic updated successfully:', data);
-            navigate(`/learning/${id}/topic/`)
+            navigate(`/learning/${id}/`)
         } catch (error) {
             console.error('Error updating topic:', error);
         }
@@ -80,10 +83,12 @@ const TopicEdit = () => {
           const data = await response.json();
           setTopic({ ...topic, cover: data.cover });
         }
+        console.log('cover',cover);
     }
 
+
     const cancel = () => {
-        navigate(`/learning/${id}/topic/`)
+        navigate(`/learning/${id}/`)
     }
 
 
@@ -124,7 +129,7 @@ const TopicEdit = () => {
                 type='text'
                 name='title'
                 placeholder='Title...'
-                value={topic.title}
+                value={topic?.title}
                 onChange={(e) => handleInputChange({ target: { value: e.target.value, name: 'title' } })}
             />
             <input
@@ -132,7 +137,7 @@ const TopicEdit = () => {
                 type='text'
                 name='subtitle'
                 placeholder='Subitle...'
-                value={topic.subtitle}
+                value={topic?.subtitle}
                 onChange={(e) => handleInputChange({ target: { value: e.target.value, name: 'subtitle' } })}
             />
 
