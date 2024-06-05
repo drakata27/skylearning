@@ -80,8 +80,8 @@ const SectionEdit = () => {
           const data = await response.json();
           setSection({ ...section, cover: data.cover });
         }
+        console.log('cover', cover);
     }
-    console.log('cover', cover);
 
     
 
