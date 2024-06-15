@@ -11,12 +11,21 @@ h1 {
 
 a {
   text-decoration: none;
+  transition: transform 0.3s ease;
 }
+a:hover{
+  transform: scale(1.04);
+}
+
 button {
   border: none;
 }
 button:hover {
   cursor: pointer;
+}
+
+input {
+  border-radius: 15px;
 }
 
 .horizontal-container{
@@ -26,6 +35,16 @@ button:hover {
   justify-content: space-between
 }
 
-input {
+.back-btn{
+  color: white;
+  background-color: red;
+  width: 2rem;
+  height: 1.5rem;
   border-radius: 15px;
+  padding: 0.5rem;
+  margin-top: 5rem;
+}
+
+.back-btn:hover{
+  background-color: darkred;
 }

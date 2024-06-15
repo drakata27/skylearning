@@ -47,7 +47,7 @@ const SectionItem = ({section, refreshSection}) => {
                 { token ? 
                 <>
                     <div className='section-item-btns'>
-                        <Link to={`${section.id}/edit/`}>
+                        <Link to={`/learning/${section.id}/edit/`}>
                             <button className='section-edit-btn'>
                                 <span className="material-symbols-outlined">
                                     edit

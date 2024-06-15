@@ -48,6 +48,15 @@ const SectionPage = () => {
     return (
     <div className='section-page-container'>
         <div className="horizontal-container">
+
+            <Link 
+                to={'/learning/'}
+                className='back-btn'>
+                <span class="material-symbols-outlined">
+                    arrow_back
+                </span>
+            </Link>
+
             <h1>{section?.title}</h1>
 
             <Link className='add-section-btn' to='add/'>
