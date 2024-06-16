@@ -37,7 +37,7 @@ const TopicItem = ({topic, refreshTopic}) => {
             <div className="section-item-container horizontal-container">
                 <div className='section-item-cover'>
                     { topic.cover ? 
-                        <img src={'http://127.0.0.1:8000/'+topic.cover} alt="section cover" />:
+                        <img src={'http://127.0.0.1:8000/'+topic.cover} alt="topic cover" />:
                         <img src={Placeholder} alt="section cover" />
                     }
                 </div>

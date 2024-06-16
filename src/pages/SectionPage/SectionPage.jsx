@@ -38,12 +38,8 @@ const SectionPage = () => {
     const getTopic = async () => {
         let response = await fetch(urlTopic)
         let data = await response.json()
-        console.log('data topic',data);
         setTopics(data)
     }
-
-
-
 
     return (
     <div className='section-page-container'>
