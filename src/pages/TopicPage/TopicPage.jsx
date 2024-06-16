@@ -67,8 +67,7 @@ const TopicPage = () => {
                         key={index} 
                         topic={topic} 
                         subtopic={subtopic} 
-                        refreshSubtopic={getSubtopic}
-                    />
+                        refreshSubtopic={getSubtopic}/>
                 ))}
             </div>
         </div>
