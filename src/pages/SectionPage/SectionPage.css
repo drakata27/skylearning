@@ -1,5 +1,26 @@
-
-
+.title {
+    padding: 0;
+    margin: 0;
+    margin-top: 2rem;
+}
+.section-p{
+    font-size: 1.5rem;
+    border-radius: 20px;
+    padding: 0.5rem;
+    background-color: darkgreen;
+}
+.topic-p{
+    font-size: 1.5rem;
+    border-radius: 20px;
+    padding: 0.5rem;
+    background-color: darkred;
+}
+.subtopic-p{
+    font-size: 1.5rem;
+    border-radius: 20px;
+    padding: 0.5rem;
+    background-color: orange;
+}
 .section-page-container{
     margin: 0 2rem;
 }

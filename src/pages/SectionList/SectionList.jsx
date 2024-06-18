@@ -21,7 +21,17 @@ const SectionList = () => {
   return (
     <div className="section-list-container">
       <div className='section-list-header horizontal-container'>
-        <h1>My Learning</h1>
+        
+        <div>
+          <h1 className='title'>My Learning</h1>
+
+          <div className='horizontal-container nav-elements'>
+            <p className='section-p'>Sections</p>
+            <p className='topic-p'></p>
+            <p className='subtopic-p'></p>
+          </div>
+        </div>
+
         { token !== null ?
         <Link className='add-section-btn' to='add/'>
           <span class="material-symbols-outlined">

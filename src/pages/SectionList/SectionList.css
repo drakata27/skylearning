@@ -54,6 +54,41 @@ p{
     transform: scale(1.04);
 }
 
+.title {
+    padding: 0;
+    margin: 0;
+    margin-top: 2rem;
+}
+.section-p{
+    font-size: 1.5rem;
+    border-radius: 20px;
+    padding: 0.5rem;
+    margin: 0;
+    margin-top: 1rem;
+    background-color: darkgreen;
+}
+.topic-p{
+    font-size: 1.5rem;
+    border-radius: 20px;
+    padding: 0.5rem;
+    margin: 0;
+    margin-top: 1rem;
+    background-color: darkred;
+}
+.subtopic-p{
+    font-size: 1.5rem;
+    border-radius: 20px;
+    padding: 0.5rem;
+    margin: 0;
+    margin-top: 1rem;
+    background-color: orange;
+}
+
+.nav-elements{
+    margin-top: 1rem;
+    justify-content: flex-start;
+}
+
 @media screen and (max-width: 1587px) {
     .section-list-container{
         margin: 0 0;

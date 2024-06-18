@@ -52,8 +52,16 @@ const TopicPage = () => {
                         arrow_back
                     </span>
                 </Link>
+                
+                <div>
+                    <h1 className='title'>{topic?.title}</h1>
 
-                <h1>{topic?.title}</h1>
+                    <div className='horizontal-container'>
+                        <p className='section-p'></p>
+                        <p className='topic-p'></p>
+                        <p className='subtopic-p'>Materials</p>
+                    </div>
+                </div>
 
                 <Link className='add-section-btn' to=''>
                     <span class="material-symbols-outlined">
