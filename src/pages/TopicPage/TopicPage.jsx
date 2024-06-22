@@ -63,7 +63,10 @@ const TopicPage = () => {
                     </div>
                 </div>
 
-                <Link className='add-section-btn' to=''>
+                <Link 
+                    className='add-section-btn' 
+                    to={`/learning/${id}/topic/${topicId}/add`}
+                >
                     <span class="material-symbols-outlined">
                         add
                     </span>

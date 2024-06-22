@@ -15,6 +15,7 @@ import TopicAdd from './pages/TopicAdd/TopicAdd';
 import TopicEdit from './pages/TopicEdit/TopicEdit';
 import TopicPage from './pages/TopicPage/TopicPage';
 import SubtopicPage from './pages/SubtopicPage/SubtopicPage';
+import SubtopicAdd from './pages/SubtopicAdd/SubtopicAdd';
 
 function App() {
   return (
@@ -26,7 +27,12 @@ function App() {
             <Route exact path='/' element={<HomePage/>}/>
             <Route exact path='/learning' element={<SectionList/>}/>
             <Route exact path='/learning/:id' element={<SectionPage/>}/>
-            <Route exact path='/learning/:id/add' element={<TopicAdd/>}/>
+
+            <Route exact path='/learning/:id/add' element={<PrivateRoute/>}>
+              <Route exact path='/learning/:id/add' Component={TopicAdd}/>
+            </Route>
+
+
             <Route exact path='/learning/:id/topic/:topicId' element={<TopicPage/>}/>
             <Route exact path='/learning/:id/topic/:topicId/material/:matId' element={<SubtopicPage/>}/>
             
@@ -39,7 +45,14 @@ function App() {
             </Route>
 
             <Route exact path='/login' element={<LoginPage/>}/>
-            <Route exact path='/learning/add' element={<SectionAdd/>}/>
+
+            <Route exact path='/learning/add' element={<PrivateRoute/>}>
+              <Route exact path='/learning/add' Component={SectionAdd}/>
+            </Route>
+
+            <Route exact path='/learning/:id/topic/:topicId/add' element={<PrivateRoute/>}>
+              <Route exact path='/learning/:id/topic/:topicId/add' Component={SubtopicAdd}/>
+            </Route>
           </Routes>
           <Footer/>
         </div>
