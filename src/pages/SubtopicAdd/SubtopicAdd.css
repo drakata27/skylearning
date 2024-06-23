@@ -1,3 +1,56 @@
 .subtopic-add-container{
     margin: 2rem;
 }
+
+/* Quilll */
+.editor-input{
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: black;
+    margin-top: 2rem;
+    padding: 0.5rem;
+    border-radius: 15px;
+    background-color: transparent;
+    height: fit-content;
+  }
+  
+  .ql-editor{
+    border-radius: 15px;
+    border: white 2px solid;
+    margin-top: 1rem;
+  }
+  
+  .ql-editor>p{
+    text-align: start;
+  }
+  
+  .ql-editor>p>img{
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+  }
+  .ql-editor a{
+    color: orange;
+    text-decoration: underline;
+  }
+  .editor-input .ql-editor {
+    max-height: 570px;
+    overflow-y: auto;
+  }
+  
+  .ql-container.ql-snow,
+  .ql-toolbar
+  { 
+    border: none !important;
+    border-radius: 25px;
+  }
+  
+  .ql-toolbar {
+    background-color: wheat;
+  }
+  
+  /* Placeholder text */
+  .quill > .ql-container > .ql-editor.ql-blank::before{
+    font-size: 20px;
+    color: white;
+  }
