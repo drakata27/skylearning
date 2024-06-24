@@ -49,7 +49,7 @@ const SubtopicItem = ({topic, subtopic, refreshSubtopic}) => {
       { token ? 
       <>
           <div className='section-item-btns'>
-              <Link>
+              <Link to={`/learning/${id}/topic/${topic.id}/material/${subtopic.id}/edit/`}>
                   <button className='section-edit-btn'>
                       <span className="material-symbols-outlined">
                           edit

@@ -16,6 +16,7 @@ import TopicEdit from './pages/TopicEdit/TopicEdit';
 import TopicPage from './pages/TopicPage/TopicPage';
 import SubtopicPage from './pages/SubtopicPage/SubtopicPage';
 import SubtopicAdd from './pages/SubtopicAdd/SubtopicAdd';
+import SubtopicEdit from './pages/SubtopicEdit/SubtopicEdit';
 
 function App() {
   return (
@@ -52,6 +53,10 @@ function App() {
 
             <Route exact path='/learning/:id/topic/:topicId/add' element={<PrivateRoute/>}>
               <Route exact path='/learning/:id/topic/:topicId/add' Component={SubtopicAdd}/>
+            </Route>
+            
+            <Route exact path='/learning/:id/topic/:topicId/material/:matId/edit' element={<PrivateRoute/>}>
+              <Route exact path='/learning/:id/topic/:topicId/material/:matId/edit' Component={SubtopicEdit}/>
             </Route>
           </Routes>
           <Footer/>
