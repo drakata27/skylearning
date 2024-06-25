@@ -117,7 +117,7 @@ const Header = () => {
           :
           <>
             <li onClick={logoutUser}>
-              <Link to={"/logout"} className="nav-menu-list">
+              <Link to={"/logout"} className="nav-menu-list logout-btn">
                 Logout
               </Link>
             </li>

@@ -6,7 +6,7 @@ import './SubtopicPage.css'
 
 const SubtopicPage = () => {
   let {id, topicId, matId} = useParams();
-  const [cover, setCover] = useState()
+  const [cover] = useState()
   const [subtopic, setSubtopic] = useState({
     title: '',
     subtitle: '',
@@ -36,8 +36,24 @@ const SubtopicPage = () => {
 
   return (
     <div className='subtopic-container'>
-        <h1>{ subtopic.title }</h1>
-        <h1>{ subtopic.subtitle }</h1>
+        <div className="horizontal-container">
+                <Link 
+                    to={`/learning/${id}/topic/${topicId}/`}
+                    className='back-btn'>
+                    <span class="material-symbols-outlined">
+                        arrow_back
+                    </span>
+                </Link>
+                
+                <div>
+                    <h1 className='title'>{subtopic?.title}</h1>
+                </div>
+
+                <div></div>
+            </div>
+
+
+        <h2>{ subtopic.subtitle }</h2>
 
         <div className="cover-preview">
           { subtopic.cover ? 
