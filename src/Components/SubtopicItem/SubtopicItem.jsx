@@ -33,42 +33,44 @@ const SubtopicItem = ({topic, subtopic, refreshSubtopic}) => {
 }
 
   return (
-    <div className="section-item-container horizontal-container">
-      <div className='section-item-cover'>
-          { topic.cover ? 
-              <img src={'http://127.0.0.1:8000/' + subtopic.cover} alt="subtopic cover" />:
-              <img src={Placeholder} alt="subtopic cover" />
-          }
-      </div>
-      
-      <div className='section-item-content'>
-          <h2>{subtopic.title}</h2>
-          <h3>{subtopic.subtitle}</h3>
-      </div>
+    <Link to={`/learning/${id}/topic/${topic.id}/material/${subtopic.id}/`}>
+        <div className="section-item-container horizontal-container">
+        <div className='section-item-cover'>
+            { topic.cover ? 
+                <img src={'http://127.0.0.1:8000/' + subtopic.cover} alt="subtopic cover" />:
+                <img src={Placeholder} alt="subtopic cover" />
+            }
+        </div>
+        
+        <div className='section-item-content'>
+            <h2>{subtopic.title}</h2>
+            <h3>{subtopic.subtitle}</h3>
+        </div>
 
-      { token ? 
-      <>
-          <div className='section-item-btns'>
-              <Link to={`/learning/${id}/topic/${topic.id}/material/${subtopic.id}/edit/`}>
-                  <button className='section-edit-btn'>
-                      <span className="material-symbols-outlined">
-                          edit
-                      </span>
-                  </button>
-              </Link>
+        { token ? 
+        <>
+            <div className='section-item-btns'>
+                <Link to={`/learning/${id}/topic/${topic.id}/material/${subtopic.id}/edit/`}>
+                    <button className='section-edit-btn'>
+                        <span className="material-symbols-outlined">
+                            edit
+                        </span>
+                    </button>
+                </Link>
 
-              <button 
-                  className='section-delete-btn'
-                  onClick={deleteSubtopic}
-                  >
-                      <span className="material-symbols-outlined">
-                          delete
-                      </span>
-              </button>
-          </div>
-      </>:<div></div>
-      }
-  </div>
+                <button 
+                    className='section-delete-btn'
+                    onClick={deleteSubtopic}
+                    >
+                        <span className="material-symbols-outlined">
+                            delete
+                        </span>
+                </button>
+            </div>
+        </>:<div></div>
+        }
+        </div>
+    </Link>
   )
 }
 

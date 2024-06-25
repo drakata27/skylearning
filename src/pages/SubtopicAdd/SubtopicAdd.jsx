@@ -20,8 +20,8 @@ const SubtopicAdd = () => {
     })
 
     const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setSubtopic({ ...subtopic, [name]: value });
+        const { name, value } = e.target;
+        setSubtopic({ ...subtopic, [name]: value });
     };
 
     const createSubtopic = async () => {
