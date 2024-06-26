@@ -1,12 +1,22 @@
 h1 {
     align-items: center;
+    padding: 0;
+    margin: 0;
 }
-h2{
+h2 {
     font-size: 3rem;
+    color: rgb(188, 187, 179);
+}
+.title-container{
+    display: flex;
+    align-items: flex-end;
 }
 .ql-editor {
     color: white;
-
+}
+.ql-editor h2{
+    align-items: start;
+    display: flex;
 }
 .subtopic-container{
     margin: 0 2rem;
@@ -21,4 +31,8 @@ h2{
 .cover-preview img{
     width: 100%;
     border-radius: 25px;
+}
+.section-item-btns-subtopic {
+    display: flex;
+    align-items: flex-end;
 }

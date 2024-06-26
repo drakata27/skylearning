@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import Placeholder from '../../assets/placeholder.jpg'
 
 import './SubtopicPage.css'
@@ -14,7 +14,9 @@ const SubtopicPage = () => {
     cover: cover,
   })
 
+  const navigate = useNavigate();
   const urlFetch = `http://127.0.0.1:8000/api/section/${id}/topic/${topicId}/subtopic/${matId}/`
+  const url = `http://127.0.0.1:8000/api/section/${id}/topic/${topicId}/subtopic/${subtopic.id}`
 
     useEffect(()=>{
         const fetchSubtopicDetails = async () => {
@@ -34,6 +36,31 @@ const SubtopicPage = () => {
         fetchSubtopicDetails()
     }, [urlFetch])
 
+    let deleteSubtopic = async (e) =>{
+      const isConfirmed = window.confirm(`Are you sure you want to 
+      delete subtopic "${subtopic.title}"?`);
+      if (isConfirmed) {
+          try {
+              const response = await fetch(url, {
+              method: "DELETE",
+              headers: {
+                  "Content-Type": "application/json",
+              }
+          }) 
+  
+          if (!response.ok) {
+              console.error('Error deleting Subtopic. Server responded with:', 
+                  response.status, response.statusText);
+              return
+          }
+          } catch(error) {
+              console.error('Error deleting subtopic:', error);
+          }
+      }
+      e.preventDefault()
+      navigate(`/learning/${id}/topic/${topicId}/`)
+    }
+
   return (
     <div className='subtopic-container'>
         <div className="horizontal-container">
@@ -45,11 +72,28 @@ const SubtopicPage = () => {
                     </span>
                 </Link>
                 
-                <div>
+                <div className='title-container'>
                     <h1 className='title'>{subtopic?.title}</h1>
                 </div>
 
-                <div></div>
+                <div className='section-item-btns-subtopic'>
+                  <Link to={`/learning/${id}/topic/${topicId}/material/${subtopic.id}/edit/`}>
+                      <button className='section-edit-btn'>
+                          <span className="material-symbols-outlined">
+                              edit
+                          </span>
+                      </button>
+                  </Link>
+
+                  <button 
+                      className='section-delete-btn'
+                      onClick={deleteSubtopic}
+                  >
+                          <span className="material-symbols-outlined">
+                              delete
+                          </span>
+                  </button>
+              </div>
             </div>
 
 
@@ -63,13 +107,13 @@ const SubtopicPage = () => {
               :
               <img src={Placeholder} alt="subtopic cover" />
           }
+          <div 
+            className='ql-editor' 
+            style={{ border: 'none' , marginBottom: "6rem"}}
+            dangerouslySetInnerHTML={{__html:subtopic?.body}}>
+          </div>
         </div>
 
-        <div 
-          className='ql-editor' 
-          style={{ border: 'none' , marginBottom: "6rem"}}
-          dangerouslySetInnerHTML={{__html:subtopic?.body}}>
-        </div>
 
     </div>
   )

@@ -32,11 +32,13 @@ const SubtopicItem = ({topic, subtopic, refreshSubtopic}) => {
     e.preventDefault()
 }
 
+console.log(subtopic.cover);
+
   return (
     <Link to={`/learning/${id}/topic/${topic.id}/material/${subtopic.id}/`}>
         <div className="section-item-container horizontal-container">
         <div className='section-item-cover'>
-            { topic.cover ? 
+            { subtopic.cover ? 
                 <img src={'http://127.0.0.1:8000/' + subtopic.cover} alt="subtopic cover" />:
                 <img src={Placeholder} alt="subtopic cover" />
             }
@@ -61,7 +63,7 @@ const SubtopicItem = ({topic, subtopic, refreshSubtopic}) => {
                 <button 
                     className='section-delete-btn'
                     onClick={deleteSubtopic}
-                    >
+                >
                         <span className="material-symbols-outlined">
                             delete
                         </span>

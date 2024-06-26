@@ -7,12 +7,11 @@ import modules from '../../utils/quilModules'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
-const SubtopicEdit = () => {
-    let {id} = useParams();
-    let {topicId} = useParams();
-    let {matId} = useParams();
-    const [cover, setCover] = useState()
+import './SubtopicEdit.css'
 
+const SubtopicEdit = () => {
+    let {id, matId, topicId} = useParams();
+    const [cover, setCover] = useState()
     const [subtopic, setSubtopic] = useState({
         'title': '',
         'subtitle': '',
@@ -37,6 +36,10 @@ const SubtopicEdit = () => {
                 }
                 const data = await response.json();
                 setSubtopic(data)
+
+                if (data.cover) {
+                    setCover(data.cover);
+                }
             } catch(error) {
                 alert("Error fetching details: " + error)
             }
@@ -93,15 +96,14 @@ const SubtopicEdit = () => {
           const data = await response.json();
           setSubtopic({ ...subtopic, cover: data.cover });
         }
-        console.log('cover',cover);
     }
 
     const cancel = () => {
         navigate(`/learning/${id}/topic/${topicId}/`)
     }
-
+    
   return (
-    <div>
+    <div className='subtopic-edit-container'>
         <h1>{subtopic.title}</h1>
         <div className="section-form">
             <div className="cover-preview">
@@ -115,7 +117,6 @@ const SubtopicEdit = () => {
             </div>
 
             <div className="horizontal-container cover-container">
-                <p>Cover</p>
                 <input 
                     className='section-cover-input'
                     type='file' 
@@ -137,15 +138,16 @@ const SubtopicEdit = () => {
                 type='text'
                 name='title'
                 placeholder='Title...'
-                value={subtopic?.title}
+                value={subtopic.title}
                 onChange={(e) => handleInputChange({ target: { value: e.target.value, name: 'title' } })}
             />
+
             <input
                 className='section-subtitle-input'
                 type='text'
                 name='subtitle'
                 placeholder='Subitle...'
-                value={subtopic?.subtitle}
+                value={subtopic.subtitle}
                 onChange={(e) => handleInputChange({ target: { value: e.target.value, name: 'subtitle' } })}
             />
 
@@ -153,10 +155,16 @@ const SubtopicEdit = () => {
               className='editor-input'
               modules={modules}
               theme="snow" 
-              value={subtopic?.body} 
+              value={subtopic.body} 
               placeholder='Type here...'
               onChange={body => handleInputChange({ target: { value: body, name: 'body' } })}
             />
+
+            {/* <textarea
+                value={subtopic.body}
+                placeholder='Type here...'
+                onChange={(e) => handleInputChange({ target: { value: e.target.value, name: 'body' } })}
+                ></textarea> */}
 
             <button 
                 className='section-add-btn'
