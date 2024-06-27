@@ -76,7 +76,7 @@ const SubtopicAdd = () => {
 
     return (
         <div className='subtopic-add-container'>
-            <h1>Add Study Material</h1>
+            <h1>Add Material</h1>
 
             <div className="section-form">
           <div className="horizontal-container cover-container">

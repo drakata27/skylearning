@@ -123,7 +123,16 @@ const Header = () => {
             </li>
             <li>
               <Link to={"/"} className="nav-menu-list">
-                {user.username}
+              <div className="horizontal-container">
+                <span 
+                  class="material-symbols-outlined" 
+                  style={{marginRight: '0.5rem', padding: '0'}}
+                >
+                  person
+                </span>
+                  {user.username}
+
+              </div>
               </Link>
             </li>
           </>

@@ -1,13 +1,14 @@
 import React from 'react'
-import { Link, useParams } from 'react-router-dom'
-import Placeholder from '../../assets/placeholder.jpg'
+import { Link, useParams, useNavigate } from 'react-router-dom'
+import Placeholder from '../../assets/placeholder.png'
 
 const SubtopicItem = ({topic, subtopic, refreshSubtopic}) => {
-  const {id} = useParams()
+  const {id, topicId} = useParams()
   const url = `http://127.0.0.1:8000/api/section/${id}/topic/${topic.id}/subtopic/${subtopic.id}`
   const token = localStorage.getItem("authTokens")
+  const navigate = useNavigate();
 
-  let deleteSubtopic = async (e) =>{
+  let deleteSubtopic = async (e) => {
     const isConfirmed = window.confirm(`Are you sure you want to 
     delete subtopic "${subtopic.title}"?`);
     if (isConfirmed) {
@@ -18,21 +19,21 @@ const SubtopicItem = ({topic, subtopic, refreshSubtopic}) => {
                 "Content-Type": "application/json",
             }
         }) 
-
+        
         if (!response.ok) {
             console.error('Error deleting Subtopic. Server responded with:', 
                 response.status, response.statusText);
-            return
+                return
         }
         refreshSubtopic()
+        navigate(`/learning/${id}/topic/${topicId}/`)
         } catch(error) {
             console.error('Error deleting subtopic:', error);
         }
+        
     }
     e.preventDefault()
 }
-
-console.log(subtopic.cover);
 
   return (
     <Link to={`/learning/${id}/topic/${topic.id}/material/${subtopic.id}/`}>

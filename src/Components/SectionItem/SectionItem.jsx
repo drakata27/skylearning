@@ -1,6 +1,6 @@
 import './SectionItem.css'
 import { Link } from 'react-router-dom'
-import Placeholder from '../../assets/placeholder.jpg'
+import Placeholder from '../../assets/placeholder.png'
 
 const SectionItem = ({section, refreshSection}) => {
     const url = `http://127.0.0.1:8000/api/section/${section.id}/`

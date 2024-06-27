@@ -76,7 +76,6 @@ const SubtopicEdit = () => {
 
             const data = await response.json();
             setSubtopic(data)
-            console.log('Subtopic updated successfully:', data);
             navigate(`/learning/${id}/topic/${topicId}/`)
         } catch (error) {
             console.error('Error updating subtopic:', error);
@@ -86,6 +85,7 @@ const SubtopicEdit = () => {
     let uploadCover = async () => {
         const formData = new FormData();
         formData.append('cover', cover);
+        formData.append('topic', topicId);
             
         const response = await fetch(url, {
           method: "PUT",
@@ -159,12 +159,6 @@ const SubtopicEdit = () => {
               placeholder='Type here...'
               onChange={body => handleInputChange({ target: { value: body, name: 'body' } })}
             />
-
-            {/* <textarea
-                value={subtopic.body}
-                placeholder='Type here...'
-                onChange={(e) => handleInputChange({ target: { value: e.target.value, name: 'body' } })}
-                ></textarea> */}
 
             <button 
                 className='section-add-btn'

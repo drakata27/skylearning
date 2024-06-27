@@ -1,4 +1,7 @@
-html{
+body {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+html { 
   background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e);
   overflow-x: hidden;
 }

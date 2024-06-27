@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
-import Placeholder from '../../assets/placeholder.jpg'
+import Placeholder from '../../assets/placeholder.png'
 
 const TopicItem = ({topic, refreshTopic}) => {
     const {id} = useParams()

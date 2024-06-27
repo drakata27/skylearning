@@ -27,8 +27,6 @@ const SectionList = () => {
 
           <div className='horizontal-container nav-elements'>
             <p className='section-p'>Sections</p>
-            <p className='topic-p'></p>
-            <p className='subtopic-p'></p>
           </div>
         </div>
 

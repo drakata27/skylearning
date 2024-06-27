@@ -43,7 +43,7 @@ const TopicPage = () => {
     }
 
     return (
-        <div className='topic-page-container'>
+        <div className='topic-page-container list-container'>
             <div className="horizontal-container">
                 <Link 
                     to={`/learning/${id}`}
@@ -57,8 +57,6 @@ const TopicPage = () => {
                     <h1 className='title'>{topic?.title}</h1>
 
                     <div className='horizontal-container'>
-                        <p className='section-p'></p>
-                        <p className='topic-p'></p>
                         <p className='subtopic-p'>Materials</p>
                     </div>
                 </div>
