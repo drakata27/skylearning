@@ -1,7 +1,22 @@
+#home-item,
+#home-heading {
+    opacity: 0;
+}
+
 .home-container{
     margin-top: 2rem;
 }
 
 .section-list-container{
     margin-top: 2rem;
+}
+
+.login {
+    color: orange;
+    margin:0 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.login:hover{
+    transform: scale(1.04);
 }

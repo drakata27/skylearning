@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import './SectionAdd.css'
+import Uploader from '../../Components/Uploader/Uploader'
 
 const SectionAdd = () => {
   const [cover, setCover] = useState()
@@ -71,20 +72,22 @@ const SectionAdd = () => {
         <h1>Add Section</h1>
         <div className="section-form">
           <div className="horizontal-container cover-container">
-            <p>Cover</p>
-            <input 
-                className='section-cover-input'
-                type='file' 
-                accept='image/*' 
-                key={inputKey} 
-                value={undefined} 
-                onChange={(e)=> setCover(e.target.files[0])}
-            />
+              {/* <input 
+                  className='section-cover-input'
+                  type='file' 
+                  accept='image/*' 
+                  key={inputKey} 
+                  value={undefined} 
+                  onChange={(e)=> setCover(e.target.files[0])}
+              /> */}
+              
 
-            <button
+            {/* <button
               className='clear-img-btn' 
               onClick={clearImage}
-              >Clear</button>
+              >Clear</button> */}
+
+              <Uploader inputKey={inputKey} setCover={setCover}/>
           </div>
 
           <input
