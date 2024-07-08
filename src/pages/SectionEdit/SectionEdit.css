@@ -1,3 +1,11 @@
+.edit-container{
+    padding: 5rem;
+}
+
+.edit-container h1{
+    font-size: 5rem;
+}
+
 .section-form{
     margin: 0 40rem;
 }
@@ -58,6 +66,24 @@ p {
 .clear-img-btn:hover{
     background-color: darkred;
 }
+
+.cover-preview .uploaded-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    padding: 0;
+}
+
+.cover-preview h1{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.cover-preview .uploaded-row p {
+    font-size: 16px;
+}
+
+
 @media screen and (max-width: 1587px) {
     .section-form{
         margin: 0 2rem;

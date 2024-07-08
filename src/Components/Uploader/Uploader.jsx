@@ -30,7 +30,7 @@ const Uploader = ({inputKey, setCover}) => {
                     hidden
                 /> 
                 { image ? 
-                <img src={image} alt='cover' width={150} height={150}/> 
+                    <img src={image} alt='cover' width={150} height={150}/> 
                 : 
                 <>
                     <MdCloudUpload color='white' size={60}/>

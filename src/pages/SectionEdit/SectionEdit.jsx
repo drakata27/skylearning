@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import './SectionEdit.css'
 import Placeholder from '../../assets/placeholder.jpg'
+import Uploader from '../../Components/Uploader/Uploader'
 
 const SectionEdit = () => {
     let {id} = useParams();
@@ -89,23 +90,45 @@ const SectionEdit = () => {
         navigate('/learning')
     }
 
+    const [inputKey, setInputKey] = useState(Date.now()); 
+
+    const clearImage = () => {
+        setInputKey(Date.now());
+    }
+
+    let imagePath = 'No cover'
+
+    if (section.cover) {
+        imagePath = section.cover
+    }
+
+    const getImageName = (path) => {
+        const parts = path.split('/');
+        return parts[parts.length - 1];
+    };
+
+    const imageName = getImageName(imagePath);
 
     return (
-        <div>
+        <div className='edit-container'>
             <h1>{section.title}</h1>
             <div className="section-form">
+
                 <div className="cover-preview">
+                    <h1>Current Cover</h1>
                     { section.cover ? 
                         <img src={'http://127.0.0.1:8000/' + 
                             section.cover} alt="section cover" />
-                        // <img src={section.cover} alt="section cover" />
                         :
                         <img src={Placeholder} alt="section cover" />
                     }
+                    <section className='uploaded-row'>
+                        <p>{imageName}</p>
+                    </section>
                 </div>
 
                 <div className="horizontal-container cover-container">
-                    <p>Cover</p>
+                    {/* <p>Cover</p>
                     <input 
                         className='section-cover-input'
                         type='file' 
@@ -113,13 +136,15 @@ const SectionEdit = () => {
                         // key={inputKey}
                         value={undefined} 
                         onChange={(e)=> setCover(e.target.files[0])}
-                    />
+                    /> */}
 
-                    <button
+                    <Uploader inputKey={inputKey} setCover={setCover} />
+
+                    {/* <button
                         onClick={uploadCover}
                         className='section-add-btn'>
                         Upload
-                    </button>
+                    </button> */}
                 </div>
 
                 <input
