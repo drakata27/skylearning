@@ -17,6 +17,7 @@ import TopicPage from './pages/TopicPage/TopicPage';
 import SubtopicPage from './pages/SubtopicPage/SubtopicPage';
 import SubtopicAdd from './pages/SubtopicAdd/SubtopicAdd';
 import SubtopicEdit from './pages/SubtopicEdit/SubtopicEdit';
+import RegisterPage from './pages/RegisterPage/RegisterPage';
 
 function App() {
   return (
@@ -64,6 +65,7 @@ function App() {
 
             {/* Authentication */}
             <Route exact path='/login' element={<LoginPage/>}/>
+            <Route exact path='/register' element={<RegisterPage />}/>
 
           </Routes>
           <Footer/>
