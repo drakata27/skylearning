@@ -67,34 +67,11 @@ const SectionEdit = () => {
             console.error('Error updating blog:', error);
         }
     }
-
-    let uploadCover = async () => {
-        const formData = new FormData();
-        formData.append('cover', cover);
-            
-        const response = await fetch(url, {
-          method: "PUT",
-          body: formData,
-        })
-      
-        if (cover) {
-          const data = await response.json();
-          setSection({ ...section, cover: data.cover });
-        }
-        console.log('cover', cover);
-    }
-
-    
-
     const cancel = () => {
         navigate('/learning')
     }
 
-    const [inputKey, setInputKey] = useState(Date.now()); 
-
-    const clearImage = () => {
-        setInputKey(Date.now());
-    }
+    const [inputKey] = useState(Date.now()); 
 
     let imagePath = 'No cover'
 
@@ -128,23 +105,7 @@ const SectionEdit = () => {
                 </div>
 
                 <div className="horizontal-container cover-container">
-                    {/* <p>Cover</p>
-                    <input 
-                        className='section-cover-input'
-                        type='file' 
-                        accept='image/*' 
-                        // key={inputKey}
-                        value={undefined} 
-                        onChange={(e)=> setCover(e.target.files[0])}
-                    /> */}
-
                     <Uploader inputKey={inputKey} setCover={setCover} />
-
-                    {/* <button
-                        onClick={uploadCover}
-                        className='section-add-btn'>
-                        Upload
-                    </button> */}
                 </div>
 
                 <input

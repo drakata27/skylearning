@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import './SubtopicAdd.css'
+import Uploader from '../../Components/Uploader/Uploader'
 
 import modules from '../../utils/quilModules'
 import ReactQuill from 'react-quill';
@@ -64,11 +65,7 @@ const SubtopicAdd = () => {
         }        
     }
     
-    const [inputKey, setInputKey] = useState(Date.now()); 
-
-    const clearImage = () => {
-    setInputKey(Date.now());
-    }
+    const [inputKey] = useState(Date.now()); 
 
     const cancel = () => {
     navigate(`/learning/${id}/topic/${topicId}/`)
@@ -80,20 +77,7 @@ const SubtopicAdd = () => {
 
             <div className="section-form">
           <div className="horizontal-container cover-container">
-            <p>Cover</p>
-            <input 
-                className='section-cover-input'
-                type='file' 
-                accept='image/*' 
-                key={inputKey} 
-                value={undefined} 
-                onChange={(e)=> setCover(e.target.files[0])}
-            />
-
-            <button
-              className='clear-img-btn' 
-              onClick={clearImage}
-              >Clear</button>
+            <Uploader inputKey={inputKey} setCover={setCover}/>
           </div>
 
           <input

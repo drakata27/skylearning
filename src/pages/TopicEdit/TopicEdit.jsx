@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Placeholder from '../../assets/placeholder.jpg'
+import Uploader from '../../Components/Uploader/Uploader'
 
 const TopicEdit = () => {
     let {id} = useParams();
@@ -70,26 +71,24 @@ const TopicEdit = () => {
         }
     }
 
-    let uploadCover = async () => {
-        const formData = new FormData();
-        formData.append('cover', cover);
-            
-        const response = await fetch(url, {
-          method: "PUT",
-          body: formData,
-        })
-      
-        if (cover) {
-          const data = await response.json();
-          setTopic({ ...topic, cover: data.cover });
-        }
-        console.log('cover',cover);
-    }
-
-
     const cancel = () => {
         navigate(`/learning/${id}/`)
     }
+
+    const [inputKey] = useState(Date.now()); 
+
+    let imagePath = 'No cover'
+
+    if (topic.cover) {
+        imagePath = topic.cover
+    }
+
+    const getImageName = (path) => {
+        const parts = path.split('/');
+        return parts[parts.length - 1];
+    };
+
+    const imageName = getImageName(imagePath);
 
 
   return (
@@ -97,31 +96,20 @@ const TopicEdit = () => {
         <h1>{topic.title}</h1>
         <div className="section-form">
             <div className="cover-preview">
+                <h1>Current Cover</h1>
                 { topic.cover ? 
                     <img src={'http://127.0.0.1:8000/' + 
                         topic.cover} alt="section cover" />
-                    // <img src={section.cover} alt="section cover" />
                     :
                     <img src={Placeholder} alt="section cover" />
                 }
+                <section className='uploaded-row'>
+                    <p>{imageName}</p>
+                </section>
             </div>
 
             <div className="horizontal-container cover-container">
-                <p>Cover</p>
-                <input 
-                    className='section-cover-input'
-                    type='file' 
-                    accept='image/*' 
-                    // key={inputKey}
-                    value={undefined} 
-                    onChange={(e)=> setCover(e.target.files[0])}
-                />
-
-                <button
-                    onClick={uploadCover}
-                    className='section-add-btn'>
-                    Upload
-                </button>
+                <Uploader inputKey={inputKey} setCover={setCover} />
             </div>
 
             <input

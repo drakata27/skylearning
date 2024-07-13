@@ -57,11 +57,7 @@ const SectionAdd = () => {
     }        
   }
 
-  const [inputKey, setInputKey] = useState(Date.now()); 
-
-  const clearImage = () => {
-    setInputKey(Date.now());
-  }
+  const [inputKey] = useState(Date.now());
 
   const cancel = () => {
     navigate('/learning')
@@ -72,21 +68,6 @@ const SectionAdd = () => {
         <h1>Add Section</h1>
         <div className="section-form">
           <div className="horizontal-container cover-container">
-              {/* <input 
-                  className='section-cover-input'
-                  type='file' 
-                  accept='image/*' 
-                  key={inputKey} 
-                  value={undefined} 
-                  onChange={(e)=> setCover(e.target.files[0])}
-              /> */}
-              
-
-            {/* <button
-              className='clear-img-btn' 
-              onClick={clearImage}
-              >Clear</button> */}
-
               <Uploader inputKey={inputKey} setCover={setCover}/>
           </div>
 

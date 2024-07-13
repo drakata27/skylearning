@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Placeholder from '../../assets/placeholder.jpg'
+import Uploader from '../../Components/Uploader/Uploader'
 
 import 'react-quill/dist/quill.snow.css';
 import modules from '../../utils/quilModules'
@@ -82,21 +83,20 @@ const SubtopicEdit = () => {
         }
     }
 
-    let uploadCover = async () => {
-        const formData = new FormData();
-        formData.append('cover', cover);
-        formData.append('topic', topicId);
-            
-        const response = await fetch(url, {
-          method: "PUT",
-          body: formData,
-        })
-      
-        if (cover) {
-          const data = await response.json();
-          setSubtopic({ ...subtopic, cover: data.cover });
-        }
+    const [inputKey] = useState(Date.now()); 
+
+    let imagePath = 'No cover'
+
+    if (subtopic.cover) {
+        imagePath = subtopic.cover
     }
+
+    const getImageName = (path) => {
+        const parts = path.split('/');
+        return parts[parts.length - 1];
+    };
+
+    const imageName = getImageName(imagePath);
 
     const cancel = () => {
         navigate(`/learning/${id}/topic/${topicId}/`)
@@ -107,30 +107,22 @@ const SubtopicEdit = () => {
         <h1>{subtopic.title}</h1>
         <div className="section-form">
             <div className="cover-preview">
+                
+
+                <h1>Current Cover</h1>
                 { subtopic.cover ? 
                     <img src={'http://127.0.0.1:8000/' + 
                         subtopic.cover} alt="section cover" />
-                    // <img src={section.cover} alt="section cover" />
                     :
-                    <img src={Placeholder} alt="subtopic cover" />
+                    <img src={Placeholder} alt="section cover" />
                 }
+                <section className='uploaded-row'>
+                    <p>{imageName}</p>
+                </section>
             </div>
 
             <div className="horizontal-container cover-container">
-                <input 
-                    className='section-cover-input'
-                    type='file' 
-                    accept='image/*' 
-                    // key={inputKey}
-                    value={undefined} 
-                    onChange={(e)=> setCover(e.target.files[0])}
-                />
-
-                <button
-                    onClick={uploadCover}
-                    className='section-add-btn'>
-                    Upload
-                </button>
+                <Uploader inputKey={inputKey} setCover={setCover} />
             </div>
 
             <input
