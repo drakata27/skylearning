@@ -36,3 +36,9 @@
     margin-top: 1rem;
     background-color: orange;
 }
+
+@media screen and (max-width: 1587px) {
+    .topic-page-container{
+        margin: 0 2rem;
+    }
+}

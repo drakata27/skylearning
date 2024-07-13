@@ -28,3 +28,9 @@
 .section-page-container h2 {
     color: gray;
 }
+
+@media screen and (max-width: 1587px) {
+    .section-page-container{
+        margin: 0 2rem;
+    }
+}
