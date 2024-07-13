@@ -18,6 +18,7 @@ import SubtopicPage from './pages/SubtopicPage/SubtopicPage';
 import SubtopicAdd from './pages/SubtopicAdd/SubtopicAdd';
 import SubtopicEdit from './pages/SubtopicEdit/SubtopicEdit';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
           <Header/>
           <Routes>
             <Route exact path='/' element={<HomePage/>}/>
+            
+            <Route exact path='/:user' element={<ProfilePage />}/>
 
             {/* Sections */}
             <Route exact path='/learning' element={<SectionList/>}/>

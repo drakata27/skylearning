@@ -121,8 +121,8 @@ const Header = () => {
                 Logout
               </Link>
             </li>
-            <li>
-              <Link to={"/"} className="nav-menu-list">
+            <li onClick={console.log('/'+user.username)}>
+              <Link to={'/'+user.username} className="nav-menu-list" >
               <div className="horizontal-container">
                 <span 
                   class="material-symbols-outlined" 

@@ -36,6 +36,7 @@ const SectionList = () => {
     let data = await response.json()
     setSections(data)
   }
+  
   useEffect(()=>{
     getSections()
   },[])
