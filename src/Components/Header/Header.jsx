@@ -49,15 +49,13 @@ const NavManu = styled.ul`
   li {
     &:hover {
       cursor: pointer;
-      background: rgb(27, 27, 92);
-      border-radius: 4px;
     }
   }
   .nav-menu-list {
     text-decoration: none;
     color: white;
     display: block;
-    padding: 10px 10px;
+    padding: 8px 10px;
   }
   @media screen and (max-width: 768px) {
     display: ${(props) => (props.isToggleOpen ? "flex" : "none")};
@@ -116,23 +114,16 @@ const Header = () => {
         </>
           :
           <>
+            <li>
+              <Link to={'/'+user.username} className="nav-menu-list" >
+              <div className="horizontal-container">
+                  {user.username}
+              </div>
+              </Link>
+            </li>
             <li onClick={logoutUser}>
               <Link to={"/logout"} className="nav-menu-list logout-btn">
                 Logout
-              </Link>
-            </li>
-            <li onClick={console.log('/'+user.username)}>
-              <Link to={'/'+user.username} className="nav-menu-list" >
-              <div className="horizontal-container">
-                <span 
-                  class="material-symbols-outlined" 
-                  style={{marginRight: '0.5rem', padding: '0'}}
-                >
-                  person
-                </span>
-                  {user.username}
-
-              </div>
               </Link>
             </li>
           </>

@@ -1,3 +1,29 @@
 .profile-container{
    margin: 2rem;
 }
+.profile-image-container{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.profile-image-container img{
+   width: 10rem;
+   margin-top: 2rem;
+}
+
+.table-container{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.profile-table td{
+   font-size: 2rem;
+   padding: 1rem;
+}
+.profile-table td:nth-child(1){
+   color: gray;
+}
+.profile-table td:nth-child(2){
+   color: white;
+}

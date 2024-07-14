@@ -25,56 +25,6 @@ const LoginPage = () => {
   };
 
   return (
-    // <div>
-    //   <h1>Login</h1>
-    //   <>
-    //     <form className='login-form' onSubmit={handleSubmit}> 
-    //     <div className="input-container">
-    //         <label 
-    //             className="email-label" 
-    //             htmlFor="form2Example17">
-    //             Email address
-    //         </label>
-    //         <input
-    //             name='email'
-    //             type="email"
-    //             id="form2Example17"
-    //             className="email-input"
-    //         />
-
-    //     </div>
-
-    //     <div className="input-container">
-    //         <label className="password-label" htmlFor="form2Example27">
-    //             Password
-    //         </label>
-    //         <input
-    //             name='password'
-    //             type="password"
-    //             id="form2Example27"
-    //             className=""
-    //         />
-    //         </div>
-
-    //       {
-    //         loading ?
-    //         <Loader
-    //             color={"green"}
-    //             loading={loading}
-    //             size={30}
-    //             aria-label="Loading Spinner"
-    //         />
-    //         :
-    //         <button
-    //             className="btn form-btn"
-    //             type="submit">
-    //             Login
-    //         </button>
-    //       }
-
-    //     </form>
-    //   </>
-    // </div>
     <div className="login-container">
       <div className='login-wrapper'>
           <h1>Login</h1>

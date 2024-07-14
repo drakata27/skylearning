@@ -7,6 +7,7 @@ const AuthContext = createContext()
 export default AuthContext
 
 export const AuthProvider = ({ children }) => {
+    const swal = require('sweetalert2')
     
     const [authTokens, setAuthTokens] = useState(() => 
         localStorage.getItem("authTokens")
@@ -40,9 +41,28 @@ export const AuthProvider = ({ children }) => {
             setUser(jwtDecode(data.access))
             localStorage.setItem("authTokens", JSON.stringify(data))
             navigate('/')
+
+            swal.fire({
+                title: 'Login successful',
+                icon: 'success',
+                toast: 'true',
+                timer: 2000,
+                position: 'top-right',
+                timerProgressBar: true,
+                showConfirmButton: false
+            })
+            
         } else {
             console.log('Server issue: '+response.status);
-            alert('Something went wrong: ' + response.status)
+            swal.fire({
+                title: 'Please try again',
+                icon: 'error',
+                toast: 'true',
+                timer: 2000,
+                position: 'top-right',
+                timerProgressBar: true,
+                showConfirmButton: false
+            })
         }
     }
 
