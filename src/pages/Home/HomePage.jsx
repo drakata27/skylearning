@@ -40,9 +40,9 @@ const HomePage = () => {
   },[])
 
   return (
-    <div className="section-list-container home-container">
+    <div className="home-container section-list-container home-container">
         <div id='home-heading' className='horizontal-container' style={{marginTop: '2rem'}}>
-          <h1>Learning from The Community</h1>
+          <h1>Home</h1>
           { token ? 
             <p style={{ color: 'rgb(188, 187, 179);'}}>Hello, { user.username } 👋</p>      
             :

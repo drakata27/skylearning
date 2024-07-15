@@ -1,13 +1,10 @@
 .section-item-container{
     padding: 2rem;
     margin: 2rem;
-    /* border: 2px solid white; */
     border-radius: 15px;
     justify-content: space-between;
     transition: transform 0.3s ease;
-    
     box-shadow: 2px 15px 11px 4px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
 }
 
 .section-item-container:hover{

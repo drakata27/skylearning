@@ -3,14 +3,21 @@ import { Link, useParams } from 'react-router-dom'
 import Placeholder from '../../assets/placeholder.png'
 
 const TopicItem = ({topic, refreshTopic}) => {
+    const swal = require('sweetalert2')
     const {id} = useParams()
     const url = `http://127.0.0.1:8000/api/section/${id}/topic/${topic.id}`
     const token = localStorage.getItem("authTokens")
 
     let deleteTopic = async (e) =>{
-        const isConfirmed = window.confirm(`Are you sure you want to 
-        delete topic "${topic.title}"?`);
-        if (isConfirmed) {
+        e.preventDefault()
+        const result = await swal.fire({
+            title: `Are you sure you want to delete topic "${topic.title}"?`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes',
+            cancelButtonText: 'No',
+        });
+        if (result.isConfirmed) {
             try {
                 const response = await fetch(url, {
                 method: "DELETE",
@@ -24,12 +31,20 @@ const TopicItem = ({topic, refreshTopic}) => {
                     response.status, response.statusText);
                 return
             }
+            swal.fire({
+                title: `Topic "${topic.title}" was deleted`,
+                icon: 'success',
+                toast: 'true',
+                timer: 2000,
+                position: 'top-right',
+                timerProgressBar: true,
+                showConfirmButton: false
+            })
             refreshTopic()
             } catch(error) {
                 console.error('Error deleting topic:', error);
             }
         }
-        e.preventDefault()
     }
 
   return (

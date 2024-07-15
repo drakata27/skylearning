@@ -20,3 +20,9 @@
 .login:hover{
     transform: scale(1.04);
 }
+
+@media screen and (max-width: 1587px) {
+    .home-container {
+        padding: 1rem;
+    }
+}

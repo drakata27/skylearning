@@ -3,15 +3,22 @@ import { Link, useParams, useNavigate } from 'react-router-dom'
 import Placeholder from '../../assets/placeholder.png'
 
 const SubtopicItem = ({topic, subtopic, refreshSubtopic}) => {
+  const swal = require('sweetalert2')
   const {id, topicId} = useParams()
   const url = `http://127.0.0.1:8000/api/section/${id}/topic/${topic.id}/subtopic/${subtopic.id}`
   const token = localStorage.getItem("authTokens")
   const navigate = useNavigate();
 
   let deleteSubtopic = async (e) => {
-    const isConfirmed = window.confirm(`Are you sure you want to 
-    delete subtopic "${subtopic.title}"?`);
-    if (isConfirmed) {
+    e.preventDefault()
+    const result = await swal.fire({
+        title: `Are you sure you want to delete material "${subtopic.title}"?`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No',
+    });
+    if (result.isConfirmed) {
         try {
             const response = await fetch(url, {
             method: "DELETE",
@@ -25,6 +32,15 @@ const SubtopicItem = ({topic, subtopic, refreshSubtopic}) => {
                 response.status, response.statusText);
                 return
         }
+        swal.fire({
+            title: `Material "${subtopic.title}" was deleted`,
+            icon: 'success',
+            toast: 'true',
+            timer: 2000,
+            position: 'top-right',
+            timerProgressBar: true,
+            showConfirmButton: false
+        })
         refreshSubtopic()
         navigate(`/learning/${id}/topic/${topicId}/`)
         } catch(error) {
@@ -32,7 +48,6 @@ const SubtopicItem = ({topic, subtopic, refreshSubtopic}) => {
         }
         
     }
-    e.preventDefault()
 }
 
   return (

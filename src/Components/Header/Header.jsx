@@ -59,7 +59,6 @@ const NavManu = styled.ul`
   }
   @media screen and (max-width: 768px) {
     display: ${(props) => (props.isToggleOpen ? "flex" : "none")};
-    display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
@@ -87,7 +86,7 @@ const Header = () => {
         </div>
         
 
-        <NavManu $isToggleOpen={isToggleOpen}>
+        <NavManu isToggleOpen={isToggleOpen}>
         <li>
           <Link to={"/"} className="nav-menu-list">
             Home

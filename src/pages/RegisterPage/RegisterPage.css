@@ -74,8 +74,7 @@
 
 .register-wrapper button {
     width: 50%;
-    height: 150%;
-
+    height: 3rem;
     background-color: #fff;
     border: none;
     border-radius: 15px;
@@ -84,9 +83,6 @@
     font-size: 16px;
     color: #333;
     font-weight: 700;
-
-    padding: 1rem;
-
     transition: background-color 0.2s ease;
 }
 

@@ -6,7 +6,18 @@ import './LoginPage.css'
 
 import { FaUser, FaLock } from 'react-icons/fa'
 
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
 const LoginPage = () => {
+  useGSAP(()=> {
+    gsap.to('.login-container', {
+      y: -23,
+      opacity: 1,
+      delay: 0.2
+    })
+  }, [])
+
   const {loginUser} = useContext(AuthContext)
   const [loading, setLoading] = useState(false)
 
@@ -25,7 +36,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="login-container">
+    <div className="login-container" style={{opacity:0}}>
       <div className='login-wrapper'>
           <h1>Login</h1>
           <form action="" onSubmit={handleSubmit}>

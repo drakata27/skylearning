@@ -3,12 +3,20 @@ import { Link } from 'react-router-dom'
 import Placeholder from '../../assets/placeholder.png'
 
 const SectionItem = ({section, refreshSection}) => {
+    const swal = require('sweetalert2')
     const url = `http://127.0.0.1:8000/api/section/${section.id}/`
     const token = localStorage.getItem("authTokens")
     
     let deleteSection = async (e) =>{
-        const isConfirmed = window.confirm(`Are you sure you want to delete section "${section.title}"?`);
-        if (isConfirmed) {
+        e.preventDefault()
+        const result = await swal.fire({
+            title: `Are you sure you want to delete section "${section.title}"?`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes',
+            cancelButtonText: 'No',
+        });
+        if (result.isConfirmed) {
             try {
                 const response = await fetch(url, {
                 method: "DELETE",
@@ -21,12 +29,20 @@ const SectionItem = ({section, refreshSection}) => {
                 console.error('Error deleting Section. Server responded with:', response.status, response.statusText);
                 return
             }
+            swal.fire({
+                title: `Section "${section.title}" was deleted`,
+                icon: 'success',
+                toast: 'true',
+                timer: 2000,
+                position: 'top-right',
+                timerProgressBar: true,
+                showConfirmButton: false
+            })
             refreshSection()
             } catch(error) {
                 console.error('Error deleting section:', error);
             }
         }
-        e.preventDefault()
     }
 
     return (

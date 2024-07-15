@@ -76,11 +76,27 @@ export const AuthProvider = ({ children }) => {
         })
 
         if (response.status===201){
-            console.log('Account was created');
+            swal.fire({
+                title: 'Account was created successfully',
+                icon: 'success',
+                toast: 'true',
+                timer: 2000,
+                position: 'top-right',
+                timerProgressBar: true,
+                showConfirmButton: false
+            })
             navigate('/login')
         } else {
             console.log('Server issue: '+response.status);
-            alert('Something went wrong: ' + response.status)
+            swal.fire({
+                title: 'Please try again',
+                icon: 'error',
+                toast: 'true',
+                timer: 2000,
+                position: 'top-right',
+                timerProgressBar: true,
+                showConfirmButton: false
+            })
         }
     }
 
