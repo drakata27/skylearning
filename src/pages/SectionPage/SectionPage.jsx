@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import './SectionPage.css'
 import TopicItem from '../../Components/TopicItem/TopicItem'
+import AuthContext from '../../context/AuthContext'
+import BackButton from '../../Components/BackButton/BackButton'
 
 const SectionPage = () => {
+    let {user} = useContext(AuthContext)
     let {id} = useParams()
     const [section, setSection] = useState({
         title: '',
@@ -44,15 +47,8 @@ const SectionPage = () => {
     return (
     <div className='section-page-container'>
         <div className="horizontal-container">
-
-            <Link 
-                to={'/learning/'}
-                className='back-btn'>
-                <span class="material-symbols-outlined">
-                    arrow_back
-                </span>
-            </Link>
-
+            
+            <BackButton />
 
             <div>
                 <h1 className='title'>{section?.title}</h1>
@@ -62,15 +58,18 @@ const SectionPage = () => {
                 </div>
             </div>
 
-            <Link className='add-section-btn' to='add/'>
-                <span class="material-symbols-outlined">
-                    add
-                </span>
-            </Link>
+            { user && user.user_id === section.user ? 
+                <Link className='add-section-btn' to='add/'>
+                    <span class="material-symbols-outlined">
+                        add
+                    </span>
+                </Link> : <p>{section.username}</p>
+            }
+
         </div>
             <div className="topic-container">
                 { topics.map((topic, index)=>(
-                    <TopicItem key={index} topic={topic} refreshTopic={getTopic}/>
+                    <TopicItem key={index} section={section} topic={topic} refreshTopic={getTopic}/>
                 ))}
             </div>
     </div>

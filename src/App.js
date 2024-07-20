@@ -19,8 +19,10 @@ import SubtopicAdd from './pages/SubtopicAdd/SubtopicAdd';
 import SubtopicEdit from './pages/SubtopicEdit/SubtopicEdit';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
+import Unauthorized from './pages/Unauthorized/Unauthorized';
 
 function App() {
+  
   return (
     <Router>
       <AuthProvider>
@@ -69,6 +71,7 @@ function App() {
             {/* Authentication */}
             <Route exact path='/login' element={<LoginPage/>}/>
             <Route exact path='/register' element={<RegisterPage />}/>
+            <Route exact path='/unauthorized' element={<Unauthorized />}/>
 
           </Routes>
           <Footer/>

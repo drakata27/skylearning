@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import {useParams, Link} from 'react-router-dom'
 import './TopicPage.css'
+import AuthContext from '../../context/AuthContext'
 import SubtopicItem from '../../Components/SubtopicItem/SubtopicItem'
+import BackButton from '../../Components/BackButton/BackButton'
 
 const TopicPage = () => {
+    let {user} = useContext(AuthContext)
     let {id} = useParams()
     let {topicId} = useParams()
     const urlTopic = `http://127.0.0.1:8000/api/section/${id}/topic/${topicId}`
@@ -13,6 +16,14 @@ const TopicPage = () => {
         title: '',
         subtitle: '',
         cover: null,
+    })
+
+    const [section, setSection] = useState({
+        user: user.user_id,
+        username: user.username,
+        title: '',
+        subtitle: '',
+        cover: '',
     })
 
     const [subtopics, setSubtopics] =  useState([])
@@ -36,6 +47,26 @@ const TopicPage = () => {
         getSubtopic()
     }, [urlSubtopic])
 
+    const urlFetchSection = `http://127.0.0.1:8000/api/section/${id}/`
+    
+    useEffect(()=>{
+        const fetchSectionDetail = async () => {
+            try {
+                const response = await fetch(urlFetchSection);
+                if (!response.ok) {
+                    console.error('Error fetching section data:', 
+                    response.status, response.statusText);
+                    return
+                }
+                const data = await response.json();
+                setSection(data)
+            } catch (error) {
+                alert("Error fetching details: " + error)
+            }
+        }
+        fetchSectionDetail()
+    },[urlFetchSection])
+
     const getSubtopic = async () =>{
         let response = await fetch(urlSubtopic)
         let data = await response.json()
@@ -45,13 +76,7 @@ const TopicPage = () => {
     return (
         <div className='topic-page-container list-container'>
             <div className="horizontal-container">
-                <Link 
-                    to={`/learning/${id}`}
-                    className='back-btn'>
-                    <span class="material-symbols-outlined">
-                        arrow_back
-                    </span>
-                </Link>
+                <BackButton />
                 
                 <div>
                     <h1 className='title'>{topic?.title}</h1>
@@ -61,14 +86,16 @@ const TopicPage = () => {
                     </div>
                 </div>
 
-                <Link 
-                    className='add-section-btn' 
-                    to={`/learning/${id}/topic/${topicId}/add`}
-                >
-                    <span class="material-symbols-outlined">
-                        add
-                    </span>
-                </Link>
+                { user && user.user_id === section.user ? 
+                    <Link 
+                        className='add-section-btn' 
+                        to={`/learning/${id}/topic/${topicId}/add`}
+                    >
+                        <span class="material-symbols-outlined">
+                            add
+                        </span>
+                    </Link> : <p>{section.username}</p>
+                }
             </div>
             <div className="topic-container">
                 { subtopics.map((subtopic, index)=>(

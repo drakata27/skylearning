@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import Placeholder from '../../assets/placeholder.jpg'
 
 import './SubtopicPage.css'
+import BackButton from '../../Components/BackButton/BackButton'
 
 const SubtopicPage = () => {
   let {id, topicId, matId} = useParams();
@@ -64,13 +65,7 @@ const SubtopicPage = () => {
   return (
     <div className='subtopic-container'>
         <div className="horizontal-container">
-                <Link 
-                    to={`/learning/${id}/topic/${topicId}/`}
-                    className='back-btn'>
-                    <span class="material-symbols-outlined">
-                        arrow_back
-                    </span>
-                </Link>
+                <BackButton />
                 
                 <div className='title-container'>
                     <h1 className='title'>{subtopic?.title}</h1>

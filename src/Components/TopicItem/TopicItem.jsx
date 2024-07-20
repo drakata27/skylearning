@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Placeholder from '../../assets/placeholder.png'
+import AuthContext from '../../context/AuthContext'
 
-const TopicItem = ({topic, refreshTopic}) => {
+const TopicItem = ({section, topic, refreshTopic}) => {
+    const {user} = useContext(AuthContext)
     const swal = require('sweetalert2')
     const {id} = useParams()
     const url = `http://127.0.0.1:8000/api/section/${id}/topic/${topic.id}`
@@ -62,7 +64,7 @@ const TopicItem = ({topic, refreshTopic}) => {
                     <h3>{topic.subtitle}</h3>
                 </div>
 
-                { token ? 
+                { token && section.user === user.user_id ? 
                 <>
                     <div className='section-item-btns'>
                         <Link to={`topic/${topic.id}/edit/`}>

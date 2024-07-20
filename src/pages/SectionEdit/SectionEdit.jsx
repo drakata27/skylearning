@@ -1,25 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import './SectionEdit.css'
 import Placeholder from '../../assets/placeholder.jpg'
 import Uploader from '../../Components/Uploader/Uploader'
+import AuthContext from '../../context/AuthContext'
 
 const SectionEdit = () => {
+    const {user} = useContext(AuthContext)
     let {id} = useParams();
     const [cover, setCover] = useState()
     const [section, setSection] = useState({
+        user: user.user_id,
+        username: user.username,
         'title': '',
         'subtitle': '',
         'cover': cover,
     })
 
-    const url = `http://127.0.0.1:8000/api/section/${id}/edit/`
     const navigate = useNavigate();
+    const url = `http://127.0.0.1:8000/api/section/${id}/edit/`
+    const urlFetch = `http://127.0.0.1:8000/api/section/${id}/`
 
     useEffect(()=>{
         const fetchSectionDetail = async () => {
             try {
-                const response = await fetch(url);
+                const response = await fetch(urlFetch);
                 if (!response.ok) {
                     console.error('Error fetching section data:', 
                     response.status, response.statusText);
@@ -32,7 +37,7 @@ const SectionEdit = () => {
             }
         }
         fetchSectionDetail()
-    },[url])
+    },[urlFetch])
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -43,6 +48,9 @@ const SectionEdit = () => {
         const formData = new FormData()
         formData.append('title', section.title);
         formData.append('subtitle', section.subtitle);
+        formData.append('user', user.user_id);
+        formData.append('username', user.username);
+
         if (cover) {
             formData.append('cover', cover);
         }
