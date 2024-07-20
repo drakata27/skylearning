@@ -1,8 +1,11 @@
 import './SectionItem.css'
+import React, {useContext} from 'react'
 import { Link } from 'react-router-dom'
 import Placeholder from '../../assets/placeholder.png'
+import AuthContext from '../../context/AuthContext'
 
 const SectionItem = ({section, refreshSection}) => {
+    const {user} = useContext(AuthContext)
     const swal = require('sweetalert2')
     const url = `http://127.0.0.1:8000/api/section/${section.id}/`
     const token = localStorage.getItem("authTokens")
@@ -16,6 +19,7 @@ const SectionItem = ({section, refreshSection}) => {
             confirmButtonText: 'Yes',
             cancelButtonText: 'No',
         });
+
         if (result.isConfirmed) {
             try {
                 const response = await fetch(url, {
@@ -58,9 +62,10 @@ const SectionItem = ({section, refreshSection}) => {
                 <div className='section-item-content'>
                     <h2>{section.title}</h2>
                     <h3>{section.subtitle}</h3>
+                    <p>By {section.username}</p>
                 </div>
 
-                { token ? 
+                { token && section.user === user.user_id ? 
                 <>
                     <div className='section-item-btns'>
                         <Link to={`/learning/${section.id}/edit/`}>

@@ -1,11 +1,15 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import { useNavigate } from 'react-router-dom';
 import './SectionAdd.css'
 import Uploader from '../../Components/Uploader/Uploader'
+import AuthContext from '../../context/AuthContext'
 
 const SectionAdd = () => {
+  const {user} = useContext(AuthContext)
   const [cover, setCover] = useState()
   const [section, setSection] = useState({
+    user: user.user_id,
+    username: user.username,
     title: '',
     subtitle: '',
     cover: cover,
@@ -23,6 +27,9 @@ const SectionAdd = () => {
         const formData = new FormData();
         formData.append('title', section.title);
         formData.append('subtitle', section.subtitle);
+        formData.append('user', user.user_id);
+        formData.append('username', user.username);
+        
         if (cover) {
             formData.append('cover', cover);
         } else {
