@@ -16,3 +16,9 @@ li:hover {
     background-color: red;
     border-radius: 5px;
 }
+@media screen and (max-width: 768px) {
+    .header-container img{
+        width: 9rem;
+        height: 3rem;
+    }
+}

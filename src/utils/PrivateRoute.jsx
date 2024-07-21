@@ -5,16 +5,29 @@ import AuthContext from '../context/AuthContext'
 const PrivateRoute = ({children, ...rest}) => {
     let {user} = useContext(AuthContext)
     let {id} = useParams();
-
+    
     const [section, setSection] = useState({
-        user: user.user_id,
-        username: user.username,
+        // user: user.user_id,
+        // username: user.username,
+        user: null,
+        username: '',
         title: '',
         subtitle: '',
         cover: '',
     })
 
+    // const urlFetch = `http://127.0.0.1:8000/api/section/${id}/`
     const urlFetch = `http://127.0.0.1:8000/api/section/${id}/`
+    
+    useEffect(() => {
+        if (user) {
+            setSection(prevState => ({
+                ...prevState,
+                user: user.user_id,
+                username: user.username,
+            }));
+        }
+    }, [user]);
     
     useEffect(()=>{
         const fetchSectionDetail = async () => {
@@ -32,10 +45,25 @@ const PrivateRoute = ({children, ...rest}) => {
             }
         }
         fetchSectionDetail()
-    },[urlFetch])
+    },[urlFetch]) 
 
-    return user && user.user_id === section.user ? 
-        <Outlet /> : <Navigate to="/unauthorized" />;
+    // return user  && user.user_id === section.user ? 
+    //     <Outlet /> : <Navigate to="/unauthorized" />;
+    
+    if (!user) {
+        return <Navigate to="/unauthorized" />
+    } else {
+        return <Outlet />
+    }
+
+    // if (user.user_id === section.user) {
+    //     return <Outlet />
+    // } else {
+    //     console.log('user.user_id',user.user_id );
+    //     console.log('section.user',section.user );
+    //     console.log('id', id );
+    //     return <Navigate to="/unauthorized" />
+    // }
 }
 
 export default PrivateRoute

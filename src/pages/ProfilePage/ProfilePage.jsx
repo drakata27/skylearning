@@ -36,6 +36,8 @@ const ProfilePage = () => {
 
     const {user} = useContext(AuthContext)
     const url = `http://127.0.0.1:8000/api/${user.username}/`
+
+
     let [profile, setProfile] = useState({
         full_name: "",
         bio: "",

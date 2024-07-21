@@ -109,3 +109,54 @@
 .login-link p a:hover {
     text-decoration: underline;
 }
+
+@media screen and (max-width: 768px) {
+    .register-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+    }
+    
+    .register-wrapper {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 12rem;
+        margin: 0;
+    }
+
+    .register-wrapper h1 {
+        font-size: 1.5rem;
+    }
+
+    .register-wrapper>form {
+        width: 12rem;
+    }
+    
+    .register-wrapper>form>button{
+        width: 7rem;
+        height: 3rem;
+        font-size: 1rem;
+    }
+
+    .register-input-box input {
+        margin-right: 22rem;
+        width: 90%;
+        font-size: 0.9rem;
+        padding: 1rem;
+    }
+
+    .register-icon{
+        display: none;
+    }
+
+    .login-link {
+        padding: 0;
+    }
+    
+    .login-link p{
+        font-size: 0.7rem;
+    }
+}

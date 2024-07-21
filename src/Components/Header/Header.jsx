@@ -11,7 +11,7 @@ import AuthContext from '../../context/AuthContext'
 const StyledHeader = styled.header`
   background-color: black;
   width: 100%;
-  padding: 10px 12px 8px 12px;
+  padding-top: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -61,7 +61,7 @@ const NavManu = styled.ul`
     display: ${(props) => (props.isToggleOpen ? "flex" : "none")};
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 80%;
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
@@ -77,7 +77,7 @@ const Header = () => {
   };
 
   return (
-    <>
+    <div className='header-container'>
       <StyledHeader>
       <div className="nav_logo">
           <Link to={"/"} className="nav-logo-link">
@@ -90,11 +90,6 @@ const Header = () => {
         <li>
           <Link to={"/"} className="nav-menu-list">
             Home
-          </Link>
-        </li>
-        <li>
-          <Link to={"/learning"} className="nav-menu-list">
-            My Learning
           </Link>
         </li>
 
@@ -114,6 +109,11 @@ const Header = () => {
           :
           <>
             <li>
+              <Link to={"/learning"} className="nav-menu-list">
+                My Learning
+              </Link>
+          </li>
+            <li>
               <Link to={'/'+user.username} className="nav-menu-list" >
               <div className="horizontal-container">
                   {user.username}
@@ -130,7 +130,7 @@ const Header = () => {
         </NavManu>
         <FaBars className="menuToggleBtn" onClick={handleToggleOpen} />
       </StyledHeader>
-    </>
+    </div>
   )
 }
 

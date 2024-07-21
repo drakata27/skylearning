@@ -1,7 +1,6 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import {Link} from 'react-router-dom'
 import AuthContext from '../../context/AuthContext'
-import Loader from "react-spinners/ScaleLoader";
 import './LoginPage.css'
 
 import { FaUser, FaLock } from 'react-icons/fa'
@@ -19,19 +18,15 @@ const LoginPage = () => {
   }, [])
 
   const {loginUser} = useContext(AuthContext)
-  const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
     const email = e.target.email.value;
     const password = e.target.password.value;
 
     try {
       await loginUser(email, password);
-      setLoading(false);
     } catch (error) {
-      setLoading(false);
     }
   };
 

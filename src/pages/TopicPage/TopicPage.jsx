@@ -19,8 +19,10 @@ const TopicPage = () => {
     })
 
     const [section, setSection] = useState({
-        user: user.user_id,
-        username: user.username,
+        // user: user.user_id,
+        // username: user.username,
+        user: null,
+        username: '',
         title: '',
         subtitle: '',
         cover: '',

@@ -25,3 +25,14 @@
     align-items: center;
     margin-top: 2rem;
   }
+
+  @media screen and (max-width: 768px) {
+    .footer img{
+        width: 9rem;
+        height: 3rem;
+    }
+
+    .footer p{
+      font-size: 0.7rem;
+    }
+}

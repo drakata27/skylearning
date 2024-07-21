@@ -34,16 +34,11 @@ function App() {
             <Route exact path='/:user' element={<ProfilePage />}/>
 
             {/* Sections */}
-            <Route exact path='/learning' element={<SectionList/>}/>
-
-            <Route exact path='/learning/:id' element={<SectionPage/>}/>
-
-            <Route exact path='/learning/add' element={<PrivateRoute/>}>
-              <Route exact path='/learning/add' Component={SectionAdd}/>
-            </Route>
-
-            <Route exact path='/learning/:id/edit' element={<PrivateRoute/>}>
-              <Route path='/learning/:id/edit' Component={SectionEdit} />
+            <Route path="/learning" element={<PrivateRoute />}>
+              <Route index element={<SectionList />} />
+              <Route path="add" element={<SectionAdd />} />
+              <Route path=":id" element={<SectionPage />} />
+              <Route path=":id/edit" element={<SectionEdit />} />
             </Route>
 
             {/* Topics */}
