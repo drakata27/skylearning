@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './Components/Header/Header';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { AuthProvider } from './context/AuthContext';
 import LoginPage from './pages/LoginPage/LoginPage';
@@ -9,7 +9,7 @@ import SectionList from './pages/SectionList/SectionList';
 import SectionAdd from './pages/SectionAdd/SectionAdd';
 import SectionPage from './pages/SectionPage/SectionPage';
 import SectionEdit from './pages/SectionEdit/SectionEdit';
-import PrivateRoute from './utils/PrivateRoute';
+import { PrivateRoute, EditRoute } from './utils/PrivateRoute';
 import Footer from './Components/Footer/Footer';
 import TopicAdd from './pages/TopicAdd/TopicAdd';
 import TopicEdit from './pages/TopicEdit/TopicEdit';
@@ -22,54 +22,58 @@ import ProfilePage from './pages/ProfilePage/ProfilePage';
 import Unauthorized from './pages/Unauthorized/Unauthorized';
 
 function App() {
-  
   return (
     <Router>
       <AuthProvider>
         <div className="App">
-          <Header/>
+          <Header />
           <Routes>
-            <Route exact path='/' element={<HomePage/>}/>
-            
-            <Route exact path='/:user' element={<ProfilePage />}/>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/:user" element={<ProfilePage />} />
 
             {/* Sections */}
             <Route path="/learning" element={<PrivateRoute />}>
               <Route index element={<SectionList />} />
               <Route path="add" element={<SectionAdd />} />
               <Route path=":id" element={<SectionPage />} />
-              <Route path=":id/edit" element={<SectionEdit />} />
+            </Route>
+
+            <Route path="/learning/:id/edit" element={<EditRoute />}>
+              <Route index element={<SectionEdit />} />
             </Route>
 
             {/* Topics */}
-            <Route exact path='/learning/:id/topic/:topicId' element={<TopicPage/>}/>
-
-            <Route exact path='/learning/:id/add' element={<PrivateRoute/>}>
-              <Route exact path='/learning/:id/add' Component={TopicAdd}/>
+            <Route path="/learning/:id/topic/:topicId" element={<PrivateRoute />}>
+              <Route index element={<TopicPage />} />
             </Route>
 
-            <Route exact path='/learning/:id/topic/:topicId/edit/' element={<PrivateRoute/>}>
-              <Route path='/learning/:id/topic/:topicId/edit/' Component={TopicEdit} />
+            <Route path="/learning/:id/topic/:topicId/edit" element={<EditRoute />}>
+              <Route index element={<TopicEdit />} />
+            </Route>
+
+            <Route path="/learning/:id/add" element={<PrivateRoute />}>
+              <Route index element={<TopicAdd />} />
             </Route>
 
             {/* Subtopics */}
-            <Route exact path='/learning/:id/topic/:topicId/material/:matId' element={<SubtopicPage/>}/>
-            
-            <Route exact path='/learning/:id/topic/:topicId/add' element={<PrivateRoute/>}>
-              <Route exact path='/learning/:id/topic/:topicId/add' Component={SubtopicAdd}/>
+            <Route path="/learning/:id/topic/:topicId/material/:matId" element={<PrivateRoute />}>
+              <Route index element={<SubtopicPage />} />
             </Route>
-            
-            <Route exact path='/learning/:id/topic/:topicId/material/:matId/edit' element={<PrivateRoute/>}>
-              <Route exact path='/learning/:id/topic/:topicId/material/:matId/edit' Component={SubtopicEdit}/>
-            </Route>            
+
+            <Route path="/learning/:id/topic/:topicId/material/:matId/edit" element={<EditRoute />}>
+              <Route index element={<SubtopicEdit />} />
+            </Route>
+
+            <Route path="/learning/:id/topic/:topicId/add" element={<PrivateRoute />}>
+              <Route index element={<SubtopicAdd />} />
+            </Route>
 
             {/* Authentication */}
-            <Route exact path='/login' element={<LoginPage/>}/>
-            <Route exact path='/register' element={<RegisterPage />}/>
-            <Route exact path='/unauthorized' element={<Unauthorized />}/>
-
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/unauthorized" element={<Unauthorized />} />
           </Routes>
-          <Footer/>
+          <Footer />
         </div>
       </AuthProvider>
     </Router>

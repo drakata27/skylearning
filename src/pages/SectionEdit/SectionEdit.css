@@ -89,3 +89,47 @@ p {
         margin: 0 2rem;
     }
 }
+
+@media screen and (max-width: 768px) {
+    
+    .edit-container h1 {
+        font-size: 3rem;
+    }
+    .cover-preview h1 {
+        margin-top: 1rem;
+        font-size: 2rem;
+    }
+    .cover-preview {
+        margin: 0;
+    }
+    
+    .cover-preview img {
+        padding: 0;
+        width: 454px;
+    }
+    
+    .cover-container form {
+        width: 15rem;
+    }
+
+    .section-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .section-form input {
+        font-size: 1.5rem;
+    }
+
+    .section-form button {
+        font-size: 1rem;
+        padding: 1rem;
+        margin: 1rem;
+    }
+
+
+}

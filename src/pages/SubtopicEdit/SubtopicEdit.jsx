@@ -37,10 +37,6 @@ const SubtopicEdit = () => {
                 }
                 const data = await response.json();
                 setSubtopic(data)
-
-                if (data.cover) {
-                    setCover(data.cover);
-                }
             } catch(error) {
                 alert("Error fetching details: " + error)
             }
@@ -59,6 +55,7 @@ const SubtopicEdit = () => {
         formData.append('subtitle', subtopic.subtitle);
         formData.append('body', subtopic.body);
         formData.append('topic', topicId);
+
         if (cover) {
             formData.append('cover', cover);
         }

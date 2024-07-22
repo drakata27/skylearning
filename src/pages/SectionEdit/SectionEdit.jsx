@@ -51,6 +51,9 @@ const SectionEdit = () => {
         formData.append('user', user.user_id);
         formData.append('username', user.username);
 
+        console.log('typeof cover', typeof cover);
+            console.log('instance of file', cover instanceof File);
+
         if (cover) {
             formData.append('cover', cover);
         }

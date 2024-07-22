@@ -44,3 +44,13 @@ p {
         margin: 0 2rem;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .section-add-container { 
+        margin-top: 2rem;
+        padding: 1rem;
+    }
+    .section-add-container .section-form{ 
+        margin-top: 2rem;
+    }
+}

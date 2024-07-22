@@ -1,69 +1,67 @@
-import { Navigate, Outlet, useParams} from 'react-router-dom'
-import { useContext, useEffect, useState} from 'react'
-import AuthContext from '../context/AuthContext'
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import AuthContext from '../context/AuthContext';
 
-const PrivateRoute = ({children, ...rest}) => {
-    let {user} = useContext(AuthContext)
-    let {id} = useParams();
-    
-    const [section, setSection] = useState({
-        // user: user.user_id,
-        // username: user.username,
-        user: null,
-        username: '',
-        title: '',
-        subtitle: '',
-        cover: '',
-    })
+const PrivateRoute = () => {
+    let { user } = useContext(AuthContext);
 
-    // const urlFetch = `http://127.0.0.1:8000/api/section/${id}/`
-    const urlFetch = `http://127.0.0.1:8000/api/section/${id}/`
-    
+    if (!user) {
+        return <Navigate to="/unauthorized" />;
+    }
+
+    return <Outlet />;
+};
+
+const EditRoute = () => {
+    let { user } = useContext(AuthContext);
+    let location = useLocation();
+
+    const [section, setSection] = useState(null);
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
-        if (user) {
-            setSection(prevState => ({
-                ...prevState,
-                user: user.user_id,
-                username: user.username,
-            }));
-        }
-    }, [user]);
-    
-    useEffect(()=>{
         const fetchSectionDetail = async () => {
+            const pathSegments = location.pathname.split('/');
+            const id = pathSegments[pathSegments.indexOf('learning') + 1];
+            if (!id) {
+                setLoading(false);
+                return;
+            }
+
+            const urlFetch = `http://127.0.0.1:8000/api/section/${id}/`;
+
             try {
                 const response = await fetch(urlFetch);
                 if (!response.ok) {
-                    console.error('Error fetching section data:', 
-                    response.status, response.statusText);
-                    return
+                    console.error('Error fetching section data:', response.status, response.statusText);
+                    setLoading(false);
+                    return;
                 }
                 const data = await response.json();
-                setSection(data)
+                setSection(data);
+                setLoading(false);
             } catch (error) {
-                alert("Error fetching details: " + error)
+                alert("Error fetching details: " + error);
+                setLoading(false);
             }
-        }
-        fetchSectionDetail()
-    },[urlFetch]) 
+        };
 
-    // return user  && user.user_id === section.user ? 
-    //     <Outlet /> : <Navigate to="/unauthorized" />;
-    
-    if (!user) {
-        return <Navigate to="/unauthorized" />
-    } else {
-        return <Outlet />
+        fetchSectionDetail();
+    }, [location.pathname]);
+
+    if (loading) {
+        return <h1>Loading...</h1>;
     }
 
-    // if (user.user_id === section.user) {
-    //     return <Outlet />
-    // } else {
-    //     console.log('user.user_id',user.user_id );
-    //     console.log('section.user',section.user );
-    //     console.log('id', id );
-    //     return <Navigate to="/unauthorized" />
-    // }
-}
+    if (!section) {
+        return <Navigate to="/unauthorized" />;
+    }
 
-export default PrivateRoute
+    if (user.user_id !== section.user) {
+        return <Navigate to="/unauthorized" />;
+    }
+
+    return <Outlet />;
+};
+
+export { PrivateRoute, EditRoute };
