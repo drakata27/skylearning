@@ -31,7 +31,7 @@ input {
   border-radius: 15px;
 }
 
-.horizontal-container{
+.horizontal-container {
   display: flex;
   flex-direction: row;
   margin-bottom: 1rem;

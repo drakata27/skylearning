@@ -53,3 +53,32 @@ a {
 .section-delete-btn:hover{
     background-color: darkred;
 }
+
+@media screen and (max-width: 768px) {
+    .section-item-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .section-item-cover{
+        display: flex;
+        justify-content: center;
+    }
+    .section-item-cover img {
+        width: 15rem;
+    }
+
+    .section-item-content {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .section-item-content p {
+        font-size: 1.4rem;
+    }
+
+    .section-item-btns {
+        display: flex;
+        justify-content: space-between;
+    }
+}

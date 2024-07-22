@@ -46,6 +46,7 @@ const TopicEdit = () => {
         formData.append('title', topic.title);
         formData.append('subtitle', topic.subtitle);
         formData.append('section', id);
+        
         if (cover) {
             formData.append('cover', cover);
         }
@@ -89,6 +90,8 @@ const TopicEdit = () => {
     };
 
     const imageName = getImageName(imagePath);
+
+    console.log(topic.cover);
 
 
   return (
