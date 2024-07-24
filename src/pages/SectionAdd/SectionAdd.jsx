@@ -5,6 +5,7 @@ import Uploader from '../../Components/Uploader/Uploader'
 import AuthContext from '../../context/AuthContext'
 
 const SectionAdd = () => {
+  const swal = require('sweetalert2')
   const {user} = useContext(AuthContext)
   const [cover, setCover] = useState()
   const [section, setSection] = useState({
@@ -47,6 +48,15 @@ const SectionAdd = () => {
         alert("Error creating section")
         return;
     }
+    swal.fire({
+      title: 'Section added successfully!',
+      icon: 'success',
+      toast: 'true',
+      timer: 2000,
+      position: 'top-right',
+      timerProgressBar: true,
+      showConfirmButton: false
+  })
     navigate('/learning')
         
     } catch (error) {

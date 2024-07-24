@@ -6,6 +6,7 @@ import Uploader from '../../Components/Uploader/Uploader'
 import AuthContext from '../../context/AuthContext'
 
 const SectionEdit = () => {
+    const swal = require('sweetalert2')
     const {user} = useContext(AuthContext)
     let {id} = useParams();
     const [cover, setCover] = useState()
@@ -72,7 +73,15 @@ const SectionEdit = () => {
 
             const data = await response.json();
             setSection(data)
-            console.log('Section updated successfully:', data);
+            swal.fire({
+                title: 'Section updated successfully!',
+                icon: 'success',
+                toast: 'true',
+                timer: 2000,
+                position: 'top-right',
+                timerProgressBar: true,
+                showConfirmButton: false
+            })
             navigate(`/learning`)
         } catch (error) {
             console.error('Error updating blog:', error);
