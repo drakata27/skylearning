@@ -54,7 +54,7 @@ const SectionItem = ({section, refreshSection}) => {
             <div className="section-item-container horizontal-container">
                 <div className='section-item-cover'>
                     { section.cover ? 
-                        <img src={'http://127.0.0.1:8000/'+section.cover} alt="section cover" />:
+                        <img src={section.cover} alt="section cover" />:
                         <img src={Placeholder} alt="section cover" />
                     }
                 </div>

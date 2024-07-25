@@ -55,7 +55,7 @@ const SubtopicItem = ({topic, subtopic, refreshSubtopic}) => {
         <div className="section-item-container horizontal-container">
         <div className='section-item-cover'>
             { subtopic.cover ? 
-                <img src={'http://127.0.0.1:8000/' + subtopic.cover} alt="subtopic cover" />:
+                <img src={subtopic.cover} alt="subtopic cover" />:
                 <img src={Placeholder} alt="subtopic cover" />
             }
         </div>

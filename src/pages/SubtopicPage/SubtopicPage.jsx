@@ -96,11 +96,9 @@ const SubtopicPage = () => {
 
         <div className="cover-preview">
           { subtopic.cover ? 
-              <img src={'http://127.0.0.1:8000/' + 
-                  subtopic.cover} alt="section cover" />
-              // <img src={section.cover} alt="section cover" />
+              <img src={subtopic.cover} alt="material cover" />
               :
-              <img src={Placeholder} alt="subtopic cover" />
+              <img src={Placeholder} alt="material cover" />
           }
           <div 
             className='ql-editor' 
