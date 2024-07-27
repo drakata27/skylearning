@@ -60,11 +60,11 @@ const ProfilePage = () => {
     <div className="profile-container">
         <h1 style={{opacity:0}}>Profile</h1>
         <div className="profile-image-container" style={{opacity:0}}>
-            {profile.image === '/media/default.jpg' ? 
+            {profile.image === 'https://cloud-learn-bucket.s3.amazonaws.com/default.jpg' ? 
                 <img src={User} alt="user" />
                 :
                 <img 
-                    src={'http://127.0.0.1:8000/'+ profile.image} 
+                    src={profile.image} 
                     alt='user'
                     style={{borderRadius: '40px'}}/>
             }

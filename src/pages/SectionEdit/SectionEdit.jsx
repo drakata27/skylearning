@@ -114,7 +114,7 @@ const SectionEdit = () => {
                 <div className="cover-preview">
                     <h1>Current Cover</h1>
                     { section.cover ? 
-                        <img src={'http://127.0.0.1:8000/' + 
+                        <img src={
                             section.cover} alt="section cover" />
                         :
                         <img src={Placeholder} alt="section cover" />
