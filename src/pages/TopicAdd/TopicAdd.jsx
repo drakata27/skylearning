@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import Uploader from '../../Components/Uploader/Uploader'
+import BASE_URL from '../../utils/config'
 
 const TopicAdd = () => {
   const { id } = useParams();
@@ -29,7 +30,7 @@ const TopicAdd = () => {
             formData.append('cover', '');
         }
         
-        const url = `http://127.0.0.1:8000/api/section/${id}/topic/`
+        const url = `${BASE_URL}/api/section/${id}/topic/`
         const response = await fetch(url, {
           method: 'POST',
           body: formData,

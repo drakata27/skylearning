@@ -4,13 +4,14 @@ import './TopicPage.css'
 import AuthContext from '../../context/AuthContext'
 import SubtopicItem from '../../Components/SubtopicItem/SubtopicItem'
 import BackButton from '../../Components/BackButton/BackButton'
+import BASE_URL from '../../utils/config'
 
 const TopicPage = () => {
     let {user} = useContext(AuthContext)
     let {id} = useParams()
     let {topicId} = useParams()
-    const urlTopic = `http://127.0.0.1:8000/api/section/${id}/topic/${topicId}`
-    const urlSubtopic = `http://127.0.0.1:8000/api/section/${id}/topic/${topicId}/subtopic`
+    const urlTopic = `${BASE_URL}/api/section/${id}/topic/${topicId}`
+    const urlSubtopic = `${BASE_URL}/api/section/${id}/topic/${topicId}/subtopic`
 
     const [topic, setTopic] = useState({
         title: '',
@@ -49,7 +50,7 @@ const TopicPage = () => {
         getSubtopic()
     }, [urlSubtopic])
 
-    const urlFetchSection = `http://127.0.0.1:8000/api/section/${id}/`
+    const urlFetchSection = `${BASE_URL}/api/section/${id}/`
     
     useEffect(()=>{
         const fetchSectionDetail = async () => {

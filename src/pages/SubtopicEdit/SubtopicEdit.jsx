@@ -7,6 +7,7 @@ import 'react-quill/dist/quill.snow.css';
 import modules from '../../utils/quilModules'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import BASE_URL from '../../utils/config'
 
 import './SubtopicEdit.css'
 
@@ -23,8 +24,8 @@ const SubtopicEdit = () => {
 
     const navigate = useNavigate();
 
-    const url = `http://127.0.0.1:8000/api/section/${id}/topic/${topicId}/subtopic/${matId}/edit/`
-    const urlFetch = `http://127.0.0.1:8000/api/section/${id}/topic/${topicId}/subtopic/${matId}/`
+    const url = `${BASE_URL}/api/section/${id}/topic/${topicId}/subtopic/${matId}/edit/`
+    const urlFetch = `${BASE_URL}/api/section/${id}/topic/${topicId}/subtopic/${matId}/`
 
     useEffect(()=>{
         const fetchSubtopicDetails = async () => {
@@ -108,8 +109,7 @@ const SubtopicEdit = () => {
 
                 <h1>Current Cover</h1>
                 { subtopic.cover ? 
-                    <img src={'http://127.0.0.1:8000/' + 
-                        subtopic.cover} alt="section cover" />
+                    <img src={ subtopic.cover} alt="section cover" />
                     :
                     <img src={Placeholder} alt="section cover" />
                 }

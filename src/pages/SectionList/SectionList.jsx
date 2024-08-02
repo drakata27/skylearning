@@ -3,6 +3,7 @@ import React, {useState, useEffect, useContext, useCallback} from 'react'
 import {Link} from 'react-router-dom'
 import SectionItem from '../../Components/SectionItem/SectionItem'
 import AuthContext from '../../context/AuthContext'
+import BASE_URL from '../../utils/config'
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -30,14 +31,14 @@ const SectionList = () => {
 
   let [sections, setSections] = useState([])
   const token = localStorage.getItem("authTokens")
-  const url = 'http://127.0.0.1:8000/api/section/'
+  const url = `${BASE_URL}/api/section/`
   const {user} = useContext(AuthContext)
 
-  let getSections = useCallback(async ()=>{
+  let getSections = useCallback(async ()=>{ 
     let response = await fetch(url)
     let data = await response.json()
     setSections(data.filter(section => section.user === user.user_id));
-  },[user.user_id])
+  },[user.user_id, url])
   
   useEffect(()=>{
     getSections()

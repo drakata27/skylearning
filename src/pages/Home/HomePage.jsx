@@ -4,9 +4,11 @@ import React, {useState, useEffect, useContext} from 'react'
 import SectionItem from '../../Components/SectionItem/SectionItem'
 import AuthContext from '../../context/AuthContext'
 import { Link } from 'react-router-dom'
+import BASE_URL from '../../utils/config'
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { useCallback } from 'react'
 
 
 const HomePage = () => {
@@ -25,19 +27,20 @@ const HomePage = () => {
   
 
   let [sections, setSections] = useState([])
-  const url = 'http://127.0.0.1:8000/api/section/'
+  const url = `${BASE_URL}/api/section/`
 
   const {user} = useContext(AuthContext)
   const token = localStorage.getItem("authTokens")
 
-  let getSections = async ()=>{
-    let response = await fetch(url)
-    let data = await response.json()
-    setSections(data)
-  }
-  useEffect(()=>{
-    getSections()
-  },[])
+  const getSections = useCallback(async () => {
+    let response = await fetch(url);
+    let data = await response.json();
+    setSections(data);
+  }, [url]);
+
+  useEffect(() => {
+    getSections();
+  }, [getSections]);
 
   return (
     <div className="home-container section-list-container home-container">

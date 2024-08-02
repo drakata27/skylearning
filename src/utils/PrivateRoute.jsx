@@ -1,6 +1,7 @@
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import AuthContext from '../context/AuthContext';
+import BASE_URL from '../utils/config'
 
 const PrivateRoute = () => {
     let { user } = useContext(AuthContext);
@@ -28,7 +29,7 @@ const EditRoute = () => {
                 return;
             }
 
-            const urlFetch = `http://127.0.0.1:8000/api/section/${id}/`;
+            const urlFetch = `${BASE_URL}/api/section/${id}/`;
 
             try {
                 const response = await fetch(urlFetch);

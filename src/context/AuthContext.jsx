@@ -1,6 +1,7 @@
 import {createContext, useState, useEffect} from 'react'
 import {jwtDecode} from 'jwt-decode'
 import {useNavigate} from 'react-router-dom'
+import BASE_URL from '../utils/config'
 
 
 const AuthContext = createContext()
@@ -26,7 +27,7 @@ export const AuthProvider = ({ children }) => {
     const navigate = useNavigate()
 
     const loginUser = async (email, password) => {
-        const response = await fetch('http://127.0.0.1:8000/api/token/', {
+        const response = await fetch(`${BASE_URL}/api/token/`, {
             method : 'POST',
             headers : {
                 "Content-Type": "application/json"
@@ -67,7 +68,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     const registerUser = async (email, username, password, confirm_password) => {
-        const response = await fetch('http://127.0.0.1:8000/api/register/', {
+        const response = await fetch(`${BASE_URL}/api/register/`, {
             method : 'POST',
             headers : {
                 "Content-Type": "application/json"
@@ -128,5 +129,4 @@ export const AuthProvider = ({ children }) => {
             {loading ? null : children}
         </AuthContext.Provider>
     )
-
 }

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './SectionAdd.css'
 import Uploader from '../../Components/Uploader/Uploader'
 import AuthContext from '../../context/AuthContext'
+import BASE_URL from '../../utils/config'
 
 const SectionAdd = () => {
   const swal = require('sweetalert2')
@@ -37,7 +38,7 @@ const SectionAdd = () => {
             formData.append('cover', '');
         }
         
-        const url = `http://127.0.0.1:8000/api/section/`
+        const url = `${BASE_URL}/api/section/`
         const response = await fetch(url, {
           method: 'POST',
           body: formData,

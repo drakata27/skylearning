@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Placeholder from '../../assets/placeholder.jpg'
 import Uploader from '../../Components/Uploader/Uploader'
+import BASE_URL from '../../utils/config'
 
 const TopicEdit = () => {
+    const swal = require('sweetalert2')
     let {id} = useParams();
     let {topicId} = useParams();
     const [cover, setCover] = useState()
@@ -14,8 +16,8 @@ const TopicEdit = () => {
         'section': id
     })
 
-    const url = `http://127.0.0.1:8000/api/section/${id}/topic/${topicId}/edit/`
-    const urlFetch = `http://127.0.0.1:8000/api/section/${id}/topic/${topicId}/`
+    const url = `${BASE_URL}/api/section/${id}/topic/${topicId}/edit/`
+    const urlFetch = `${BASE_URL}/api/section/${id}/topic/${topicId}/`
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -65,7 +67,15 @@ const TopicEdit = () => {
 
             const data = await response.json();
             setTopic(data)
-            console.log('Topic updated successfully:', data);
+            swal.fire({
+                title: 'Topic updated successfully!',
+                icon: 'success',
+                toast: 'true',
+                timer: 2000,
+                position: 'top-right',
+                timerProgressBar: true,
+                showConfirmButton: false
+            })
             navigate(`/learning/${id}/`)
         } catch (error) {
             console.error('Error updating topic:', error);
@@ -91,9 +101,6 @@ const TopicEdit = () => {
 
     const imageName = getImageName(imagePath);
 
-    console.log(topic.cover);
-
-
   return (
     <div>
         <h1>{topic.title}</h1>
@@ -101,8 +108,7 @@ const TopicEdit = () => {
             <div className="cover-preview">
                 <h1>Current Cover</h1>
                 { topic.cover ? 
-                    <img src={'http://127.0.0.1:8000/' + 
-                        topic.cover} alt="section cover" />
+                    <img src={ topic.cover} alt="section cover" />
                     :
                     <img src={Placeholder} alt="section cover" />
                 }

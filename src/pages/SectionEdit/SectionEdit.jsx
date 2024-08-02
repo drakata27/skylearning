@@ -4,6 +4,7 @@ import './SectionEdit.css'
 import Placeholder from '../../assets/placeholder.jpg'
 import Uploader from '../../Components/Uploader/Uploader'
 import AuthContext from '../../context/AuthContext'
+import BASE_URL from '../../utils/config';
 
 const SectionEdit = () => {
     const swal = require('sweetalert2')
@@ -19,8 +20,8 @@ const SectionEdit = () => {
     })
 
     const navigate = useNavigate();
-    const url = `http://127.0.0.1:8000/api/section/${id}/edit/`
-    const urlFetch = `http://127.0.0.1:8000/api/section/${id}/`
+    const url = `${BASE_URL}/api/section/${id}/edit/`
+    const urlFetch = `${BASE_URL}/api/section/${id}/`
 
     useEffect(()=>{
         const fetchSectionDetail = async () => {

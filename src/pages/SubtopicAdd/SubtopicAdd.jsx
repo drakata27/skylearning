@@ -6,6 +6,7 @@ import Uploader from '../../Components/Uploader/Uploader'
 import modules from '../../utils/quilModules'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import BASE_URL from '../../utils/config'
 
 const SubtopicAdd = () => {
     const { id } = useParams();
@@ -37,7 +38,7 @@ const SubtopicAdd = () => {
                 formData.append('cover', '');
             }
 
-            const url = `http://127.0.0.1:8000/api/section/${id}/topic/${topicId}/subtopic/`
+            const url = `${BASE_URL}/api/section/${id}/topic/${topicId}/subtopic/`
             const response = await fetch(url, {
                 method: 'POST',
                 body: formData,

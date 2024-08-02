@@ -4,6 +4,7 @@ import './SectionPage.css'
 import TopicItem from '../../Components/TopicItem/TopicItem'
 import AuthContext from '../../context/AuthContext'
 import BackButton from '../../Components/BackButton/BackButton'
+import BASE_URL from '../../utils/config'
 
 const SectionPage = () => {
     let {user} = useContext(AuthContext)
@@ -16,8 +17,8 @@ const SectionPage = () => {
 
     const [topics, setTopics] =  useState([])
 
-    const url = `http://127.0.0.1:8000/api/section/${id}/`
-    const urlTopic = `http://127.0.0.1:8000/api/section/${id}/topic/`
+    const url = `${BASE_URL}/api/section/${id}/`
+    const urlTopic = `${BASE_URL}/api/section/${id}/topic/`
 
     useEffect(()=>{
         const getSection = async () => {

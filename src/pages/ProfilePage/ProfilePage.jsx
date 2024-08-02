@@ -3,6 +3,7 @@ import React from 'react'
 import './ProfilePage.css'
 import AuthContext from '../../context/AuthContext'
 import User  from '../../assets/user.png'
+import BASE_URL from '../../utils/config'
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -35,7 +36,7 @@ const ProfilePage = () => {
 
 
     const {user} = useContext(AuthContext)
-    const url = `http://127.0.0.1:8000/api/${user.username}/`
+    const url = `${BASE_URL}/api/${user.username}/`
 
 
     let [profile, setProfile] = useState({

@@ -4,6 +4,7 @@ import Placeholder from '../../assets/placeholder.jpg'
 
 import './SubtopicPage.css'
 import BackButton from '../../Components/BackButton/BackButton'
+import BASE_URL from '../../utils/config'
 
 const SubtopicPage = () => {
   let {id, topicId, matId} = useParams();
@@ -16,8 +17,8 @@ const SubtopicPage = () => {
   })
 
   const navigate = useNavigate();
-  const urlFetch = `http://127.0.0.1:8000/api/section/${id}/topic/${topicId}/subtopic/${matId}/`
-  const url = `http://127.0.0.1:8000/api/section/${id}/topic/${topicId}/subtopic/${subtopic.id}`
+  const urlFetch = `${BASE_URL}/api/section/${id}/topic/${topicId}/subtopic/${matId}/`
+  const url = `${BASE_URL}/api/section/${id}/topic/${topicId}/subtopic/${subtopic.id}`
 
     useEffect(()=>{
         const fetchSubtopicDetails = async () => {
