@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import Placeholder from '../../assets/placeholder.png'
+import BASE_URL from '../../utils/config'
 
 const SubtopicItem = ({topic, subtopic, refreshSubtopic}) => {
   const swal = require('sweetalert2')
   const {id, topicId} = useParams()
-  const url = `http://127.0.0.1:8000/api/section/${id}/topic/${topic.id}/subtopic/${subtopic.id}`
+  const url = `${BASE_URL}/api/section/${id}/topic/${topic.id}/subtopic/${subtopic.id}`
   const token = localStorage.getItem("authTokens")
   const navigate = useNavigate();
 

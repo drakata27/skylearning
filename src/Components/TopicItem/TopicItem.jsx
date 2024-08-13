@@ -2,12 +2,13 @@ import React, {useContext} from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Placeholder from '../../assets/placeholder.png'
 import AuthContext from '../../context/AuthContext'
+import BASE_URL from '../../utils/config'
 
 const TopicItem = ({section, topic, refreshTopic}) => {
     const {user} = useContext(AuthContext)
     const swal = require('sweetalert2')
     const {id} = useParams()
-    const url = `http://127.0.0.1:8000/api/section/${id}/topic/${topic.id}`
+    const url = `${BASE_URL}/api/section/${id}/topic/${topic.id}`
     const token = localStorage.getItem("authTokens")
 
     let deleteTopic = async (e) =>{
