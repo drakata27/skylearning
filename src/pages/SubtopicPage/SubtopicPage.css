@@ -36,3 +36,10 @@ h2 {
     display: flex;
     align-items: flex-end;
 }
+
+@media screen and (max-width: 768px) {
+    .subtopic-container{
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+}
