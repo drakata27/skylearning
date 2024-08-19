@@ -68,9 +68,9 @@ const SubtopicPage = () => {
         <div className="horizontal-container">
                 <BackButton />
                 
-                <div className='title-container'>
+                {/* <div className='title-container'>
                     <h1 className='title'>{subtopic?.title}</h1>
-                </div>
+                </div> */}
 
                 <div className='section-item-btns-subtopic'>
                   <Link to={`/learning/${id}/topic/${topicId}/material/${subtopic.id}/edit/`}>
@@ -92,23 +92,25 @@ const SubtopicPage = () => {
               </div>
             </div>
 
+        <div className='title-container'>
+            <h1 className='title'>{subtopic?.title}</h1>
+            <h2>{ subtopic.subtitle }</h2>
+        </div>
 
-        <h2>{ subtopic.subtitle }</h2>
+
 
         <div className="cover-preview">
-          { subtopic.cover ? 
-              <img src={subtopic.cover} alt="material cover" />
-              :
-              <img src={Placeholder} alt="material cover" />
-          }
+            { subtopic.cover ? 
+                <img src={subtopic.cover} alt="material cover" />
+                :
+                <img src={Placeholder} alt="material cover" />
+            }
           <div 
             className='ql-editor' 
             style={{ border: 'none' , marginBottom: "6rem"}}
             dangerouslySetInnerHTML={{__html:subtopic?.body}}>
           </div>
         </div>
-
-
     </div>
   )
 }

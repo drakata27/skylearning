@@ -14,6 +14,7 @@ import './SubtopicEdit.css'
 const SubtopicEdit = () => {
     let {id, matId, topicId} = useParams();
     const [cover, setCover] = useState()
+    const [isLoaded, setIsLoaded] = useState(false)
     const [subtopic, setSubtopic] = useState({
         'title': '',
         'subtitle': '',
@@ -45,6 +46,12 @@ const SubtopicEdit = () => {
         fetchSubtopicDetails()
     }, [urlFetch])
 
+    useEffect(() => {
+        if (subtopic.body) {
+            setIsLoaded(true);
+        }
+    }, [subtopic.body]);
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setSubtopic({ ...subtopic, [name]: value });
@@ -75,7 +82,7 @@ const SubtopicEdit = () => {
 
             const data = await response.json();
             setSubtopic(data)
-            navigate(`/learning/${id}/topic/${topicId}/`)
+            navigate(`/learning/${id}/topic/${topicId}/material/${matId}`)
         } catch (error) {
             console.error('Error updating subtopic:', error);
         }
@@ -97,7 +104,7 @@ const SubtopicEdit = () => {
     const imageName = getImageName(imagePath);
 
     const cancel = () => {
-        navigate(`/learning/${id}/topic/${topicId}/`)
+        navigate(-1)
     }
     
   return (
@@ -146,7 +153,11 @@ const SubtopicEdit = () => {
               theme="snow" 
               value={subtopic.body} 
               placeholder='Type here...'
-              onChange={body => handleInputChange({ target: { value: body, name: 'body' } })}
+              onChange={body => {
+                if (isLoaded) {
+                        handleInputChange({ target: { value: body, name: 'body' } });
+                    }
+                }}
             />
 
             <button 
