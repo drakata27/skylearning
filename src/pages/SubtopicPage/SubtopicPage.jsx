@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import Placeholder from '../../assets/placeholder.jpg'
 
 import './SubtopicPage.css'
 import BackButton from '../../Components/BackButton/BackButton'
 import BASE_URL from '../../utils/config'
+import AuthContext from '../../context/AuthContext'
 
 const SubtopicPage = () => {
   let {id, topicId, matId} = useParams();
+  const token = localStorage.getItem("authTokens")
+  const {user} = useContext(AuthContext)
   const [cover] = useState()
+
   const [subtopic, setSubtopic] = useState({
     title: '',
     subtitle: '',
@@ -16,9 +20,38 @@ const SubtopicPage = () => {
     cover: cover,
   })
 
+  const [section, setSection] = useState({
+    // user: user.user_id,
+    // username: user.username,
+    user: null,
+    username: '',
+    title: '',
+    subtitle: '',
+    cover: '',
+  })
+
   const navigate = useNavigate();
+  const urlFetchSection = `${BASE_URL}/api/section/${id}/`
   const urlFetch = `${BASE_URL}/api/section/${id}/topic/${topicId}/subtopic/${matId}/`
   const url = `${BASE_URL}/api/section/${id}/topic/${topicId}/subtopic/${subtopic.id}`
+
+  useEffect(()=>{
+    const fetchSectionDetail = async () => {
+        try {
+            const response = await fetch(urlFetchSection);
+            if (!response.ok) {
+                console.error('Error fetching section data:', 
+                response.status, response.statusText);
+                return
+            }
+            const data = await response.json();
+            setSection(data)
+        } catch (error) {
+            alert("Error fetching details: " + error)
+        }
+    }
+    fetchSectionDetail()
+},[urlFetchSection])
 
     useEffect(()=>{
         const fetchSubtopicDetails = async () => {
@@ -67,29 +100,29 @@ const SubtopicPage = () => {
     <div className='subtopic-container'>
         <div className="horizontal-container">
                 <BackButton />
-                
-                {/* <div className='title-container'>
-                    <h1 className='title'>{subtopic?.title}</h1>
-                </div> */}
 
-                <div className='section-item-btns-subtopic'>
-                  <Link to={`/learning/${id}/topic/${topicId}/material/${subtopic.id}/edit/`}>
-                      <button className='section-edit-btn'>
-                          <span className="material-symbols-outlined">
-                              edit
-                          </span>
-                      </button>
-                  </Link>
+                { token && section.user === user.user_id ? 
+                    <div className='section-item-btns-subtopic'>
+                        <Link to={`/learning/${id}/topic/${topicId}/material/${subtopic.id}/edit/`}>
+                            <button className='section-edit-btn'>
+                                <span className="material-symbols-outlined">
+                                    edit
+                                </span>
+                            </button>
+                        </Link>
 
-                  <button 
-                      className='section-delete-btn'
-                      onClick={deleteSubtopic}
-                  >
-                          <span className="material-symbols-outlined">
-                              delete
-                          </span>
-                  </button>
-              </div>
+                        <button 
+                            className='section-delete-btn'
+                            onClick={deleteSubtopic}
+                        >
+                                <span className="material-symbols-outlined">
+                                    delete
+                                </span>
+                        </button>
+                    </div>
+                :
+                    <></>
+                }
             </div>
 
         <div className='title-container'>

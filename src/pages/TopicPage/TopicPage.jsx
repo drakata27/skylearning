@@ -103,7 +103,8 @@ const TopicPage = () => {
             <div className="topic-container">
                 { subtopics.map((subtopic, index)=>(
                     <SubtopicItem 
-                        key={index} 
+                        key={index}
+                        section={section} 
                         topic={topic} 
                         subtopic={subtopic} 
                         refreshSubtopic={getSubtopic}/>

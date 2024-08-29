@@ -1,14 +1,16 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import Placeholder from '../../assets/placeholder.png'
 import BASE_URL from '../../utils/config'
+import AuthContext from '../../context/AuthContext'
 
-const SubtopicItem = ({topic, subtopic, refreshSubtopic}) => {
+const SubtopicItem = ({section, topic, subtopic, refreshSubtopic}) => {
   const swal = require('sweetalert2')
   const {id, topicId} = useParams()
   const url = `${BASE_URL}/api/section/${id}/topic/${topic.id}/subtopic/${subtopic.id}`
   const token = localStorage.getItem("authTokens")
   const navigate = useNavigate();
+  const {user} = useContext(AuthContext)
 
   let deleteSubtopic = async (e) => {
     e.preventDefault()
@@ -66,7 +68,7 @@ const SubtopicItem = ({topic, subtopic, refreshSubtopic}) => {
             <h3>{subtopic.subtitle}</h3>
         </div>
 
-        { token ? 
+        { token && section.user === user.user_id ? 
         <>
             <div className='section-item-btns'>
                 <Link to={`/learning/${id}/topic/${topic.id}/material/${subtopic.id}/edit/`}>

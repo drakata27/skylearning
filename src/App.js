@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { AuthProvider } from './context/AuthContext';
 import LoginPage from './pages/LoginPage/LoginPage';
-import HomePage from './pages/Home/HomePage';
 import SectionList from './pages/SectionList/SectionList';
 import SectionAdd from './pages/SectionAdd/SectionAdd';
 import SectionPage from './pages/SectionPage/SectionPage';
@@ -20,15 +19,18 @@ import SubtopicEdit from './pages/SubtopicEdit/SubtopicEdit';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import Unauthorized from './pages/Unauthorized/Unauthorized';
+import IndexPage from './pages/IndexPage/IndexPage';
 
 function App() {
+
   return (
     <Router>
       <AuthProvider>
         <div className="App">
           <Header />
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<IndexPage />} />
+            
             <Route path="/:user" element={<ProfilePage />} />
 
             {/* Sections */}
