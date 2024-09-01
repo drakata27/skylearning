@@ -65,6 +65,10 @@ const SectionItem = ({section, refreshSection}) => {
                     <h2>{section.title}</h2>
                     <h3>{section.subtitle}</h3>
                     <p>By {section.username}</p>
+
+                    { section.is_public ? 
+                    <p className='privacy' style={{color: 'red'}}>Public</p> : <p style={{color: 'green'}} className='privacy'>Private</p>
+                    }
                 </div>
 
                 { token && section.user === user.user_id ? 

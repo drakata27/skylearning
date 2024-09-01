@@ -9,12 +9,14 @@ const SectionAdd = () => {
   const swal = require('sweetalert2')
   const {user} = useContext(AuthContext)
   const [cover, setCover] = useState()
+  const [checked, setChecked] = useState(false)
   const [section, setSection] = useState({
     user: user.user_id,
     username: user.username,
     title: '',
     subtitle: '',
     cover: cover,
+    is_public: checked
   })
 
   const navigate = useNavigate();
@@ -22,7 +24,13 @@ const SectionAdd = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setSection({ ...section, [name]: value });
-};
+  };
+
+  const handleCheckboxChange = (e) => {
+    const { checked } = e.target;
+    setChecked(checked);
+    setSection({ ...section, is_public: checked });
+  };
 
   const createSection = async () => {
     try {
@@ -31,6 +39,7 @@ const SectionAdd = () => {
         formData.append('subtitle', section.subtitle);
         formData.append('user', user.user_id);
         formData.append('username', user.username);
+        formData.append('is_public', section.is_public);
         
         if (cover) {
             formData.append('cover', cover);
@@ -87,6 +96,17 @@ const SectionAdd = () => {
         <div className="section-form">
           <div className="horizontal-container cover-container">
               <Uploader inputKey={inputKey} setCover={setCover}/>
+          </div>
+
+          <div className="checkbox-container" style={{marginTop: '2rem'}}>
+            <input
+                className='checkbox'
+                style={{borderRadius: '15px'}}
+                type="checkbox"
+                checked={checked} 
+                onChange={handleCheckboxChange}
+            />
+            <p>Public</p>
           </div>
 
           <input

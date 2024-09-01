@@ -27,7 +27,7 @@ const HomePage = () => {
   
 
   let [sections, setSections] = useState([])
-  const url = `${BASE_URL}/api/section/`
+  const url = `${BASE_URL}/api/public-section/`
 
   const {user} = useContext(AuthContext)
   const token = localStorage.getItem("authTokens")

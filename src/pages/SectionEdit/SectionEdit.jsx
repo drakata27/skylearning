@@ -10,6 +10,7 @@ const SectionEdit = () => {
     const swal = require('sweetalert2')
     const {user} = useContext(AuthContext)
     let {id} = useParams();
+    const [checked, setChecked] = useState(false)
     const [cover, setCover] = useState()
     const [section, setSection] = useState({
         user: user.user_id,
@@ -17,6 +18,7 @@ const SectionEdit = () => {
         'title': '',
         'subtitle': '',
         'cover': cover,
+        'is_public':checked,
     })
 
     const navigate = useNavigate();
@@ -34,6 +36,7 @@ const SectionEdit = () => {
                 }
                 const data = await response.json();
                 setSection(data)
+                setChecked(data.is_public)
             } catch (error) {
                 alert("Error fetching details: " + error)
             }
@@ -46,12 +49,19 @@ const SectionEdit = () => {
         setSection({ ...section, [name]: value });
     };
 
+    const handleCheckboxChange = (e) => {
+        const { checked } = e.target;
+        setChecked(checked);
+        setSection({ ...section, is_public: checked });
+    };
+
     const updateSection = async () => {
         const formData = new FormData()
         formData.append('title', section.title);
         formData.append('subtitle', section.subtitle);
         formData.append('user', user.user_id);
         formData.append('username', user.username);
+        formData.append('is_public', section.is_public);
 
         console.log('typeof cover', typeof cover);
             console.log('instance of file', cover instanceof File);
@@ -83,7 +93,7 @@ const SectionEdit = () => {
                 timerProgressBar: true,
                 showConfirmButton: false
             })
-            navigate(`/learning`)
+            navigate(-1)
         } catch (error) {
             console.error('Error updating blog:', error);
         }
@@ -128,6 +138,16 @@ const SectionEdit = () => {
                 <div className="horizontal-container cover-container">
                     <Uploader inputKey={inputKey} setCover={setCover} />
                 </div>
+
+                <div className="horizontal-container" style={{marginTop: '2rem'}}>
+            <input
+                style={{marginTop: '0'}}
+                type="checkbox"
+                checked={checked} 
+                onChange={handleCheckboxChange}
+            />
+                <p>Public</p>
+            </div>
 
                 <input
                     className='section-title-input'

@@ -54,6 +54,11 @@ a {
     background-color: darkred;
 }
 
+.privacy {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
 @media screen and (max-width: 768px) {
     .section-item-container {
         display: flex;
