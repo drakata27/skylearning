@@ -20,6 +20,7 @@ import RegisterPage from './pages/RegisterPage/RegisterPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import Unauthorized from './pages/Unauthorized/Unauthorized';
 import IndexPage from './pages/IndexPage/IndexPage';
+import FlashCardAdd from './pages/FlashCardAdd/FlashCardAdd';
 
 function App() {
 
@@ -68,6 +69,11 @@ function App() {
 
             <Route path="/learning/:id/topic/:topicId/add" element={<PrivateRoute />}>
               <Route index element={<SubtopicAdd />} />
+            </Route>
+
+            {/* Flash Card */}
+            <Route path="/material/:matId/flashcard/add" element={<PrivateRoute />}>
+              <Route index element={<FlashCardAdd />} />
             </Route>
 
             {/* Authentication */}
