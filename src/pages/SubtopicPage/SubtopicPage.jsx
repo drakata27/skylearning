@@ -144,6 +144,13 @@ const SubtopicPage = () => {
             dangerouslySetInnerHTML={{__html:subtopic?.body}}>
           </div>
         </div>
+
+        <div className="flash-card-btns">
+            <Link className='btn-flash-card' style={{backgroundColor:'red'}}>My Flash Cards</Link>
+            <Link to={`/material/${matId}/flashcard/add`} className='btn-flash-card'>Add Flash Card</Link>
+            <Link className='btn-flash-card' style={{backgroundColor:'darkOrange'}}>Test</Link>
+        </div>
+
     </div>
   )
 }
