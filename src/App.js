@@ -22,6 +22,8 @@ import Unauthorized from './pages/Unauthorized/Unauthorized';
 import IndexPage from './pages/IndexPage/IndexPage';
 import FlashCardAdd from './pages/FlashCardAdd/FlashCardAdd';
 import FlashCardPage from './pages/FlashCardPage/FlashCardPage';
+import FlashCardEdit from './pages/FlashCardEdit/FlashCardEdit';
+import FlashCardTest from './pages/FlashCardTest/FlashCardTest';
 
 function App() {
 
@@ -79,6 +81,14 @@ function App() {
 
             <Route path="/material/:matId/flashcard/add" element={<PrivateRoute />}>
               <Route index element={<FlashCardAdd />} />
+            </Route>            
+            
+            <Route path="/material/:matId/flashcard/test" element={<PrivateRoute />}>
+              <Route index element={<FlashCardTest />} />
+            </Route>            
+            
+            <Route path="/material/:matId/flashcard/:id/edit" element={<PrivateRoute />}>
+              <Route index element={<FlashCardEdit />} />
             </Route>            
 
             {/* Authentication */}

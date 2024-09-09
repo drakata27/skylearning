@@ -2,7 +2,7 @@ import React from 'react'
 import BASE_URL from '../../utils/config'
 import './FlashCardItem.css'
 
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 const FlashCardItem = ({card, refreshCard}) => {
     const swal = require('sweetalert2')
@@ -52,7 +52,11 @@ const FlashCardItem = ({card, refreshCard}) => {
     <div className='card-items'>
         <p>{card.question}</p>
         <p>{card.answer}</p>
-        <button onClick={deleteCard}>Delete</button>
+
+        <div className="buttons-container">
+            <button><Link to={`/material/${matId}/flashcard/${card.id}/edit`}>Edit</Link></button>
+            <button onClick={deleteCard}>Delete</button>
+        </div>
     </div>
   )
 }
