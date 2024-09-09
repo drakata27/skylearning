@@ -8,7 +8,6 @@ import FlashCardItem from '../../Components/FlashCardItem/FlashCardItem';
 
 const FlashCardPage = () => {
   const { matId } = useParams();
-  const swal = require('sweetalert2')
 
   let [cards, setCard] = useState([])
   const url = `${BASE_URL}/api/subtopic/${matId}/flashcard/`
