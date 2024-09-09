@@ -1,0 +1,95 @@
+.test-card-container{
+    margin: 2rem 20rem;
+}
+
+.test-card-container>h1{
+    margin: 1.5rem;
+}
+
+.card-quiz-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 500px;
+}
+
+.card-quiz-container>button{
+    width: 5%;
+    height: 30%;
+    align-self: center;
+    background-color: transparent;
+    color: white;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid white;
+    border-radius: 25px;
+    width: 400px;
+    height: 500px;
+    transition: background-color 0.3s ease;
+}
+
+.card:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.score-btns{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.score-btns>button{
+    margin: 1rem;
+    background-color: green;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.score-btns>button:hover{
+    background-color: darkgreen;
+}
+
+.score-btns>button:nth-child(2){
+    background-color: red;
+}
+
+.score-btns>button:nth-child(2):hover{
+    background-color: darkred;
+}
+
+.arrow-nav-btns {
+    display: none;
+}
+
+@media screen and (max-width: 1300px) {
+    .test-card-container {
+        margin:2rem ;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .card-quiz-container {
+        justify-content: center;
+    }
+    .arrow-nav-btns {
+        margin-top: 1rem;
+        display: block;
+        display: flex;
+        justify-content: center;
+    }
+
+    .arrow-nav-btns>button {
+        margin: 1rem;
+    }
+
+    .card-quiz-container>button{
+        display: none;
+    }
+}

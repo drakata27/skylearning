@@ -61,6 +61,20 @@ em {
     font-size: 1.5rem;
 }
 
+.flash-card-btns{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.btn-flash-card {
+    padding: 1rem;
+    color: white;
+    margin: 1rem;
+    background-color: green;
+    border-radius: 10px;
+}
+
 @media screen and (max-width: 1000px) {
     .subtopic-container{
         margin:0.5rem;
