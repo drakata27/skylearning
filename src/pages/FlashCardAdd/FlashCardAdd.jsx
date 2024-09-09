@@ -1,12 +1,11 @@
 import React, {useState} from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import './FlashCardAdd.css'
 import BackButton from '../../Components/BackButton/BackButton'
 import BASE_URL from '../../utils/config'
 
 const FlashCardAdd = () => {
   const { matId } = useParams();
-  const navigate = useNavigate();
   const swal = require('sweetalert2')
 
   const [card, setCard] = useState({
@@ -39,7 +38,12 @@ const FlashCardAdd = () => {
             alert("Error creating card")
             return;
         }
-        navigate(-1)
+        setCard({
+          question: '',
+          answer: '',
+          subtopic: matId,
+        });
+        
         swal.fire({
           title: 'Flash Cards were created successfully',
           icon: 'success',
@@ -103,8 +107,7 @@ const FlashCardAdd = () => {
       </div>
       
       <div className="card-btns-container">
-        <button style={{backgroundColor:'darkOrange'}}>Add</button>
-        <button onClick={handleSubmit}>Save</button>
+        <button onClick={handleSubmit}>Add</button>
       </div>
     </div>
   )

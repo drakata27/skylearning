@@ -1,0 +1,9 @@
+.card-items{
+    border: solid white 2px;
+    border-radius: 25px;
+    margin: 2rem;
+}
+
+.card-items>p:nth-child(2){
+    color: gray;
+}

@@ -65,8 +65,6 @@ const HomePage = () => {
             <SectionItem key={index} section={section} refreshSection={getSections}/>
           ))}
         </div>
-      
-
     </div>
   )
 }
