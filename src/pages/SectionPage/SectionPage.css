@@ -33,4 +33,11 @@
     .section-page-container{
         margin: 0 2rem;
     }
+
+    .section-topic-container {
+        margin-top: -6rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }

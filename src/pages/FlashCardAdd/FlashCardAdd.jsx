@@ -84,7 +84,7 @@ const FlashCardAdd = () => {
   return (
     <div className='flash-card-container'>
       <BackButton />
-      <h1>Add Flash Cards</h1>
+      <h1>Add Cards</h1>
 
       <div className="flash-card-form">
       <input

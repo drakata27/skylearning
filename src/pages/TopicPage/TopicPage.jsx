@@ -81,14 +81,6 @@ const TopicPage = () => {
             <div className="horizontal-container">
                 <BackButton />
                 
-                <div>
-                    <h1 className='title'>{topic?.title}</h1>
-
-                    <div className='horizontal-container'>
-                        <p className='subtopic-p'>Materials</p>
-                    </div>
-                </div>
-
                 { user && user.user_id === section.user ? 
                     <Link 
                         className='add-section-btn' 
@@ -100,6 +92,15 @@ const TopicPage = () => {
                     </Link> : <p>{section.username}</p>
                 }
             </div>
+
+            <div className='topic-title-material'>
+                <h1 className='title'>{topic?.title}</h1>
+
+                <div className='horizontal-container'>
+                    <p className='subtopic-p'>Materials</p>
+                </div>
+            </div>
+
             <div className="topic-container">
                 { subtopics.map((subtopic, index)=>(
                     <SubtopicItem 

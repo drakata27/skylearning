@@ -54,3 +54,9 @@
     color: transparent;
 }
 
+@media screen and (max-width: 768px) {
+    .motto {
+        margin-top: 4rem;
+    }
+}
+
