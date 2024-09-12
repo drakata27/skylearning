@@ -40,3 +40,10 @@
     background-color: darkgreen;
     transform: scale(1.05);
 }
+
+@media screen and (max-width: 768px) {
+    .card-btns-container>button {
+        font-size: 1.5rem;
+        width: 30%;
+    }
+}

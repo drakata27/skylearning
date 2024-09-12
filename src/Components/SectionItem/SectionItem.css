@@ -63,13 +63,14 @@ a {
     .section-item-container {
         display: flex;
         flex-direction: column;
+        margin: 2rem 0;
     }
     .section-item-cover{
         display: flex;
         justify-content: center;
     }
     .section-item-cover img {
-        width: 15rem;
+        width: 50%;
     }
 
     .section-item-content {

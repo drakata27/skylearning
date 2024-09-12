@@ -48,16 +48,7 @@ const SectionPage = () => {
     return (
     <div className='section-page-container'>
         <div className="horizontal-container">
-            
             <BackButton />
-
-            <div>
-                <h1 className='title'>{section?.title}</h1>
-
-                <div className='horizontal-container'>
-                    <p className='topic-p'>Topics</p>
-                </div>
-            </div>
 
             { user && user.user_id === section.user ? 
                 <Link className='add-section-btn' to='add/'>
@@ -68,11 +59,20 @@ const SectionPage = () => {
             }
 
         </div>
-            <div className="topic-container">
-                { topics.map((topic, index)=>(
-                    <TopicItem key={index} section={section} topic={topic} refreshTopic={getTopic}/>
-                ))}
+
+        <div className='section-topic-container'>
+            <h1 className='title'>{section?.title}</h1>
+
+            <div className='horizontal-container'>
+                <p className='topic-p'>Topics</p>
             </div>
+        </div>
+
+        <div className="topic-container">
+            { topics.map((topic, index)=>(
+                <TopicItem key={index} section={section} topic={topic} refreshTopic={getTopic}/>
+            ))}
+        </div>
     </div>
     )
 }

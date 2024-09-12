@@ -38,6 +38,11 @@
 }
 
 @media screen and (max-width: 1587px) {
+    .topic-title-material{
+        margin-top: -5rem;
+    }
+
+
     .topic-page-container{
         margin: 0 2rem;
     }

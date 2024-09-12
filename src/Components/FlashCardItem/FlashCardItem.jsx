@@ -54,8 +54,18 @@ const FlashCardItem = ({card, refreshCard}) => {
         <p>{card.answer}</p>
 
         <div className="buttons-container">
-            <button><Link to={`/material/${matId}/flashcard/${card.id}/edit`}>Edit</Link></button>
-            <button onClick={deleteCard}>Delete</button>
+            <button>
+                <Link to={`/material/${matId}/flashcard/${card.id}/edit`}>
+                    <span className="material-symbols-outlined">
+                        edit
+                    </span>
+                </Link>
+            </button>
+            <button onClick={deleteCard}>
+                <span className="material-symbols-outlined">
+                    delete
+                </span>
+            </button>
         </div>
     </div>
   )

@@ -75,21 +75,40 @@
 }
 
 @media screen and (max-width: 768px) {
+    .test-card-container{
+        margin: 2rem auto;
+    }
     .card-quiz-container {
         justify-content: center;
+        margin-bottom: 0;
     }
     .arrow-nav-btns {
-        margin-top: 1rem;
+        margin-top: -4rem;
         display: block;
         display: flex;
         justify-content: center;
     }
 
     .arrow-nav-btns>button {
-        margin: 1rem;
+        margin: 0 1rem 0 1rem;
     }
-
+    .card-quiz-container {
+        margin-bottom: 0;
+    }
     .card-quiz-container>button{
         display: none;
+    }
+
+    .card {
+        width: 280px;
+        height: 380px;
+    }
+
+    .score-btns{
+        margin-top: 1rem;
+    }
+
+    .score-container{
+        margin-top: -1rem;
     }
 }
