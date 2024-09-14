@@ -18,10 +18,11 @@ const EditRoute = () => {
     let location = useLocation();
 
     const [section, setSection] = useState(null);
+
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const fetchSectionDetail = async () => {
+        const fetchSection = async () => {
             const pathSegments = location.pathname.split('/');
             const id = pathSegments[pathSegments.indexOf('learning') + 1];
             if (!id) {
@@ -29,10 +30,10 @@ const EditRoute = () => {
                 return;
             }
 
-            const urlFetch = `${BASE_URL}/api/section/${id}/`;
+            const urlSection = `${BASE_URL}/api/section/${id}/`;
 
             try {
-                const response = await fetch(urlFetch);
+                const response = await fetch(urlSection);
                 if (!response.ok) {
                     console.error('Error fetching section data:', response.status, response.statusText);
                     setLoading(false);
@@ -47,7 +48,7 @@ const EditRoute = () => {
             }
         };
 
-        fetchSectionDetail();
+        fetchSection();
     }, [location.pathname]);
 
     if (loading) {

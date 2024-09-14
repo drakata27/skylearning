@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import './SubtopicAdd.css'
 import Uploader from '../../Components/Uploader/Uploader'
@@ -7,14 +7,17 @@ import modules from '../../utils/quilModules'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import BASE_URL from '../../utils/config'
+import AuthContext from '../../context/AuthContext';
 
 const SubtopicAdd = () => {
     const { id } = useParams();
     const { topicId } = useParams();
     const navigate = useNavigate();
+    const {user} = useContext(AuthContext)
     
     const [cover, setCover] = useState()
     const [subtopic, setSubtopic] = useState({
+        user: user.user_id, 
         title: '',
         subtitle: '',
         body: '',
@@ -29,6 +32,7 @@ const SubtopicAdd = () => {
     const createSubtopic = async () => {
         try {
             const formData = new FormData();
+            formData.append('user', user.user_id);
             formData.append('title', subtopic.title);
             formData.append('subtitle', subtopic.subtitle);
             formData.append('body', subtopic.body)

@@ -11,7 +11,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 300px;
+    height: 400px;
     width: 500px;
     cursor: pointer;
     border-radius: 15px;
@@ -113,6 +113,16 @@
 
 .register-link p a:hover {
     text-decoration: underline;
+}
+
+.demo-btn {
+    margin-top: 2rem;
+    color: white !important;
+    background-color: darkcyan !important;
+}
+
+.demo-btn:hover {
+    background-color: teal !important;
 }
 
 @media screen and (max-width: 768px) {

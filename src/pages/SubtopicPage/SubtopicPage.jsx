@@ -146,8 +146,12 @@ const SubtopicPage = () => {
         </div>
 
         <div className="flash-card-btns">
-            <Link to={`/material/${matId}/flashcard`} className='btn-flash-card' style={{backgroundColor:'red'}}>My Flash Cards</Link>
-            <Link to={`/material/${matId}/flashcard/add`} className='btn-flash-card'>Add Flash Card</Link>
+            { subtopic.user === user.user_id ? 
+                <>
+                    <Link to={`/material/${matId}/flashcard`} className='btn-flash-card' style={{backgroundColor:'red'}}>My Flash Cards</Link>
+                    <Link to={`/material/${matId}/flashcard/add`} className='btn-flash-card'>Add Flash Card</Link>
+                </> : <></>
+            }
             <Link to={`/material/${matId}/flashcard/test`} className='btn-flash-card' style={{backgroundColor:'darkOrange'}}>Test</Link>
         </div>
 
