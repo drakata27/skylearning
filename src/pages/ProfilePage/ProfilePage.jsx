@@ -7,6 +7,7 @@ import BASE_URL from '../../utils/config'
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useParams } from 'react-router-dom'
+import NotFound from '../NotFound/NotFound'
 
 const ProfilePage = () => {
     useGSAP(()=> {
@@ -55,7 +56,9 @@ const ProfilePage = () => {
         getProfiles()
     },[url])
 
-    console.log(profile.image);
+  if (profile.image === undefined) {
+    return <NotFound />
+  }
 
   return (
     <div className="profile-container">

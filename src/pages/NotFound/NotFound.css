@@ -1,0 +1,16 @@
+.not-found-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+}
+
+.not-found-container h1{ 
+    margin-bottom: 3rem;
+}
+
+.not-found-container img{ 
+    width: 50%;
+    border-radius: 15px;
+}
