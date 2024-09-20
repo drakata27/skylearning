@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Placeholder from '../../assets/placeholder.jpg'
 import Uploader from '../../Components/Uploader/Uploader'
@@ -10,12 +10,15 @@ import 'react-quill/dist/quill.snow.css';
 import BASE_URL from '../../utils/config'
 
 import './SubtopicEdit.css'
+import AuthContext from '../../context/AuthContext';
 
 const SubtopicEdit = () => {
     let {id, matId, topicId} = useParams();
     const [cover, setCover] = useState()
     const [isLoaded, setIsLoaded] = useState(false)
+    const {user} = useContext(AuthContext)
     const [subtopic, setSubtopic] = useState({
+        user: user.user_id,
         'title': '',
         'subtitle': '',
         'body': '',
@@ -59,6 +62,7 @@ const SubtopicEdit = () => {
 
     const updateSubtopic = async () => {
         const formData = new FormData()
+        formData.append('user', user.user_id);
         formData.append('title', subtopic.title);
         formData.append('subtitle', subtopic.subtitle);
         formData.append('body', subtopic.body);

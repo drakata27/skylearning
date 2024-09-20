@@ -23,17 +23,22 @@ const LandingPage = () => {
   return (
     <div className='landing-section'>
         <div className='motto'>
-            <p>Where people</p>
-            <p>Learn together</p>
-            <p>We know how hard it is to constantly upskill. It doesn’t have to be.
-            Organise your learning materials for improved productivity</p>
+            <p>Where you can</p>
+            <p>Learn more</p>
+            <p>Learning can be difficult but with an organised way to take notes and active recalling using flash cards,
+              you can learn more efficiently
+            </p>
             <p style={{ color: 'rgb(188, 187, 179);'}}>
               👉
 
               <Link to={'/login'} className='login'>
                 Login
               </Link>
-              to add materials
+              or try 
+
+              <Link to={'/login'} className='login' style={{color : 'teal'}}>
+                Demo
+              </Link>
             </p>   
             <img className='demo-img' src={LandingImage} alt="Demo" />
         </div>

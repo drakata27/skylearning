@@ -108,7 +108,8 @@ const TopicPage = () => {
                         section={section} 
                         topic={topic} 
                         subtopic={subtopic} 
-                        refreshSubtopic={getSubtopic}/>
+                        refreshSubtopic={getSubtopic}
+                    />
                 ))}
             </div>
         </div>
