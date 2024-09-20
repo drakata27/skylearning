@@ -35,6 +35,7 @@ function App() {
           <Routes>
             <Route path="/" element={<IndexPage />} />
             
+            {/* <Route path="/:user" element={<ProfilePage />} /> */}
             <Route path="/:user" element={<ProfilePage />} />
 
             {/* Sections */}

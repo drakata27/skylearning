@@ -1,12 +1,12 @@
-import { useContext, useState, useEffect} from 'react'
+import { useState, useEffect} from 'react'
 import React from 'react'
 import './ProfilePage.css'
-import AuthContext from '../../context/AuthContext'
 import User  from '../../assets/user.png'
 import BASE_URL from '../../utils/config'
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { useParams } from 'react-router-dom'
 
 const ProfilePage = () => {
     useGSAP(()=> {
@@ -34,9 +34,9 @@ const ProfilePage = () => {
         })
       }, [])
 
+    const {user} = useParams()
 
-    const {user} = useContext(AuthContext)
-    const url = `${BASE_URL}/api/${user.username}/`
+    const url = `${BASE_URL}/api/${user}/`
 
 
     let [profile, setProfile] = useState({
@@ -75,7 +75,7 @@ const ProfilePage = () => {
                 <tbody>
                 <tr>
                     <td>Username</td>
-                    <td>{user.username} { 
+                    <td>{user} { 
                         profile.verified ? 
                         <span class="material-symbols-outlined" style={{color: 'lightblue'}}>
                             verified
