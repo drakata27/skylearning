@@ -5,6 +5,7 @@
    display: flex;
    justify-content: center;
    align-items: center;
+   margin-top: 2rem;
 }
 .profile-image-container img{
    width: 10rem;
@@ -26,4 +27,21 @@
 }
 .profile-table td:nth-child(2){
    color: white;
+}
+.profile-btn-container{
+   display: flex;
+   justify-content: end;
+}
+.update-profile-btn {
+   color: white;
+   font-size: 2rem;
+   background: orange;
+   padding: 0.4rem;
+   border-radius: 15px;
+   margin-top: 2rem;
+}
+
+.update-profile-btn:hover{
+   background-color: darkorange;
+   cursor: pointer;
 }

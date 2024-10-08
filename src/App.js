@@ -24,6 +24,7 @@ import FlashCardAdd from './pages/FlashCardAdd/FlashCardAdd';
 import FlashCardPage from './pages/FlashCardPage/FlashCardPage';
 import FlashCardEdit from './pages/FlashCardEdit/FlashCardEdit';
 import FlashCardTest from './pages/FlashCardTest/FlashCardTest';
+import ProfileEdit from './pages/ProfileEdit/ProfileEdit';
 
 function App() {
 
@@ -37,6 +38,10 @@ function App() {
             
             {/* <Route path="/:user" element={<ProfilePage />} /> */}
             <Route path="/:user" element={<ProfilePage />} />
+
+            <Route path="/:user/edit" element={<PrivateRoute />}>
+              <Route index element={<ProfileEdit />} />
+            </Route>
 
             {/* Sections */}
             <Route path="/learning" element={<PrivateRoute />}>
