@@ -8,7 +8,6 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Link, useParams } from 'react-router-dom'
 import NotFound from '../NotFound/NotFound'
-import ProfileEdit from '../ProfileEdit/ProfileEdit'
 
 const ProfilePage = () => {
     useGSAP(()=> {
@@ -38,7 +37,7 @@ const ProfilePage = () => {
 
     const {user} = useParams()
 
-    const url = `${BASE_URL}/api/${user}/`
+    const url = `${BASE_URL}/api/profiles/${user}/`
 
 
     let [profile, setProfile] = useState({
