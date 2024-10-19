@@ -1,12 +1,20 @@
-import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import BASE_URL from '../../utils/config'
 import './FlashCardItem.css'
 
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import EditButton from '../EditButton/EditButton'
+import DeleteButton from '../DeleteButton/DeleteButton'
 
 const FlashCardItem = ({card, refreshCard}) => {
     const swal = require('sweetalert2')
     const {matId} = useParams()
+    const navigate = useNavigate();
+
+    if (!card) {
+        return <div>No card found.</div>;
+    }
+
     const url = `${BASE_URL}/api/subtopic/${matId}/flashcard/${card.id}/`
 
     let deleteCard = async (e) =>{
@@ -48,24 +56,20 @@ const FlashCardItem = ({card, refreshCard}) => {
         }
     }
 
+    const handleNavigation = ()=>{
+        navigate(`/material/${matId}/flashcard/${card.id}/edit`)
+    }
+
+
   return (
-    <div className='card-items'>
+    <div className='card-items' data-testid="flash-card-item">
         <p>{card.question}</p>
         <p>{card.answer}</p>
 
         <div className="buttons-container">
-            <button>
-                <Link to={`/material/${matId}/flashcard/${card.id}/edit`}>
-                    <span className="material-symbols-outlined">
-                        edit
-                    </span>
-                </Link>
-            </button>
-            <button onClick={deleteCard}>
-                <span className="material-symbols-outlined">
-                    delete
-                </span>
-            </button>
+            <EditButton handleNavigation={handleNavigation}/>
+            
+            <DeleteButton deleteCard={deleteCard} />
         </div>
     </div>
   )

@@ -95,7 +95,7 @@ const SectionEdit = () => {
             })
             navigate(-1)
         } catch (error) {
-            console.error('Error updating blog:', error);
+            console.error('Error updating section:', error);
         }
     }
     const cancel = () => {

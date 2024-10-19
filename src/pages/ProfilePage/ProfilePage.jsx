@@ -6,7 +6,7 @@ import BASE_URL from '../../utils/config'
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import NotFound from '../NotFound/NotFound'
 
 const ProfilePage = () => {
@@ -37,7 +37,7 @@ const ProfilePage = () => {
 
     const {user} = useParams()
 
-    const url = `${BASE_URL}/api/${user}/`
+    const url = `${BASE_URL}/api/profiles/${user}/`
 
 
     let [profile, setProfile] = useState({
@@ -63,6 +63,16 @@ const ProfilePage = () => {
   return (
     <div className="profile-container">
         <h1 style={{opacity:0}}>Profile</h1>
+
+
+        <div className='profile-btn-container'>
+          <Link className='update-profile-btn' to='edit'>
+            <span className="material-symbols-outlined">
+              edit
+            </span>
+          </Link>
+        </div>
+
         <div className="profile-image-container" style={{opacity:0}}>
             {profile.image === 'https://cloud-learn-bucket.s3.amazonaws.com/default.jpg' ? 
                 <img src={User} alt="user" />

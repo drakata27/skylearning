@@ -6,11 +6,13 @@ const BackButton = () => {
 
   return (
     <Link 
-        onClick={() => navigate(-1)}
-        className='back-btn'>
-        <span class="material-symbols-outlined">
-            arrow_back
-        </span>
+      onClick={() => navigate(-1)}
+      className='back-btn'
+      data-testid="back-btn"
+    >
+      <span class="material-symbols-outlined">
+          arrow_back
+      </span>
     </Link>
   )
 }
