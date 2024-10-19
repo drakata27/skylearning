@@ -49,7 +49,7 @@ const FlashCardItem = ({card, refreshCard}) => {
     }
 
   return (
-    <div className='card-items'>
+    <div className='card-items' data-testid="flash-card-item">
         <p>{card.question}</p>
         <p>{card.answer}</p>
 
