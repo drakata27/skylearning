@@ -3,8 +3,7 @@ import BASE_URL from '../../utils/config'
 import './FlashCardItem.css'
 
 import { useParams } from 'react-router-dom'
-import EditButton from '../EditButton/EditButton'
-import DeleteButton from '../DeleteButton/DeleteButton'
+import ActionButton from '../ActionButton/ActionButton'
 
 const FlashCardItem = ({card, refreshCard}) => {
     const swal = require('sweetalert2')
@@ -67,9 +66,8 @@ const FlashCardItem = ({card, refreshCard}) => {
         <p>{card.answer}</p>
 
         <div className="buttons-container">
-            <EditButton handleNavigation={handleNavigation}/>
-            
-            <DeleteButton deleteCard={deleteCard} />
+            <ActionButton handleAction={handleNavigation} type='edit'/>
+            <ActionButton handleAction={deleteCard} type='delete'/>
         </div>
     </div>
   )

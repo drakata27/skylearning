@@ -5,7 +5,7 @@ import './Footer.css'
 const Footer = () => {
     let currentYear = new Date().getFullYear();
     return (
-      <div className='footer'>
+      <div className='footer' data-testid='footer'>
         <div className="vertical-container">
           <img className="logo"src={Logo} alt="logo" />
           <p>Copyright © {currentYear}</p>

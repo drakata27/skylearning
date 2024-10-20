@@ -82,8 +82,9 @@ const TopicEdit = () => {
         }
     }
 
-    const cancel = () => {
-        navigate(`/learning/${id}/`)
+    const cancel = (e) => {
+        e.preventDefault()
+        navigate(-1)
     }
 
     const [inputKey] = useState(Date.now()); 
