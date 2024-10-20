@@ -3,6 +3,7 @@ import { Link, useParams, useNavigate } from 'react-router-dom'
 import Placeholder from '../../assets/placeholder.png'
 import BASE_URL from '../../utils/config'
 import AuthContext from '../../context/AuthContext'
+import ActionButton from '../ActionButton/ActionButton'
 
 const SubtopicItem = ({section, topic, subtopic, refreshSubtopic}) => {
   const swal = require('sweetalert2')
@@ -53,6 +54,11 @@ const SubtopicItem = ({section, topic, subtopic, refreshSubtopic}) => {
     }
 }
 
+    const handleNavigation = (e, url) => {
+        e.preventDefault();
+        navigate(`/learning/${id}/topic/${topic.id}/material/${subtopic.id}/edit/`)
+    }
+
   return (
     <Link to={`/learning/${id}/topic/${topic.id}/material/${subtopic.id}/`}>
         <div className="section-item-container horizontal-container">
@@ -71,22 +77,17 @@ const SubtopicItem = ({section, topic, subtopic, refreshSubtopic}) => {
         { token && section.user === user.user_id ? 
         <>
             <div className='section-item-btns'>
-                <Link to={`/learning/${id}/topic/${topic.id}/material/${subtopic.id}/edit/`}>
-                    <button className='section-edit-btn'>
-                        <span className="material-symbols-outlined">
-                            edit
-                        </span>
-                    </button>
-                </Link>
-
-                <button 
+                <ActionButton
+                    handleAction={handleNavigation}
+                    type='edit'
+                    className='section-edit-btn'
+                />
+                
+                <ActionButton
+                    handleAction={deleteSubtopic}
+                    type='delete'
                     className='section-delete-btn'
-                    onClick={deleteSubtopic}
-                >
-                        <span className="material-symbols-outlined">
-                            delete
-                        </span>
-                </button>
+                />
             </div>
         </>:<div></div>
         }

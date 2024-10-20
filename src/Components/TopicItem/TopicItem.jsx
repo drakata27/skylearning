@@ -1,12 +1,14 @@
 import React, {useContext} from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import Placeholder from '../../assets/placeholder.png'
 import AuthContext from '../../context/AuthContext'
 import BASE_URL from '../../utils/config'
+import ActionButton from '../ActionButton/ActionButton'
 
 const TopicItem = ({section, topic, refreshTopic}) => {
     const {user} = useContext(AuthContext)
     const swal = require('sweetalert2')
+    const navigate = useNavigate()
     const {id} = useParams()
     const url = `${BASE_URL}/api/section/${id}/topic/${topic.id}`
     const token = localStorage.getItem("authTokens")
@@ -49,6 +51,10 @@ const TopicItem = ({section, topic, refreshTopic}) => {
             }
         }
     }
+    const handleNavigation = (e) => {
+        e.preventDefault();
+        navigate(`/learning/${section.id}/edit/`)
+    }
 
   return (
     <Link to={`topic/${topic.id}/`}>
@@ -68,21 +74,17 @@ const TopicItem = ({section, topic, refreshTopic}) => {
                 { token && section.user === user.user_id ? 
                 <>
                     <div className='section-item-btns'>
-                        <Link to={`topic/${topic.id}/edit/`}>
-                            <button className='section-edit-btn'>
-                                <span className="material-symbols-outlined">
-                                    edit
-                                </span>
-                            </button>
-                        </Link>
-
-                        <button 
-                            className='section-delete-btn'
-                            onClick={deleteTopic}>
-                                <span className="material-symbols-outlined">
-                                    delete
-                                </span>
-                        </button>
+                        <ActionButton 
+                            handleAction={handleNavigation} 
+                            className={'section-edit-btn'}
+                            type='edit'
+                        />
+                        
+                        <ActionButton 
+                            handleAction={deleteTopic} 
+                            className={'section-delete-btn'}
+                            type='delete'
+                        />
                     </div>
                 </>:<div></div>
                 }

@@ -6,9 +6,11 @@ import './SubtopicPage.css'
 import BackButton from '../../Components/BackButton/BackButton'
 import BASE_URL from '../../utils/config'
 import AuthContext from '../../context/AuthContext'
+import ActionButton from '../../Components/ActionButton/ActionButton'
 
 const SubtopicPage = () => {
   let {id, topicId, matId} = useParams();
+  const swal = require('sweetalert2')
   const token = localStorage.getItem("authTokens")
   const {user} = useContext(AuthContext)
   const [cover] = useState()
@@ -72,9 +74,16 @@ const SubtopicPage = () => {
     }, [urlFetch])
 
     let deleteSubtopic = async (e) =>{
-      const isConfirmed = window.confirm(`Are you sure you want to 
-      delete subtopic "${subtopic.title}"?`);
-      if (isConfirmed) {
+        e.preventDefault()
+        const result = await swal.fire({
+            title: `Are you sure you want to delete subtopic "${subtopic.title}"?`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes',
+            cancelButtonText: 'No',
+        });
+
+      if (result.isConfirmed) {
           try {
               const response = await fetch(url, {
               method: "DELETE",
@@ -88,14 +97,26 @@ const SubtopicPage = () => {
                   response.status, response.statusText);
               return
           }
+          swal.fire({
+                title: `Subtopic "${subtopic.title}" was deleted`,
+                icon: 'success',
+                toast: 'true',
+                timer: 2000,
+                position: 'top-right',
+                timerProgressBar: true,
+                showConfirmButton: false
+            })
+            navigate(`/learning/${id}/topic/${topicId}/`)
           } catch(error) {
               console.error('Error deleting subtopic:', error);
           }
       }
-      e.preventDefault()
-      navigate(`/learning/${id}/topic/${topicId}/`)
     }
 
+    const handleNavigation = (e, url) => {
+        e.preventDefault();
+        navigate(`/learning/${id}/topic/${topicId}/material/${subtopic.id}/edit/`)
+    }
   return (
     <div className='subtopic-container'>
         <div className="horizontal-container">
@@ -103,22 +124,17 @@ const SubtopicPage = () => {
 
                 { token && section.user === user.user_id ? 
                     <div className='section-item-btns-subtopic'>
-                        <Link to={`/learning/${id}/topic/${topicId}/material/${subtopic.id}/edit/`}>
-                            <button className='section-edit-btn'>
-                                <span className="material-symbols-outlined">
-                                    edit
-                                </span>
-                            </button>
-                        </Link>
-
-                        <button 
+                        <ActionButton
+                            handleAction={handleNavigation}
+                            type='edit'
+                            className='section-edit-btn'
+                        />
+                        
+                        <ActionButton
+                            handleAction={deleteSubtopic}
+                            type='delete'
                             className='section-delete-btn'
-                            onClick={deleteSubtopic}
-                        >
-                                <span className="material-symbols-outlined">
-                                    delete
-                                </span>
-                        </button>
+                        />
                     </div>
                 :
                     <></>
