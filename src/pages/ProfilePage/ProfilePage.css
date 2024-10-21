@@ -1,47 +1,47 @@
-.profile-container{
-   margin: 2rem;
+.profile-container {
+  margin: 2rem;
 }
-.profile-image-container{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   margin-top: 2rem;
+.profile-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
 }
-.profile-image-container img{
-   width: 10rem;
-   margin-top: 2rem;
-}
-
-.table-container{
-   display: flex;
-   justify-content: center;
-   align-items: center;
+.profile-image-container img {
+  width: 10rem;
+  margin-top: 2rem;
 }
 
-.profile-table td{
-   font-size: 2rem;
-   padding: 1rem;
+.table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.profile-table td:nth-child(1){
-   color: gray;
+
+.profile-table td {
+  font-size: 2rem;
+  padding: 1rem;
 }
-.profile-table td:nth-child(2){
-   color: white;
+.profile-table td:nth-child(1) {
+  color: gray;
 }
-.profile-btn-container{
-   display: flex;
-   justify-content: end;
+.profile-table td:nth-child(2) {
+  color: white;
+}
+.profile-btn-container {
+  display: flex;
+  justify-content: end;
 }
 .update-profile-btn {
-   color: white;
-   font-size: 2rem;
-   background: orange;
-   padding: 0.4rem;
-   border-radius: 15px;
-   margin-top: 2rem;
+  color: white;
+  font-size: 2rem;
+  background: orange;
+  padding: 0.4rem;
+  border-radius: 15px;
+  margin-top: 2rem;
 }
 
-.update-profile-btn:hover{
-   background-color: darkorange;
-   cursor: pointer;
+.update-profile-btn:hover {
+  background-color: darkorange;
+  cursor: pointer;
 }

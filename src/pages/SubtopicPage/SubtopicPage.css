@@ -1,92 +1,92 @@
 h1 {
-    font-size: 4rem;
-    align-items: center;
-    padding: 0;
-    margin: 0;
+  font-size: 4rem;
+  align-items: center;
+  padding: 0;
+  margin: 0;
 }
 h2 {
-    font-size: 2rem;
-    color: rgb(188, 187, 179);
+  font-size: 2rem;
+  color: rgb(188, 187, 179);
 }
-.title-container{
-    display: flex;
-    align-items: flex-end;
+.title-container {
+  display: flex;
+  align-items: flex-end;
 }
 .ql-editor {
-    color: white;
+  color: white;
 }
 .ql-editor h1 {
-    font-size: 3rem;
+  font-size: 3rem;
 }
-.ql-editor h2{
-    align-items: start;
-    display: flex;
+.ql-editor h2 {
+  align-items: start;
+  display: flex;
 }
-.subtopic-container{
-    margin: 0 15rem;
-    align-items: start;
+.subtopic-container {
+  margin: 0 15rem;
+  align-items: start;
 }
 
 .cover-preview {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.cover-preview img{
-    width: 50%;
-    border-radius: 25px;
+.cover-preview img {
+  width: 50%;
+  border-radius: 25px;
 }
 .section-item-btns-subtopic {
-    display: flex;
-    align-items: flex-end;
+  display: flex;
+  align-items: flex-end;
 }
 
-.title-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .cover-center {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 em {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
-.flash-card-btns{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.flash-card-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .btn-flash-card {
-    padding: 1rem;
-    color: white;
-    margin: 1rem;
-    background-color: green;
-    border-radius: 10px;
+  padding: 1rem;
+  color: white;
+  margin: 1rem;
+  background-color: green;
+  border-radius: 10px;
 }
 
 @media screen and (max-width: 1000px) {
-    .subtopic-container{
-        margin:0.5rem;
-    }
+  .subtopic-container {
+    margin: 0.5rem;
+  }
 
-    .section-item-btns-subtopic {
-        display: flex;
-        flex-direction: column;
-        margin-top: 4rem;
-    }
+  .section-item-btns-subtopic {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+  }
 
-    .section-delete-btn{
-        margin-top: 1rem;
-    }
+  .section-delete-btn {
+    margin-top: 1rem;
+  }
 }

@@ -1,10 +1,10 @@
-.edit-profile-container{
-    margin: 2rem;
+.edit-profile-container {
+  margin: 2rem;
 }
 
 textarea {
-    width: 100%;
-    height: 20rem;
-    font-size: 2rem;
-    border-radius: 15px;
+  width: 100%;
+  height: 20rem;
+  font-size: 2rem;
+  border-radius: 15px;
 }

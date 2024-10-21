@@ -1,96 +1,96 @@
-.section-list-container{
-    margin: 0 15rem;
+.section-list-container {
+  margin: 0 15rem;
 }
 
-.section-list-header{
-    margin: 0 2rem;
+.section-list-header {
+  margin: 0 2rem;
 }
-h2{
-    color: white;
-    text-align: center;
-    font-size: 3em;
+h2 {
+  color: white;
+  text-align: center;
+  font-size: 3em;
 }
-p{
-    color: white;
-    text-align: center;
-    font-size: 2em;
+p {
+  color: white;
+  text-align: center;
+  font-size: 2em;
 }
 
 .btns-container {
-    display: flex;
-    justify-content: center;
-    
-    margin-top: 3rem;
-    margin-left: 0;
+  display: flex;
+  justify-content: center;
+
+  margin-top: 3rem;
+  margin-left: 0;
 }
 
-.btns-container a{
-    color: azure;
-    margin-right: 2rem;
-    border: 2px solid white;
-    border-radius: 15px;
-    padding: 1rem;
+.btns-container a {
+  color: azure;
+  margin-right: 2rem;
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 1rem;
 }
 
-.btns-container a:hover{
-    background-color: rgb(187, 171, 171);
-    color: rgb(14, 11, 55);
+.btns-container a:hover {
+  background-color: rgb(187, 171, 171);
+  color: rgb(14, 11, 55);
 }
 
-.add-section-btn{
-    background-color: green;
-    color: white;
-    margin-top: 2rem;
-    border-radius: 10px;
-    border: none;
-    margin: 5rem 0;
-    padding: 1rem;
-    transition: transform 0.3s ease;
+.add-section-btn {
+  background-color: green;
+  color: white;
+  margin-top: 2rem;
+  border-radius: 10px;
+  border: none;
+  margin: 5rem 0;
+  padding: 1rem;
+  transition: transform 0.3s ease;
 }
 
-.add-section-btn:hover{
-    background-color: darkgreen;
-    cursor: pointer;
-    transform: scale(1.04);
+.add-section-btn:hover {
+  background-color: darkgreen;
+  cursor: pointer;
+  transform: scale(1.04);
 }
 
 .title {
-    padding: 0;
-    margin: 0;
-    margin-top: 2rem;
+  padding: 0;
+  margin: 0;
+  margin-top: 2rem;
 }
-.section-p{
-    font-size: 1.5rem;
-    border-radius: 20px;
-    padding: 0.5rem;
-    margin: 0;
-    margin-top: 1rem;
-    background-color: darkgreen;
+.section-p {
+  font-size: 1.5rem;
+  border-radius: 20px;
+  padding: 0.5rem;
+  margin: 0;
+  margin-top: 1rem;
+  background-color: darkgreen;
 }
-.topic-p{
-    font-size: 1.5rem;
-    border-radius: 20px;
-    padding: 0.5rem;
-    margin: 0;
-    margin-top: 1rem;
-    background-color: darkred;
+.topic-p {
+  font-size: 1.5rem;
+  border-radius: 20px;
+  padding: 0.5rem;
+  margin: 0;
+  margin-top: 1rem;
+  background-color: darkred;
 }
-.subtopic-p{
-    font-size: 1.5rem;
-    border-radius: 20px;
-    padding: 0.5rem;
-    margin: 0;
-    margin-top: 1rem;
-    background-color: orange;
+.subtopic-p {
+  font-size: 1.5rem;
+  border-radius: 20px;
+  padding: 0.5rem;
+  margin: 0;
+  margin-top: 1rem;
+  background-color: orange;
 }
 
-.nav-elements{
-    margin-top: 1rem;
-    justify-content: flex-start;
+.nav-elements {
+  margin-top: 1rem;
+  justify-content: flex-start;
 }
 
 @media screen and (max-width: 1587px) {
-    .section-list-container{
-        margin: 0 0;
-    }
+  .section-list-container {
+    margin: 0 0;
+  }
 }

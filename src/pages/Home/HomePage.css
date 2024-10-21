@@ -1,28 +1,28 @@
 #home-item,
 #home-heading {
-    opacity: 0;
+  opacity: 0;
 }
 
-.home-container{
-    margin-top: 2rem;
+.home-container {
+  margin-top: 2rem;
 }
 
-.section-list-container{
-    margin-top: 2rem;
+.section-list-container {
+  margin-top: 2rem;
 }
 
 .login {
-    color: orange;
-    margin:0 0.5rem;
-    transition: transform 0.3s ease;
+  color: orange;
+  margin: 0 0.5rem;
+  transition: transform 0.3s ease;
 }
 
-.login:hover{
-    transform: scale(1.04);
+.login:hover {
+  transform: scale(1.04);
 }
 
 @media screen and (max-width: 1587px) {
-    .home-container {
-        padding: 1rem;
-    }
+  .home-container {
+    padding: 1rem;
+  }
 }

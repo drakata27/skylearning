@@ -1,45 +1,44 @@
-import React, {useEffect, useState} from 'react'
-import { useParams } from 'react-router-dom';
-import BackButton from '../../Components/BackButton/BackButton'
-import BASE_URL from '../../utils/config'
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import BackButton from "../../Components/BackButton/BackButton";
+import BASE_URL from "../../utils/config";
 
-import './FlashCardPage.css'
-import FlashCardItem from '../../Components/FlashCardItem/FlashCardItem';
+import "./FlashCardPage.css";
+import FlashCardItem from "../../Components/FlashCardItem/FlashCardItem";
 
 const FlashCardPage = () => {
   const { matId } = useParams();
 
-  let [cards, setCard] = useState([])
-  const url = `${BASE_URL}/api/subtopic/${matId}/flashcard/`
+  let [cards, setCard] = useState([]);
+  const url = `${BASE_URL}/api/subtopic/${matId}/flashcard/`;
 
-  useEffect(()=> {
+  useEffect(() => {
     const getCards = async () => {
-        let response = await fetch(url)
-        let data = await response.json()
-        setCard(data)
-    }
-    getCards()
-    }, [url])
+      let response = await fetch(url);
+      let data = await response.json();
+      setCard(data);
+    };
+    getCards();
+  }, [url]);
 
-    const getCards = async () => {
-        let response = await fetch(url)
-        let data = await response.json()
-        setCard(data)
-    } 
+  const getCards = async () => {
+    let response = await fetch(url);
+    let data = await response.json();
+    setCard(data);
+  };
 
   return (
-    <div className='flashcard-container'>
-        <BackButton />
-        <h1>My Flash Cards</h1>
+    <div className="flashcard-container">
+      <BackButton />
+      <h1>My Flash Cards</h1>
 
-        <div id='card-item' className="card-item">
-          { cards.map((card, index) => (
-            <FlashCardItem key={index} card={card} refreshCard={getCards}/>
-          ))}
-        </div>
-
+      <div id="card-item" className="card-item">
+        {cards.map((card, index) => (
+          <FlashCardItem key={index} card={card} refreshCard={getCards} />
+        ))}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default FlashCardPage
+export default FlashCardPage;

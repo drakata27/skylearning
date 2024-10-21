@@ -1,20 +1,18 @@
-import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const BackButton = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
-    <Link 
+    <Link
       onClick={() => navigate(-1)}
-      className='back-btn'
+      className="back-btn"
       data-testid="back-btn"
     >
-      <span class="material-symbols-outlined">
-          arrow_back
-      </span>
+      <span class="material-symbols-outlined">arrow_back</span>
     </Link>
-  )
-}
+  );
+};
 
-export default BackButton
+export default BackButton;

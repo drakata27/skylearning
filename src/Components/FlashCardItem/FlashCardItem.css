@@ -1,46 +1,48 @@
-.card-items{
-    border-radius: 25px;
-    margin: 2rem;
-    transition: transform 0.3s ease;
-    box-shadow: 2px 15px 11px 4px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.card-items {
+  border-radius: 25px;
+  margin: 2rem;
+  transition: transform 0.3s ease;
+  box-shadow:
+    2px 15px 11px 4px rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.card-items:hover{
-    transform: scale(1.02);
+.card-items:hover {
+  transform: scale(1.02);
 }
 
-.card-items>p:nth-child(1){
-    margin-top: 2rem;
+.card-items > p:nth-child(1) {
+  margin-top: 2rem;
 }
 
-.card-items>p:nth-child(2){
-    color: gray;
+.card-items > p:nth-child(2) {
+  color: gray;
 }
 
 .buttons-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-.buttons-container>button {
-    margin: 1rem;
-    width: 100px;
-    font-size: 2rem;
-    color: white;
+.buttons-container > button {
+  margin: 1rem;
+  width: 100px;
+  font-size: 2rem;
+  color: white;
 }
 
-.buttons-container>button:nth-child(1) {
-    background-color: orange;
-} 
+.buttons-container > button:nth-child(1) {
+  background-color: orange;
+}
 
-.buttons-container>button:nth-child(2) {
-    background-color: red;
+.buttons-container > button:nth-child(2) {
+  background-color: red;
 }
 
 @media screen and (max-width: 768px) {
-    .card-items{
-        margin: 2rem 0;
-    }
+  .card-items {
+    margin: 2rem 0;
+  }
 }
