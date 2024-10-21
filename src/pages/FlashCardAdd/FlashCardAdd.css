@@ -1,49 +1,49 @@
 .flash-card-container {
-    padding: 1rem;
+  padding: 1rem;
 }
-.flash-card-container>a:nth-child(1) {
-    padding-top: 1rem;
+.flash-card-container > a:nth-child(1) {
+  padding-top: 1rem;
 }
-.flash-card-container>h1 {
-    padding: 2rem;
+.flash-card-container > h1 {
+  padding: 2rem;
 }
 
-.flash-card-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.flash-card-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .flash-card-input {
-    margin: 2rem;
-    padding: 1rem;
-    width: 80%;
-    font-size: 2rem;
+  margin: 2rem;
+  padding: 1rem;
+  width: 80%;
+  font-size: 2rem;
 }
 
-.card-btns-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.card-btns-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .card-btns-container > button {
-    padding: 1rem;
-    margin: 1rem;
-    background-color: green;
-    color: white;
-    width: 20%;
-    transition: transform 0.3s ease;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: green;
+  color: white;
+  width: 20%;
+  transition: transform 0.3s ease;
 }
 
-.card-btns-container > button:hover{
-    background-color: darkgreen;
-    transform: scale(1.05);
+.card-btns-container > button:hover {
+  background-color: darkgreen;
+  transform: scale(1.05);
 }
 
 @media screen and (max-width: 768px) {
-    .card-btns-container>button {
-        font-size: 1.5rem;
-        width: 30%;
-    }
+  .card-btns-container > button {
+    font-size: 1.5rem;
+    width: 30%;
+  }
 }

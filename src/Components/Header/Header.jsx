@@ -1,12 +1,12 @@
-import { useContext, useState} from 'react'
-import { Link } from 'react-router-dom'
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 
 import styled from "styled-components";
 import { FaBars } from "react-icons/fa";
-import Logo from '../../assets/logo.png'
-import './Header.css'
+import Logo from "../../assets/logo.png";
+import "./Header.css";
 
-import AuthContext from '../../context/AuthContext'
+import AuthContext from "../../context/AuthContext";
 
 const StyledHeader = styled.header`
   background-color: black;
@@ -45,7 +45,7 @@ const StyledHeader = styled.header`
 const NavManu = styled.ul`
   list-style: none;
   display: flex;
-  
+
   li {
     &:hover {
       cursor: pointer;
@@ -68,8 +68,8 @@ const NavManu = styled.ul`
 `;
 
 const Header = () => {
-  const {user, logoutUser} = useContext(AuthContext)
-  const token = localStorage.getItem("authTokens")
+  const { user, logoutUser } = useContext(AuthContext);
+  const token = localStorage.getItem("authTokens");
   const [isToggleOpen, setIsToggleOpen] = useState(false);
 
   const handleToggleOpen = () => {
@@ -77,61 +77,58 @@ const Header = () => {
   };
 
   return (
-    <div className='header-container'>
+    <div className="header-container">
       <StyledHeader>
-      <div className="nav_logo">
+        <div className="nav_logo">
           <Link to={"/"} className="nav-logo-link">
-            <img src={Logo} className='logo' alt='logo' />
+            <img src={Logo} className="logo" alt="logo" />
           </Link>
         </div>
-        
 
         <NavManu isToggleOpen={isToggleOpen}>
-        <li>
-          <Link to={"/"} className="nav-menu-list">
-            Home
-          </Link>
-        </li>
+          <li>
+            <Link to={"/"} className="nav-menu-list">
+              Home
+            </Link>
+          </li>
 
-        { token === null ?
-        <>
-          <li>
-            <Link to={"/login"} className="nav-menu-list">
-              Login
-            </Link>
-          </li>
-          <li>
-            <Link to={"/register"} className="nav-menu-list">
-              Register
-            </Link>
-          </li>
-        </>
-          :
-          <>
-            <li>
-              <Link to={"/learning"} className="nav-menu-list">
-                My Learning
-              </Link>
-          </li>
-            <li>
-              <Link to={'/'+user.username} className="nav-menu-list" >
-              <div className="horizontal-container">
-                  {user.username}
-              </div>
-              </Link>
-            </li>
-            <li onClick={logoutUser}>
-              <Link to={"/logout"} className="nav-menu-list logout-btn">
-                Logout
-              </Link>
-            </li>
-          </>
-        }
+          {token === null ? (
+            <>
+              <li>
+                <Link to={"/login"} className="nav-menu-list">
+                  Login
+                </Link>
+              </li>
+              <li>
+                <Link to={"/register"} className="nav-menu-list">
+                  Register
+                </Link>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <Link to={"/learning"} className="nav-menu-list">
+                  My Learning
+                </Link>
+              </li>
+              <li>
+                <Link to={"/" + user.username} className="nav-menu-list">
+                  <div className="horizontal-container">{user.username}</div>
+                </Link>
+              </li>
+              <li onClick={logoutUser}>
+                <Link to={"/logout"} className="nav-menu-list logout-btn">
+                  Logout
+                </Link>
+              </li>
+            </>
+          )}
         </NavManu>
         <FaBars className="menuToggleBtn" onClick={handleToggleOpen} />
       </StyledHeader>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

@@ -1,113 +1,113 @@
-.test-card-container{
-    margin: 2rem 20rem;
+.test-card-container {
+  margin: 2rem 20rem;
 }
 
-.test-card-container>h1{
-    margin: 1.5rem;
+.test-card-container > h1 {
+  margin: 1.5rem;
 }
 
-.card-quiz-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    height: 500px;
+.card-quiz-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 500px;
 }
 
-.card-quiz-container>button{
-    width: 5%;
-    height: 30%;
-    align-self: center;
-    background-color: transparent;
-    color: white;
+.card-quiz-container > button {
+  width: 5%;
+  height: 30%;
+  align-self: center;
+  background-color: transparent;
+  color: white;
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border: 2px solid white;
-    border-radius: 25px;
-    width: 400px;
-    height: 500px;
-    transition: background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid white;
+  border-radius: 25px;
+  width: 400px;
+  height: 500px;
+  transition: background-color 0.3s ease;
 }
 
 .card:hover {
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
-.score-btns{
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+.score-btns {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
-.score-btns>button{
-    margin: 1rem;
-    background-color: green;
-    color: white;
-    transition: background-color 0.3s ease;
+.score-btns > button {
+  margin: 1rem;
+  background-color: green;
+  color: white;
+  transition: background-color 0.3s ease;
 }
 
-.score-btns>button:hover{
-    background-color: darkgreen;
+.score-btns > button:hover {
+  background-color: darkgreen;
 }
 
-.score-btns>button:nth-child(2){
-    background-color: red;
+.score-btns > button:nth-child(2) {
+  background-color: red;
 }
 
-.score-btns>button:nth-child(2):hover{
-    background-color: darkred;
+.score-btns > button:nth-child(2):hover {
+  background-color: darkred;
 }
 
 .arrow-nav-btns {
-    display: none;
+  display: none;
 }
 
 @media screen and (max-width: 1300px) {
-    .test-card-container {
-        margin:2rem ;
-    }
+  .test-card-container {
+    margin: 2rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .test-card-container{
-        margin: 2rem auto;
-    }
-    .card-quiz-container {
-        justify-content: center;
-        margin-bottom: 0;
-    }
-    .arrow-nav-btns {
-        display: block;
-        display: flex;
-        justify-content: center;
-    }
+  .test-card-container {
+    margin: 2rem auto;
+  }
+  .card-quiz-container {
+    justify-content: center;
+    margin-bottom: 0;
+  }
+  .arrow-nav-btns {
+    display: block;
+    display: flex;
+    justify-content: center;
+  }
 
-    .arrow-nav-btns>button {
-        margin: 0 1rem 0 1rem;
-    }
-    .card-quiz-container {
-        margin-bottom: 0;
-    }
-    .card-quiz-container>button{
-        display: none;
-    }
+  .arrow-nav-btns > button {
+    margin: 0 1rem 0 1rem;
+  }
+  .card-quiz-container {
+    margin-bottom: 0;
+  }
+  .card-quiz-container > button {
+    display: none;
+  }
 
-    .card {
-        width: 280px;
-        height: 380px;
-    }
+  .card {
+    width: 280px;
+    height: 380px;
+  }
 
-    .score-btns{
-        margin-top: 1rem;
-    }
+  .score-btns {
+    margin-top: 1rem;
+  }
 
-    .score-container{
-        margin-top: -1rem;
-    }
+  .score-container {
+    margin-top: -1rem;
+  }
 }

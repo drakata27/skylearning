@@ -1,68 +1,68 @@
-.section-form{
-    margin: 0 40rem;
+.section-form {
+  margin: 0 40rem;
 }
 p {
-    align-items: baseline;
+  align-items: baseline;
 }
 
 .section-form input {
-    font-size: 2rem;
-    padding: 0.5rem;
-    width: 100%;
-    margin-bottom: 2rem;
+  font-size: 2rem;
+  padding: 0.5rem;
+  width: 100%;
+  margin-bottom: 2rem;
 }
-.cover-container{
-    justify-content: space-between;
-}
-
-.section-cover-input{
-    color: white;
+.cover-container {
+  justify-content: space-between;
 }
 
-.section-add-btn{
-    background-color: green;
-    color: white;
-    width: 100%;
-    width: 10rem;
-    padding: 1rem;
-}
-.section-add-btn:hover{
-    background-color: darkgreen;
+.section-cover-input {
+  color: white;
 }
 
-.clear-img-btn{
-    background-color: red;
-    color: white;
-    width: 10rem;
-    height: 5rem;
+.section-add-btn {
+  background-color: green;
+  color: white;
+  width: 100%;
+  width: 10rem;
+  padding: 1rem;
 }
-.clear-img-btn:hover{
-    background-color: darkred;
+.section-add-btn:hover {
+  background-color: darkgreen;
 }
-.checkbox-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+
+.clear-img-btn {
+  background-color: red;
+  color: white;
+  width: 10rem;
+  height: 5rem;
 }
-.checkbox-container>.checkbox{
-    width: 5rem;
-    border-radius: 15px;
+.clear-img-btn:hover {
+  background-color: darkred;
+}
+.checkbox-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.checkbox-container > .checkbox {
+  width: 5rem;
+  border-radius: 15px;
 }
 @media screen and (max-width: 1587px) {
-    .section-form{
-        margin: 0 2rem;
-    }
+  .section-form {
+    margin: 0 2rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .section-add-container { 
-        margin-top: 2rem;
-        padding: 1rem;
-    }
-    .section-add-container .section-form{ 
-        margin-top: 2rem;
-    }
-    .checkbox-container {
-        flex-direction: column;
-    }
+  .section-add-container {
+    margin-top: 2rem;
+    padding: 1rem;
+  }
+  .section-add-container .section-form {
+    margin-top: 2rem;
+  }
+  .checkbox-container {
+    flex-direction: column;
+  }
 }

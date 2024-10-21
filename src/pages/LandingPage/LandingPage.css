@@ -1,62 +1,65 @@
 .landing-section {
-    margin-top: 2rem;
-    background: linear-gradient(to bottom, #000000, #00008B); /* Gradient from black to dark blue */
-    color: white; /* Text color for visibility */
-    min-height: 100vh;
-    display: flex;
-    justify-content: center; /* Centers content horizontally */
-    align-items: center; /* Centers content vertically */
-    margin-top: -2rem;
-    margin-bottom: -14rem;
+  margin-top: 2rem;
+  background: linear-gradient(
+    to bottom,
+    #000000,
+    #00008b
+  ); /* Gradient from black to dark blue */
+  color: white; /* Text color for visibility */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  margin-top: -2rem;
+  margin-bottom: -14rem;
 }
 .motto {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
 }
-.motto>p:nth-child(1) {
-    font-size: 52px;
-    margin-bottom: 0;
-    margin-top: -1rem;
+.motto > p:nth-child(1) {
+  font-size: 52px;
+  margin-bottom: 0;
+  margin-top: -1rem;
 }
 
-.motto>p:nth-child(2) {
+.motto > p:nth-child(2) {
   font-size: 72px;
   font-weight: bold;
   background: linear-gradient(to right, #1547d0, #719ee5);
   -webkit-background-clip: text;
   color: transparent;
   margin: 0;
-  font-family: Arial, sans-serif; 
+  font-family: Arial, sans-serif;
 }
-.motto>p:nth-child(3) {
+.motto > p:nth-child(3) {
   margin: 2rem 5rem;
   font-size: 1.5rem;
 }
 
 .demo-img {
-    width: 50%;
-    height: 50%;
-    border-radius: 15px;
-    margin: 3rem 0;
-    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.5);
-    transition: box-shadow 0.3s ease-in-out;
+  width: 50%;
+  height: 50%;
+  border-radius: 15px;
+  margin: 3rem 0;
+  box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.5);
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 .demo-img:hover {
-    box-shadow: 0 0 30px 20px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 30px 20px rgba(255, 255, 255, 0.8);
 }
 
 .login {
-    background: linear-gradient(to right, #5c80e3, #719ee5);
-    -webkit-background-clip: text;
-    color: transparent;
+  background: linear-gradient(to right, #5c80e3, #719ee5);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 @media screen and (max-width: 768px) {
-    .motto {
-        margin-top: 4rem;
-    }
+  .motto {
+    margin-top: 4rem;
+  }
 }
-

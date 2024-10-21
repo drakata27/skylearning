@@ -1,18 +1,13 @@
-
-const ActionButton = ({handleAction, className, type}) => {
+const ActionButton = ({ handleAction, className, type }) => {
   return (
     <button className={className} onClick={handleAction}>
-      { type === 'edit' ? (
-      <span className="material-symbols-outlined">
-          edit
-      </span> 
+      {type === "edit" ? (
+        <span className="material-symbols-outlined">edit</span>
       ) : (
-      <span className="material-symbols-outlined">
-          delete
-      </span>
+        <span className="material-symbols-outlined">delete</span>
       )}
     </button>
-  )
-}
+  );
+};
 
-export default ActionButton
+export default ActionButton;

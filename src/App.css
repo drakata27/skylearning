@@ -1,7 +1,7 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
-html { 
+html {
   background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e);
   overflow-x: hidden;
 }
@@ -16,7 +16,7 @@ a {
   text-decoration: none;
   transition: transform 0.3s ease;
 }
-a:hover{
+a:hover {
   transform: scale(1.04);
 }
 
@@ -35,10 +35,10 @@ input {
   display: flex;
   flex-direction: row;
   margin-bottom: 1rem;
-  justify-content: space-between
+  justify-content: space-between;
 }
 
-.back-btn{
+.back-btn {
   color: white;
   background-color: red;
   width: 2rem;
@@ -48,6 +48,6 @@ input {
   margin-top: 5rem;
 }
 
-.back-btn:hover{
+.back-btn:hover {
   background-color: #8b0000;
 }
