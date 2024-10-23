@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import "./SectionPage.css";
-import TopicItem from "../../Components/TopicItem/TopicItem";
+import TopicItem from "../../components/TopicItem/TopicItem";
 import AuthContext from "../../context/AuthContext";
-import BackButton from "../../Components/BackButton/BackButton";
+import BackButton from "../../components/BackButton/BackButton";
 import BASE_URL from "../../utils/config";
 
 const SectionPage = () => {

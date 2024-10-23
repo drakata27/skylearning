@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./SectionEdit.css";
 import Placeholder from "../../assets/placeholder.jpg";
-import Uploader from "../../Components/Uploader/Uploader";
+import Uploader from "../../components/Uploader/Uploader";
 import AuthContext from "../../context/AuthContext";
 import BASE_URL from "../../utils/config";
 

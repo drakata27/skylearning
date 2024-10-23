@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import BackButton from "../../Components/BackButton/BackButton";
+import BackButton from "../../components/BackButton/BackButton";
 import BASE_URL from "../../utils/config";
 
 import "./FlashCardPage.css";
-import FlashCardItem from "../../Components/FlashCardItem/FlashCardItem";
+import FlashCardItem from "../../components/FlashCardItem/FlashCardItem";
 
 const FlashCardPage = () => {
   const { matId } = useParams();

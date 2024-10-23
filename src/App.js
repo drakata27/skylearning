@@ -1,5 +1,5 @@
 import "./App.css";
-import Header from "./Components/Header/Header";
+import Header from "./components/Header/Header";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { AuthProvider } from "./context/AuthContext";
@@ -9,7 +9,7 @@ import SectionAdd from "./pages/SectionAdd/SectionAdd";
 import SectionPage from "./pages/SectionPage/SectionPage";
 import SectionEdit from "./pages/SectionEdit/SectionEdit";
 import { PrivateRoute, EditRoute } from "./utils/PrivateRoute";
-import Footer from "./Components/Footer/Footer";
+import Footer from "./components/Footer/Footer";
 import TopicAdd from "./pages/TopicAdd/TopicAdd";
 import TopicEdit from "./pages/TopicEdit/TopicEdit";
 import TopicPage from "./pages/TopicPage/TopicPage";

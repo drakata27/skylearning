@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Placeholder from "../../assets/placeholder.jpg";
-import Uploader from "../../Components/Uploader/Uploader";
+import Uploader from "../../components/Uploader/Uploader";
 import BASE_URL from "../../utils/config";
 
 const TopicEdit = () => {

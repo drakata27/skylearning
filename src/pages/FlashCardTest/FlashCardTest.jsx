@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import BackButton from "../../Components/BackButton/BackButton";
+import BackButton from "../../components/BackButton/BackButton";
 import "./FlashCardTest.css";
 import ReactCardFlip from "react-card-flip";
 import BASE_URL from "../../utils/config";
