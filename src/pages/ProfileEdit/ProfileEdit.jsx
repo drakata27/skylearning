@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./ProfileEdit.css";
-import Uploader from "../../Components/Uploader/Uploader";
+import Uploader from "../../components/Uploader/Uploader";
 import { useNavigate, useParams } from "react-router-dom";
 import BASE_URL from "../../utils/config";
 

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./SectionAdd.css";
-import Uploader from "../../Components/Uploader/Uploader";
+import Uploader from "../../components/Uploader/Uploader";
 import AuthContext from "../../context/AuthContext";
 import BASE_URL from "../../utils/config";
 

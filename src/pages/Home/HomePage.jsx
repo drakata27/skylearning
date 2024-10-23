@@ -1,7 +1,7 @@
 import "./HomePage.css";
 
 import React, { useState, useEffect, useContext } from "react";
-import SectionItem from "../../Components/SectionItem/SectionItem";
+import SectionItem from "../../components/SectionItem/SectionItem";
 import AuthContext from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 import BASE_URL from "../../utils/config";

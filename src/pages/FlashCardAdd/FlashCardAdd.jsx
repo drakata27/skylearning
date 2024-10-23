@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import "./FlashCardAdd.css";
-import BackButton from "../../Components/BackButton/BackButton";
+import BackButton from "../../components/BackButton/BackButton";
 import BASE_URL from "../../utils/config";
 
 const FlashCardAdd = () => {

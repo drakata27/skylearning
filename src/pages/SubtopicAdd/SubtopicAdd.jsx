@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./SubtopicAdd.css";
-import Uploader from "../../Components/Uploader/Uploader";
+import Uploader from "../../components/Uploader/Uploader";
 
 import modules from "../../utils/quilModules";
 import ReactQuill from "react-quill";

@@ -2,8 +2,8 @@ import React, { useEffect, useState, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import "./TopicPage.css";
 import AuthContext from "../../context/AuthContext";
-import SubtopicItem from "../../Components/SubtopicItem/SubtopicItem";
-import BackButton from "../../Components/BackButton/BackButton";
+import SubtopicItem from "../../components/SubtopicItem/SubtopicItem";
+import BackButton from "../../components/BackButton/BackButton";
 import BASE_URL from "../../utils/config";
 
 const TopicPage = () => {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import BASE_URL from "../../utils/config";
-import BackButton from "../../Components/BackButton/BackButton";
+import BackButton from "../../components/BackButton/BackButton";
 
 const FlashCardEdit = () => {
   const swal = require("sweetalert2");

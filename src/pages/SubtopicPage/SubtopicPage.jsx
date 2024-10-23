@@ -3,10 +3,10 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import Placeholder from "../../assets/placeholder.jpg";
 
 import "./SubtopicPage.css";
-import BackButton from "../../Components/BackButton/BackButton";
+import BackButton from "../../components/BackButton/BackButton";
 import BASE_URL from "../../utils/config";
 import AuthContext from "../../context/AuthContext";
-import ActionButton from "../../Components/ActionButton/ActionButton";
+import ActionButton from "../../components/ActionButton/ActionButton";
 
 const SubtopicPage = () => {
   let { id, topicId, matId } = useParams();
