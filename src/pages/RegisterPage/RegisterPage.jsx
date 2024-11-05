@@ -1,10 +1,11 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
-import { FaUser, FaLock } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import "./RegisterPage.css";
+import PasswordField from "../../components/PasswordField/PasswordField";
 
 const RegisterPage = () => {
   useGSAP(() => {
@@ -54,27 +55,8 @@ const RegisterPage = () => {
             <FaUser className="login-icon" />
           </div>
 
-          <div className="login-input-box">
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              required
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <FaLock className="login-icon" />
-          </div>
-
-          <div className="login-input-box">
-            <input
-              type="password"
-              name="password"
-              placeholder="Confirm Password"
-              required
-              onChange={(e) => setConfirmPassowrd(e.target.value)}
-            />
-            <FaLock className="login-icon" />
-          </div>
+          <PasswordField setPassword={setPassword} />
+          <PasswordField setPassword={setConfirmPassowrd} />
 
           <button type="submit">Register</button>
 
