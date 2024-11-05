@@ -1,5 +1,8 @@
 body {
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  /* font-family: -apple-system, BlinkMacSystemFont, sans-serif; */
+  /* font-family: "Poppins", sans-serif; */
+  /* font-family: "Lato", sans-serif; */
+  font-family: "Roboto", sans-serif;
 }
 html {
   background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e);
