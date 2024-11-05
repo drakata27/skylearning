@@ -1,9 +1,9 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./SectionAdd.css";
-import Uploader from "../../components/Uploader/Uploader";
 import AuthContext from "../../context/AuthContext";
 import BASE_URL from "../../utils/config";
+import Form from "../../components/Form/Form";
 
 const SectionAdd = () => {
   const swal = require("sweetalert2");
@@ -20,17 +20,6 @@ const SectionAdd = () => {
   });
 
   const navigate = useNavigate();
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setSection({ ...section, [name]: value });
-  };
-
-  const handleCheckboxChange = (e) => {
-    const { checked } = e.target;
-    setChecked(checked);
-    setSection({ ...section, is_public: checked });
-  };
 
   const createSection = async () => {
     try {
@@ -78,64 +67,17 @@ const SectionAdd = () => {
     }
   };
 
-  let handleSubmit = () => {
-    if (section.title.trim() !== "" && section.subtitle.trim() !== "") {
-      createSection();
-    } else {
-      alert("Section contents cannot be empty");
-    }
-  };
-
-  const [inputKey] = useState(Date.now());
-
-  const cancel = () => {
-    navigate("/learning");
-  };
-
   return (
     <div className="section-add-container">
       <h1>Add Section</h1>
-      <div className="section-form">
-        <div className="horizontal-container cover-container">
-          <Uploader inputKey={inputKey} setCover={setCover} />
-        </div>
-
-        <div className="checkbox-container" style={{ marginTop: "2rem" }}>
-          <input
-            className="checkbox"
-            style={{ borderRadius: "15px" }}
-            type="checkbox"
-            checked={checked}
-            onChange={handleCheckboxChange}
-          />
-          <p>Public</p>
-        </div>
-
-        <input
-          className="section-title-input"
-          type="text"
-          name="title"
-          placeholder="Title..."
-          value={section.title}
-          onChange={handleInputChange}
-        />
-        <input
-          className="section-subtitle-input"
-          type="text"
-          name="subtitle"
-          placeholder="Subitle..."
-          value={section.subtitle}
-          onChange={handleInputChange}
-        />
-
-        <button className="section-add-btn" onClick={handleSubmit}>
-          Done
-        </button>
-
-        <button className="section-cancel-btn" onClick={cancel}>
-          Cancel
-        </button>
-      </div>
+      <Form
+        data={section}
+        createData={createSection}
+        setData={setSection}
+        setCover={setCover}
+        setChecked={setChecked}
+        checked={checked}
+      />
     </div>
   );
 };
