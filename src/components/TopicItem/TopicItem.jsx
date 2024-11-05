@@ -56,7 +56,7 @@ const TopicItem = ({ section, topic, refreshTopic }) => {
   };
   const handleNavigation = (e) => {
     e.preventDefault();
-    navigate(`/learning/${section.id}/edit/`);
+    navigate(`/learning/${section.id}/topic/${topic.id}/edit`);
   };
 
   return (

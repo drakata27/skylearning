@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Uploader from "../../components/Uploader/Uploader";
 import BASE_URL from "../../utils/config";
+import Form from "../../components/Form/Form";
 
 const TopicAdd = () => {
   const { id } = useParams();
@@ -13,11 +13,6 @@ const TopicAdd = () => {
   });
 
   const navigate = useNavigate();
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setTopic({ ...topic, [name]: value });
-  };
 
   const createTopic = async () => {
     try {
@@ -52,53 +47,15 @@ const TopicAdd = () => {
     }
   };
 
-  let handleSubmit = () => {
-    if (topic.title.trim() !== "" && topic.subtitle.trim() !== "") {
-      createTopic();
-    } else {
-      alert("Topic contents cannot be empty");
-    }
-  };
-
-  const [inputKey] = useState(Date.now());
-
-  const cancel = () => {
-    navigate(`/learning/${id}/`);
-  };
-
   return (
     <div className="section-add-container">
       <h1>Add Topic</h1>
-      <div className="section-form">
-        <div className="horizontal-container cover-container">
-          <Uploader inputKey={inputKey} setCover={setCover} />
-        </div>
-
-        <input
-          className="section-title-input"
-          type="text"
-          name="title"
-          placeholder="Title..."
-          value={topic.title}
-          onChange={handleInputChange}
-        />
-        <input
-          className="section-subtitle-input"
-          type="text"
-          name="subtitle"
-          placeholder="Subitle..."
-          value={topic.subtitle}
-          onChange={handleInputChange}
-        />
-
-        <button className="section-add-btn" onClick={handleSubmit}>
-          Done
-        </button>
-
-        <button className="section-cancel-btn" onClick={cancel}>
-          Cancel
-        </button>
-      </div>
+      <Form
+        data={topic}
+        createData={createTopic}
+        setData={setTopic}
+        setCover={setCover}
+      />
     </div>
   );
 };

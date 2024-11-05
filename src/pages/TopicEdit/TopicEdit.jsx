@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Placeholder from "../../assets/placeholder.jpg";
-import Uploader from "../../components/Uploader/Uploader";
 import BASE_URL from "../../utils/config";
+import Form from "../../components/Form/Form";
 
 const TopicEdit = () => {
   const swal = require("sweetalert2");
@@ -40,11 +39,6 @@ const TopicEdit = () => {
     };
     fetchTopicDetail();
   }, [urlFetch]);
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setTopic({ ...topic, [name]: value });
-  };
 
   const updateTopic = async () => {
     const formData = new FormData();
@@ -88,79 +82,16 @@ const TopicEdit = () => {
     }
   };
 
-  const cancel = (e) => {
-    e.preventDefault();
-    navigate(-1);
-  };
-
-  const [inputKey] = useState(Date.now());
-
-  let imagePath = "No cover";
-
-  if (topic.cover) {
-    imagePath = topic.cover;
-  }
-
-  const getImageName = (path) => {
-    const parts = path.split("/");
-    return parts[parts.length - 1];
-  };
-
-  const imageName = getImageName(imagePath);
-
   return (
     <div>
       <h1>{topic.title}</h1>
-      <div className="section-form">
-        <div className="cover-preview">
-          <h1>Current Cover</h1>
-          {topic.cover ? (
-            <img src={topic.cover} alt="section cover" />
-          ) : (
-            <img src={Placeholder} alt="section cover" />
-          )}
-          <section className="uploaded-row">
-            <p>{imageName}</p>
-          </section>
-        </div>
-
-        <div className="horizontal-container cover-container">
-          <Uploader inputKey={inputKey} setCover={setCover} />
-        </div>
-
-        <input
-          className="section-title-input"
-          type="text"
-          name="title"
-          placeholder="Title..."
-          value={topic?.title}
-          onChange={(e) =>
-            handleInputChange({
-              target: { value: e.target.value, name: "title" },
-            })
-          }
-        />
-        <input
-          className="section-subtitle-input"
-          type="text"
-          name="subtitle"
-          placeholder="Subitle..."
-          value={topic?.subtitle}
-          onChange={(e) =>
-            handleInputChange({
-              target: { value: e.target.value, name: "subtitle" },
-            })
-          }
-        />
-
-        <button className="section-add-btn" onClick={updateTopic}>
-          Done
-        </button>
-
-        <button className="section-cancel-btn" onClick={cancel}>
-          Cancel
-        </button>
-      </div>
+      <Form
+        data={topic}
+        handleData={updateTopic}
+        setData={setTopic}
+        setCover={setCover}
+        edit={true}
+      />
     </div>
   );
 };

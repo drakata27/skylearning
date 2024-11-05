@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./SectionEdit.css";
-import Placeholder from "../../assets/placeholder.jpg";
-import Uploader from "../../components/Uploader/Uploader";
 import AuthContext from "../../context/AuthContext";
 import BASE_URL from "../../utils/config";
+import Form from "../../components/Form/Form";
 
 const SectionEdit = () => {
   const swal = require("sweetalert2");
@@ -46,17 +45,6 @@ const SectionEdit = () => {
     };
     fetchSectionDetail();
   }, [urlFetch]);
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setSection({ ...section, [name]: value });
-  };
-
-  const handleCheckboxChange = (e) => {
-    const { checked } = e.target;
-    setChecked(checked);
-    setSection({ ...section, is_public: checked });
-  };
 
   const updateSection = async () => {
     const formData = new FormData();
@@ -104,88 +92,19 @@ const SectionEdit = () => {
       console.error("Error updating section:", error);
     }
   };
-  const cancel = () => {
-    navigate("/learning");
-  };
-
-  const [inputKey] = useState(Date.now());
-
-  let imagePath = "No cover";
-
-  if (section.cover) {
-    imagePath = section.cover;
-  }
-
-  const getImageName = (path) => {
-    const parts = path.split("/");
-    return parts[parts.length - 1];
-  };
-
-  const imageName = getImageName(imagePath);
 
   return (
     <div className="edit-container">
       <h1>{section.title}</h1>
-      <div className="section-form">
-        <div className="cover-preview">
-          <h1>Current Cover</h1>
-          {section.cover ? (
-            <img src={section.cover} alt="section cover" />
-          ) : (
-            <img src={Placeholder} alt="section cover" />
-          )}
-          <section className="uploaded-row">
-            <p>{imageName}</p>
-          </section>
-        </div>
-
-        <div className="horizontal-container cover-container">
-          <Uploader inputKey={inputKey} setCover={setCover} />
-        </div>
-
-        <div className="horizontal-container" style={{ marginTop: "2rem" }}>
-          <input
-            style={{ marginTop: "0" }}
-            type="checkbox"
-            checked={checked}
-            onChange={handleCheckboxChange}
-          />
-          <p>Public</p>
-        </div>
-
-        <input
-          className="section-title-input"
-          type="text"
-          name="title"
-          placeholder="Title..."
-          value={section.title}
-          onChange={(e) =>
-            handleInputChange({
-              target: { value: e.target.value, name: "title" },
-            })
-          }
-        />
-        <input
-          className="section-subtitle-input"
-          type="text"
-          name="subtitle"
-          placeholder="Subitle..."
-          value={section.subtitle}
-          onChange={(e) =>
-            handleInputChange({
-              target: { value: e.target.value, name: "subtitle" },
-            })
-          }
-        />
-
-        <button className="section-add-btn" onClick={updateSection}>
-          Done
-        </button>
-
-        <button className="section-cancel-btn" onClick={cancel}>
-          Cancel
-        </button>
-      </div>
+      <Form
+        data={section}
+        handleData={updateSection}
+        setData={setSection}
+        setCover={setCover}
+        setChecked={setChecked}
+        checked={checked}
+        edit={true}
+      />
     </div>
   );
 };

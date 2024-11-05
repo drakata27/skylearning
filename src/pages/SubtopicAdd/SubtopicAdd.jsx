@@ -1,13 +1,11 @@
 import React, { useContext, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./SubtopicAdd.css";
-import Uploader from "../../components/Uploader/Uploader";
 
-import modules from "../../utils/quilModules";
-import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import BASE_URL from "../../utils/config";
 import AuthContext from "../../context/AuthContext";
+import Form from "../../components/Form/Form";
 
 const SubtopicAdd = () => {
   const { id } = useParams();
@@ -23,11 +21,6 @@ const SubtopicAdd = () => {
     body: "",
     cover: cover,
   });
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setSubtopic({ ...subtopic, [name]: value });
-  };
 
   const createSubtopic = async () => {
     try {
@@ -64,65 +57,16 @@ const SubtopicAdd = () => {
     }
   };
 
-  let handleSubmit = () => {
-    if (subtopic.title.trim() !== "" && subtopic.subtitle.trim() !== "") {
-      createSubtopic();
-    } else {
-      alert("Subtopic contents cannot be empty");
-    }
-  };
-
-  const [inputKey] = useState(Date.now());
-
-  const cancel = () => {
-    navigate(`/learning/${id}/topic/${topicId}/`);
-  };
-
   return (
     <div className="subtopic-add-container">
       <h1>Add Material</h1>
-
-      <div className="section-form">
-        <div className="horizontal-container cover-container">
-          <Uploader inputKey={inputKey} setCover={setCover} />
-        </div>
-
-        <input
-          className="section-title-input"
-          type="text"
-          name="title"
-          placeholder="Title..."
-          value={subtopic.title}
-          onChange={handleInputChange}
-        />
-        <input
-          className="section-subtitle-input"
-          type="text"
-          name="subtitle"
-          placeholder="Subitle..."
-          value={subtopic.subtitle}
-          onChange={handleInputChange}
-        />
-
-        <ReactQuill
-          className="editor-input"
-          modules={modules}
-          theme="snow"
-          value={subtopic.body}
-          placeholder="Type here..."
-          onChange={(body) =>
-            handleInputChange({ target: { value: body, name: "body" } })
-          }
-        />
-
-        <button className="section-add-btn" onClick={handleSubmit}>
-          Done
-        </button>
-
-        <button className="section-cancel-btn" onClick={cancel}>
-          Cancel
-        </button>
-      </div>
+      <Form
+        data={subtopic}
+        handleData={createSubtopic}
+        setData={setSubtopic}
+        setCover={setCover}
+        editor={true}
+      />
     </div>
   );
 };
