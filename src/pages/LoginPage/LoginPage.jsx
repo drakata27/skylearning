@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import "./LoginPage.css";
 
-import { FaUser, FaLock } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import PasswordField from "../../components/PasswordField/PasswordField";
 
 const LoginPage = () => {
   useGSAP(() => {
@@ -61,16 +62,8 @@ const LoginPage = () => {
             />
             <FaUser className="login-icon" />
           </div>
-          <div className="login-input-box">
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              required
-              ref={passwordRef}
-            />
-            <FaLock className="login-icon" />
-          </div>
+
+          <PasswordField ref={passwordRef} />
 
           <button type="submit">Login</button>
           <button className="demo-btn" onClick={handleDemoLogin}>
