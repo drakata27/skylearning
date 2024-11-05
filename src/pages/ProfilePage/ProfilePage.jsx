@@ -87,7 +87,7 @@ const ProfilePage = () => {
             <tr>
               <td>Username</td>
               <td>
-                {user}{" "}
+                @{user}{" "}
                 {profile.verified ? (
                   <span
                     class="material-symbols-outlined"

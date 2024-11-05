@@ -5,6 +5,7 @@ import ReactQuill from "react-quill";
 import modules from "../../utils/quilModules";
 import getImageName from "../../utils/getImageName";
 import Placeholder from "../../assets/placeholder.jpg";
+import "./Form.css";
 
 const Form = ({
   data,
@@ -17,7 +18,6 @@ const Form = ({
   edit,
 }) => {
   const navigate = useNavigate();
-  console.log("handleData type:", typeof handleData); // Check handleData type on render
 
   let handleSubmit = () => {
     if (data.title.trim() !== "" && data.subtitle.trim() !== "") {
