@@ -5,6 +5,7 @@ import AuthContext from "../../context/AuthContext";
 import SubtopicItem from "../../components/SubtopicItem/SubtopicItem";
 import BackButton from "../../components/BackButton/BackButton";
 import BASE_URL from "../../utils/config";
+import Search from "../../components/Search/Search";
 
 const TopicPage = () => {
   let { user } = useContext(AuthContext);
@@ -30,6 +31,7 @@ const TopicPage = () => {
   });
 
   const [subtopics, setSubtopics] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const getTopic = async () => {
@@ -103,17 +105,23 @@ const TopicPage = () => {
           <p className="subtopic-p">Materials</p>
         </div>
       </div>
-
+      <Search setSearch={setSearch} />
       <div className="topic-container">
-        {subtopics.map((subtopic, index) => (
-          <SubtopicItem
-            key={index}
-            section={section}
-            topic={topic}
-            subtopic={subtopic}
-            refreshSubtopic={getSubtopic}
-          />
-        ))}
+        {subtopics
+          .filter((subtopic) => {
+            return search.toLowerCase() === ""
+              ? subtopic
+              : subtopic.title.toLowerCase().includes(search);
+          })
+          .map((subtopic, index) => (
+            <SubtopicItem
+              key={index}
+              section={section}
+              topic={topic}
+              subtopic={subtopic}
+              refreshSubtopic={getSubtopic}
+            />
+          ))}
       </div>
     </div>
   );

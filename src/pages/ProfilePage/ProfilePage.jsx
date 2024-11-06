@@ -39,6 +39,11 @@ const ProfilePage = () => {
 
   const url = `${BASE_URL}/api/profiles/${user}/`;
 
+  // const handleSpeech = ({ text }) => {
+  //   const value = new SpeechSynthesisUtterance(text);
+  //   window.speechSynthesis.speak(value);
+  // };
+
   let [profile, setProfile] = useState({
     full_name: "",
     bio: "",
@@ -108,6 +113,9 @@ const ProfilePage = () => {
             </tbody>
           </table>
         </div>
+        {/* <button onClick={() => handleSpeech({ text: profile.bio })}>
+          Speak
+        </button> */}
         <p style={{ opacity: 0 }}>{profile.bio}</p>
       </div>
     </div>

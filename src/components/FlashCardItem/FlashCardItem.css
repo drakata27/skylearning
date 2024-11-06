@@ -1,14 +1,18 @@
 .card-items {
   border-radius: 25px;
   margin: 2rem;
-  transition: transform 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    background-color 0.4s ease;
   box-shadow:
     2px 15px 11px 4px rgba(0, 0, 0, 0.2),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .card-items:hover {
-  transform: scale(1.02);
+  /* transform: scale(1.02); */
+  background-color: rgb(49, 46, 46);
 }
 
 .card-items > p:nth-child(1) {

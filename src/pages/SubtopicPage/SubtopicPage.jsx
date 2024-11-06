@@ -32,6 +32,11 @@ const SubtopicPage = () => {
     cover: "",
   });
 
+  // const handleSpeech = ({ text }) => {
+  //   const value = new SpeechSynthesisUtterance(text);
+  //   window.speechSynthesis.speak(value);
+  // };
+
   const navigate = useNavigate();
   const urlFetchSection = `${BASE_URL}/api/section/${id}/`;
   const urlFetch = `${BASE_URL}/api/section/${id}/topic/${topicId}/subtopic/${matId}/`;

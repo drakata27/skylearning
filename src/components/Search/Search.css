@@ -1,0 +1,11 @@
+.search-box {
+  background-color: rgb(61, 55, 55);
+  resize: none;
+  height: 40px !important;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.search-box:focus {
+  border: white;
+}

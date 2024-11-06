@@ -5,6 +5,7 @@ import TopicItem from "../../components/TopicItem/TopicItem";
 import AuthContext from "../../context/AuthContext";
 import BackButton from "../../components/BackButton/BackButton";
 import BASE_URL from "../../utils/config";
+import Search from "../../components/Search/Search";
 
 const SectionPage = () => {
   let { user } = useContext(AuthContext);
@@ -16,6 +17,7 @@ const SectionPage = () => {
   });
 
   const [topics, setTopics] = useState([]);
+  const [search, setSearch] = useState("");
 
   const url = `${BASE_URL}/api/section/${id}/`;
   const urlTopic = `${BASE_URL}/api/section/${id}/topic/`;
@@ -66,16 +68,22 @@ const SectionPage = () => {
           <p className="topic-p">Topics</p>
         </div>
       </div>
-
+      <Search setSearch={setSearch} />
       <div className="topic-container">
-        {topics.map((topic, index) => (
-          <TopicItem
-            key={index}
-            section={section}
-            topic={topic}
-            refreshTopic={getTopic}
-          />
-        ))}
+        {topics
+          .filter((topic) => {
+            return search.toLowerCase() === ""
+              ? topic
+              : topic.title.toLowerCase().includes(search);
+          })
+          .map((topic, index) => (
+            <TopicItem
+              key={index}
+              section={section}
+              topic={topic}
+              refreshTopic={getTopic}
+            />
+          ))}
       </div>
     </div>
   );

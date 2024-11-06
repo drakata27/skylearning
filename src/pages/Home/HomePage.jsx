@@ -9,6 +9,7 @@ import BASE_URL from "../../utils/config";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useCallback } from "react";
+import Search from "../../components/Search/Search";
 
 const HomePage = () => {
   useGSAP(() => {
@@ -26,6 +27,7 @@ const HomePage = () => {
 
   let [sections, setSections] = useState([]);
   const url = `${BASE_URL}/api/public-section/`;
+  const [search, setSearch] = useState("");
 
   const { user } = useContext(AuthContext);
   const token = localStorage.getItem("authTokens");
@@ -65,15 +67,21 @@ const HomePage = () => {
           </p>
         )}
       </div>
-
+      <Search setSearch={setSearch} />
       <div id="home-item" className="section-item">
-        {sections.map((section, index) => (
-          <SectionItem
-            key={index}
-            section={section}
-            refreshSection={getSections}
-          />
-        ))}
+        {sections
+          .filter((section) => {
+            return search.toLowerCase() === ""
+              ? section
+              : section.title.toLowerCase().includes(search);
+          })
+          .map((section, index) => (
+            <SectionItem
+              key={index}
+              section={section}
+              refreshSection={getSections}
+            />
+          ))}
       </div>
     </div>
   );

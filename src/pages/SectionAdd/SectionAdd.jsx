@@ -72,7 +72,7 @@ const SectionAdd = () => {
       <h1>Add Section</h1>
       <Form
         data={section}
-        createData={createSection}
+        handleData={createSection}
         setData={setSection}
         setCover={setCover}
         setChecked={setChecked}
