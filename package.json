@@ -34,7 +34,7 @@
     "lint": "eslint --ignore-path .gitignore .",
     "format": "prettier --ignore-path .gitignore --write \"**/*.{js,jsx,css,scss}\"",
     "prepare": "husky install",
-    "prod": "react-scripts build && npm serve"
+    "prod": "react-scripts build && serve build"
   },
   "eslintConfig": {
     "extends": [
