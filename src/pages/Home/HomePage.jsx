@@ -50,7 +50,10 @@ const HomePage = () => {
         <h1>Home</h1>
         {token ? (
           <p style={{ color: "rgb(188, 187, 179);" }}>
-            Hello, {user.username} 👋
+            Hello,
+            <Link style={{ color: "white" }} to={`/${user.username}`}>
+              @{user.username} 👋
+            </Link>
           </p>
         ) : (
           <p style={{ color: "rgb(188, 187, 179);" }}>

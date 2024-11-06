@@ -63,51 +63,53 @@ const ProfilePage = () => {
     <div className="profile-container">
       <h1 style={{ opacity: 0 }}>Profile</h1>
 
-      <div className="profile-btn-container">
-        <Link className="update-profile-btn" to="edit">
-          <span className="material-symbols-outlined">edit</span>
-        </Link>
-      </div>
+      <div className="profile-content">
+        <div className="profile-btn-container">
+          <Link className="update-profile-btn" to="edit">
+            <span className="material-symbols-outlined">edit</span>
+          </Link>
+        </div>
 
-      <div className="profile-image-container" style={{ opacity: 0 }}>
-        {profile.image ===
-        "https://cloud-learn-bucket.s3.amazonaws.com/default.jpg" ? (
-          <img src={User} alt="user" />
-        ) : (
-          <img
-            src={profile.image}
-            alt="user"
-            style={{ borderRadius: "40px" }}
-          />
-        )}
+        <div className="profile-image-container" style={{ opacity: 0 }}>
+          {profile.image ===
+          "https://cloud-learn-bucket.s3.amazonaws.com/default.jpg" ? (
+            <img src={User} alt="user" />
+          ) : (
+            <img
+              src={profile.image}
+              alt="user"
+              style={{ borderRadius: "40px" }}
+            />
+          )}
+        </div>
+        <div className="table-container" style={{ opacity: 0 }}>
+          <table className="profile-table">
+            <tbody>
+              <tr>
+                <td>Username</td>
+                <td>
+                  @{user}{" "}
+                  {profile.verified ? (
+                    <span
+                      class="material-symbols-outlined"
+                      style={{ color: "lightblue" }}
+                    >
+                      verified
+                    </span>
+                  ) : (
+                    <></>
+                  )}
+                </td>
+              </tr>
+              <tr>
+                <td>Full Name</td>
+                <td>{profile.full_name}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style={{ opacity: 0 }}>{profile.bio}</p>
       </div>
-      <div className="table-container" style={{ opacity: 0 }}>
-        <table className="profile-table">
-          <tbody>
-            <tr>
-              <td>Username</td>
-              <td>
-                @{user}{" "}
-                {profile.verified ? (
-                  <span
-                    class="material-symbols-outlined"
-                    style={{ color: "lightblue" }}
-                  >
-                    verified
-                  </span>
-                ) : (
-                  <></>
-                )}
-              </td>
-            </tr>
-            <tr>
-              <td>Full Name</td>
-              <td>{profile.full_name}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p style={{ opacity: 0 }}>{profile.bio}</p>
     </div>
   );
 };

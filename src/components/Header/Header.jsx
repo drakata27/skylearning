@@ -9,7 +9,8 @@ import "./Header.css";
 import AuthContext from "../../context/AuthContext";
 
 const StyledHeader = styled.header`
-  background-color: black;
+  background-color: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
   width: 100%;
   padding-top: 15px;
   display: flex;

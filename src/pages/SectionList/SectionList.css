@@ -38,8 +38,8 @@ p {
 }
 
 .add-section-btn {
-  background-color: green;
-  color: white;
+  background-color: white;
+  color: black;
   margin-top: 2rem;
   border-radius: 10px;
   border: none;
@@ -49,7 +49,7 @@ p {
 }
 
 .add-section-btn:hover {
-  background-color: darkgreen;
+  background-color: darkgray;
   cursor: pointer;
   transform: scale(1.04);
 }

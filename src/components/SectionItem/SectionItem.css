@@ -2,15 +2,19 @@
   padding: 2rem;
   margin: 2rem;
   border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
   justify-content: space-between;
-  transition: transform 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    background-color 0.4s ease;
   box-shadow:
     2px 15px 11px 4px rgba(0, 0, 0, 0.2),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .section-item-container:hover {
-  transform: scale(1.02);
+  /* transform: scale(1.02); */
+  background-color: rgb(49, 46, 46);
 }
 
 .section-item-content {
@@ -42,14 +46,17 @@ a {
   color: darkblue;
 }
 .section-edit-btn {
-  background-color: yellow;
+  /* background-color: yellow; */
+  background-color: white;
   border-radius: 15px;
 }
 .section-edit-btn:hover {
-  background-color: darkorange;
+  /* background-color: darkorange; */
+  background-color: gainsboro;
 }
 .section-delete-btn {
   background-color: red;
+  color: white;
   margin-left: 1rem;
 }
 .section-delete-btn:hover {

@@ -58,7 +58,11 @@ const Form = ({
         <></>
       )}
       <div className="horizontal-container cover-container">
-        <Uploader inputKey={inputKey} setCover={setCover} />
+        <Uploader
+          inputKey={inputKey}
+          setCover={setCover}
+          className="uploader"
+        />
       </div>
 
       {checked !== undefined ? (
@@ -107,18 +111,20 @@ const Form = ({
         <></>
       )}
 
-      <button className="section-add-btn" onClick={handleSubmit}>
-        Done
-      </button>
+      <div className="form-btns">
+        <button className="section-add-btn" onClick={handleSubmit}>
+          Done
+        </button>
 
-      <button
-        className="section-cancel-btn"
-        onClick={() => {
-          navigate(-1);
-        }}
-      >
-        Cancel
-      </button>
+        <button
+          className="section-cancel-btn"
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
+          Cancel
+        </button>
+      </div>
     </div>
   );
 };
