@@ -1,3 +1,40 @@
-.ql-codeblock {
-  color: #000 !important;
+.horizontal-container > .cover-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.uploader {
+  align-items: center;
+}
+
+.section-form {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  margin-top: 4rem;
+  padding: 2rem 10rem;
+}
+
+.form-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+input {
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .section-form {
+    margin: 2rem 0 !important;
+    border: none;
+  }
+  .form-btns {
+    flex-direction: column;
+  }
 }

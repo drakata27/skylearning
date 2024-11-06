@@ -1,6 +1,12 @@
 .profile-container {
   margin: 2rem;
 }
+.profile-content {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  padding: 5rem;
+  margin-top: 2rem;
+}
 .profile-image-container {
   display: flex;
   justify-content: center;
@@ -10,6 +16,7 @@
 .profile-image-container img {
   width: 10rem;
   margin-top: 2rem;
+  border-radius: 60%;
 }
 
 .table-container {
